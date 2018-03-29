@@ -1,5 +1,3 @@
-﻿  comImpl.cpp
-d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics\application\source\comimpl.cpp(10): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
-  c:\program files (x86)\windows kits\10\include\10.0.14393.0\um\winsock2.h(1828): note: 参见“inet_addr”的声明
+﻿  geoImpl.cpp
   smart logistics.vcxproj -> D:\smart logistics platform\smart-logistics-platform\smart logistics\Debug\smart logistics.exe
   smart logistics.vcxproj -> D:\smart logistics platform\smart-logistics-platform\smart logistics\Debug\smart logistics.pdb (Partial PDB)

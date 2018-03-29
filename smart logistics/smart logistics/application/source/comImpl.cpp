@@ -14,6 +14,11 @@ void comImpl::initCom(const std::string & ipStr, unsigned portNum)
 
 bool comImpl::connectServer()
 {
+	if (connected)
+	{
+		closesocket(m_sock);
+		m_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	}
 	if (connect(m_sock, (sockaddr*)&server_addr, sizeof(server_addr)) == SOCKET_ERROR)
 	{
 		return false;
@@ -31,11 +36,11 @@ unsigned comImpl::sendString(const std::vector<char> & str)
 std::vector<char> comImpl::recvString()
 {
 	char tmp[1024] = { 0 };
-	unsigned cnt = 0;
-	while (cnt == 0)
+	unsigned cnt =recv(m_sock, tmp, 1023, 0);
+	if (cnt == 0)
 	{
+		connectServer();
 		cnt = recv(m_sock, tmp, 1023, 0);
-		Sleep(50);
 	}
 	std::vector<char> res;
 	while (cnt > 0)

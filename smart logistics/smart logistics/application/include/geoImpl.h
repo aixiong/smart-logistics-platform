@@ -6,12 +6,12 @@
 class geoImpl
 {
 private:
-	communication com;
+	//communication com;
 public:
 	geoImpl();
 	point getAddressByName(const std::wstring& name);
 	route getRoute(const point& from, const point& to);
 private:
 	std::wstring sendAndRecv(const std::wstring& message);
-	std::string geoImpl::sendAndRecv(const std::string& message);
+	std::wstring geoImpl::sendAndRecv(const std::string& message);
 };

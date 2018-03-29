@@ -17,7 +17,7 @@ std::wstring  charTrans::utf8ToUnicode(const std::vector<char>& utf8Str)
 	return uniStr;
 }
 
-std::string charTrans::wStringToString(const std::wstring wStr)
+std::string charTrans::wStringToString(const std::wstring& wStr)
 {
 	unsigned len = wStr.size() * 4;
 	setlocale(LC_CTYPE, "");
@@ -28,7 +28,7 @@ std::string charTrans::wStringToString(const std::wstring wStr)
 	return str;
 }
 
-std::wstring charTrans::stringToWstring(const std::string str)
+std::wstring charTrans::stringToWstring(const std::string& str)
 {
 	unsigned len = str.size() * 2;// 预留字节数
 	setlocale(LC_CTYPE, "");     //必须调用此函数

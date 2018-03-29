@@ -4,14 +4,15 @@
 #include "stdafx.h"
 #include"application\include\geoInfo.h"
 
+
+
 int main()
 {
 	geoInfo geo;
-	
-	point p2 = geo.getAddressByName(L"北京师范大学");
-
-	point p1 = geo.getAddressByName(L"北京师范大学");
-	route r = geo.getRoute(p1, p2);
+	point from, to;
+	from = geo.getAddressByName(L"北京交通大学");
+	to = geo.getAddressByName(L"北京师范大学");
+	route r= geo.getRoute(from, to);
 	system("pause");
     return 0;
 }
