@@ -11,7 +11,7 @@ class geoInfo
 {
 public:
 	geoInfo();
-	point getAddressByName(const std::wstring name);
+	point getAddressByName(const std::wstring& name);
 	route getRoute(const point& from, const point& to);
 private:
 	std::shared_ptr<geoImpl> impl;

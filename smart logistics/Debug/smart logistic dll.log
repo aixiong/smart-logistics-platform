@@ -1,0 +1,64 @@
+﻿  charTrans.cpp
+application\source\charTrans.cpp(25): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdlib.h(1012): note: 参见“wcstombs”的声明
+application\source\charTrans.cpp(36): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdlib.h(924): note: 参见“mbstowcs”的声明
+  comImpl.cpp
+application\source\comImpl.cpp(10): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\um\WinSock2.h(1828): note: 参见“inet_addr”的声明
+  communication.cpp
+  geoImpl.cpp
+  geoInfo.cpp
+  json_reader.cpp
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): warning C4996: 'Json::Reader::Char': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(37): note: 参见“Json::Reader::Char”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(181): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(182): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(189): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(196): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(212): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(213): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(216): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(217): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(219): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(226): warning C4996: 'Json::Reader::Char': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(37): note: 参见“Json::Reader::Char”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(228): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(229): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(230): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(233): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(234): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(237): warning C4996: 'Json::Reader::Nodes': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(236): note: 参见“Json::Reader::Nodes”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(238): warning C4996: 'Json::Reader::Errors': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(192): note: 参见“Json::Reader::Errors”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(240): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(241): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(242): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(243): warning C4996: 'Json::Reader::Location': Use CharReader and CharReaderBuilder instead
+  d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\json\lib_json\../include/reader.h(38): note: 参见“Json::Reader::Location”的声明
+  json_value.cpp
+  json_writer.cpp
+  midInterface.cpp
+D:\VS2017\VC\Tools\MSVC\14.10.25017\include\future(8): fatal error C1189: #error:  <future> is not supported when compiling with /clr or /clr:pure.
+  smart logistic dll.cpp
+  stdafx.cpp
+  正在生成代码...
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistic dll\application\source\communication.cpp(12): warning C4715: “communication::connectServer”: 不是所有的控件路径都返回值

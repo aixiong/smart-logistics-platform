@@ -3,7 +3,7 @@
 
 geoInfo::geoInfo():impl(new geoImpl()){}
 
-point geoInfo::getAddressByName(const std::wstring name)
+point geoInfo::getAddressByName(const std::wstring& name)
 {
 	return impl->getAddressByName(name);
 }
