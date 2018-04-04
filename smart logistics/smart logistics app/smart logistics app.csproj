@@ -40,6 +40,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
+    <Reference Include="smart logistic dll, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\smart logistic dll.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,6 +64,7 @@
       <DependentUpon>addrForm.cs</DependentUpon>
     </Compile>
     <Compile Include="map\AmapProvider.cs" />
+    <Compile Include="map\geoInfo.cs" />
     <Compile Include="map\mapForm.cs">
       <SubType>Form</SubType>
     </Compile>

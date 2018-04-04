@@ -43,5 +43,10 @@ namespace smart_logistics_app
 		{
 			m_map.resize();
 		}
+
+		private void addButtonS_Click(object sender, EventArgs e)
+		{
+			m_map.intoAddStatus(mapForm.markerType.source);
+		}
 	}
 }

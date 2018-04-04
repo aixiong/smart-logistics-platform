@@ -28,16 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addrForm));
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.send_comBox = new System.Windows.Forms.ComboBox();
 			this.recv_comBox = new System.Windows.Forms.ComboBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.viewButtonS = new System.Windows.Forms.Button();
+			this.addButtonS = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
+			this.viewButtonR = new System.Windows.Forms.Button();
+			this.addButtonR = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
+			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -80,23 +85,24 @@
 			this.recv_comBox.Size = new System.Drawing.Size(506, 26);
 			this.recv_comBox.TabIndex = 3;
 			// 
-			// button1
+			// viewButtonS
 			// 
-			this.button1.Location = new System.Drawing.Point(578, 46);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(36, 26);
-			this.button1.TabIndex = 4;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
+			this.viewButtonS.Location = new System.Drawing.Point(578, 46);
+			this.viewButtonS.Name = "viewButtonS";
+			this.viewButtonS.Size = new System.Drawing.Size(36, 26);
+			this.viewButtonS.TabIndex = 4;
+			this.viewButtonS.Text = "button1";
+			this.viewButtonS.UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// addButtonS
 			// 
-			this.button2.Location = new System.Drawing.Point(639, 46);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(36, 26);
-			this.button2.TabIndex = 5;
-			this.button2.Text = "button2";
-			this.button2.UseVisualStyleBackColor = true;
+			this.addButtonS.Location = new System.Drawing.Point(639, 46);
+			this.addButtonS.Name = "addButtonS";
+			this.addButtonS.Size = new System.Drawing.Size(36, 26);
+			this.addButtonS.TabIndex = 5;
+			this.addButtonS.Text = "button2";
+			this.addButtonS.UseVisualStyleBackColor = true;
+			this.addButtonS.Click += new System.EventHandler(this.addButtonS_Click);
 			// 
 			// button3
 			// 
@@ -107,23 +113,23 @@
 			this.button3.Text = "button3";
 			this.button3.UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// viewButtonR
 			// 
-			this.button4.Location = new System.Drawing.Point(578, 111);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(36, 26);
-			this.button4.TabIndex = 7;
-			this.button4.Text = "button4";
-			this.button4.UseVisualStyleBackColor = true;
+			this.viewButtonR.Location = new System.Drawing.Point(578, 111);
+			this.viewButtonR.Name = "viewButtonR";
+			this.viewButtonR.Size = new System.Drawing.Size(36, 26);
+			this.viewButtonR.TabIndex = 7;
+			this.viewButtonR.Text = "button4";
+			this.viewButtonR.UseVisualStyleBackColor = true;
 			// 
-			// button5
+			// addButtonR
 			// 
-			this.button5.Location = new System.Drawing.Point(639, 111);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(36, 26);
-			this.button5.TabIndex = 8;
-			this.button5.Text = "button5";
-			this.button5.UseVisualStyleBackColor = true;
+			this.addButtonR.Location = new System.Drawing.Point(639, 111);
+			this.addButtonR.Name = "addButtonR";
+			this.addButtonR.Size = new System.Drawing.Size(36, 26);
+			this.addButtonR.TabIndex = 8;
+			this.addButtonR.Text = "button5";
+			this.addButtonR.UseVisualStyleBackColor = true;
 			// 
 			// button6
 			// 
@@ -134,17 +140,48 @@
 			this.button6.Text = "button6";
 			this.button6.UseVisualStyleBackColor = true;
 			// 
+			// toolStrip1
+			// 
+			this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2});
+			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+			this.toolStrip1.Name = "toolStrip1";
+			this.toolStrip1.Size = new System.Drawing.Size(779, 27);
+			this.toolStrip1.TabIndex = 10;
+			this.toolStrip1.Text = "toolStrip1";
+			// 
+			// toolStripButton1
+			// 
+			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton1.Name = "toolStripButton1";
+			this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+			this.toolStripButton1.Text = "列表显示";
+			// 
+			// toolStripButton2
+			// 
+			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton2.Name = "toolStripButton2";
+			this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
+			this.toolStripButton2.Text = "全屏显示";
+			// 
 			// addrForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(779, 643);
+			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.button6);
-			this.Controls.Add(this.button5);
-			this.Controls.Add(this.button4);
+			this.Controls.Add(this.addButtonR);
+			this.Controls.Add(this.viewButtonR);
 			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.addButtonS);
+			this.Controls.Add(this.viewButtonS);
 			this.Controls.Add(this.recv_comBox);
 			this.Controls.Add(this.send_comBox);
 			this.Controls.Add(this.label2);
@@ -154,6 +191,8 @@
 			this.Name = "addrForm";
 			this.Text = "地址管理";
 			this.Resize += new System.EventHandler(this.addrForm_Resize);
+			this.toolStrip1.ResumeLayout(false);
+			this.toolStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -165,12 +204,15 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ComboBox send_comBox;
 		private System.Windows.Forms.ComboBox recv_comBox;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button viewButtonS;
+		private System.Windows.Forms.Button addButtonS;
 		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button viewButtonR;
+		private System.Windows.Forms.Button addButtonR;
 		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.ToolStrip toolStrip1;
+		private System.Windows.Forms.ToolStripButton toolStripButton1;
+		private System.Windows.Forms.ToolStripButton toolStripButton2;
 	}
 }
 
