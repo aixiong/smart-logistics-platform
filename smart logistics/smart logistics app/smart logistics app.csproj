@@ -57,10 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addrForm.cs">
+    <Compile Include="control\addrForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addrForm.Designer.cs">
+    <Compile Include="control\addrForm.Designer.cs">
       <DependentUpon>addrForm.cs</DependentUpon>
     </Compile>
     <Compile Include="map\AmapProvider.cs" />
@@ -73,7 +73,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="addrForm.resx">
+    <EmbeddedResource Include="control\addrForm.resx">
       <DependentUpon>addrForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="map\mapForm.resx">
@@ -100,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

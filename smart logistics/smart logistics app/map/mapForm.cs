@@ -43,6 +43,8 @@ namespace smart_logistics_app
 			resize();
 			initMap();
 			this.Controls.Add(m_map);
+			okButton.Visible = false;
+			cacelButton.Visible = false;
 		}
 		public void resize()
 		{
@@ -64,8 +66,12 @@ namespace smart_logistics_app
 			addrText.Top = 0;
 			addrButton.Left = addrText.Right;
 			addrButton.Top = 0;
+			okButton.Top = 0;
+			okButton.Left = addrButton.Right;
+			cacelButton.Top = 0;
+			cacelButton.Left = okButton.Right;
 		}
-		private void goFull()
+		public void goFull()
 		{
 			this.WindowState = FormWindowState.Maximized;
 			sizeButton.Left = this.Width - sizeButton.Width;
@@ -91,7 +97,10 @@ namespace smart_logistics_app
 			m_map.Overlays.Add(markersOverlay);
 			m_map.MouseClick += M_map_MouseClick;
 		}
-
+		public void centerAt(PointLatLng p)
+		{
+			m_map.Position = p;
+		}
 
 		private void sizeButton_Click(object sender, EventArgs e)
 		{
@@ -169,10 +178,42 @@ namespace smart_logistics_app
 			if (addrType == markerType.source) RSFlag = markerType.source;
 			if (addrType == markerType.destination) RSFlag = markerType.destination;
 			addFlag = true;
+			okButton.Visible = true;
+			cacelButton.Visible = true;
 		}
-		public void outAddStatus(markerType addrType,bool ok)
+		public void outAddStatus(GMapMarker addrType,bool ok)
 		{
+			if(ok)
+			{
+				m_form.addAddress(addPoint, RSFlag);
+				addPoint = null;
+			}
+			else
+			{
+				removeMarker(addPoint);
+			}
+			okButton.Visible = false;
+			cacelButton.Visible = false;
+		}
 
+		private void okButton_Click(object sender, EventArgs e)
+		{
+			if(!m_form.checkAddress(addPoint.ToolTipText))
+			{
+				MessageBox.Show("该地址名称重复使用！请更换地址！");
+				return;
+			}
+			if(addPoint.ToolTipText=="")
+			{
+				MessageBox.Show("地址名称不能为空!");
+				return;
+			}
+			outAddStatus(addPoint, true);
+		}
+
+		private void cacelButton_Click(object sender, EventArgs e)
+		{
+			outAddStatus(addPoint, false);
 		}
 
 		private void M_map_MouseClick(object sender, MouseEventArgs e)
