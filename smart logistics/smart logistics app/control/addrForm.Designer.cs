@@ -33,15 +33,15 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.send_comBox = new System.Windows.Forms.ComboBox();
 			this.recv_comBox = new System.Windows.Forms.ComboBox();
-			this.viewButtonS = new System.Windows.Forms.Button();
-			this.addButtonS = new System.Windows.Forms.Button();
 			this.deleteButtonS = new System.Windows.Forms.Button();
-			this.viewButtonR = new System.Windows.Forms.Button();
-			this.addButtonR = new System.Windows.Forms.Button();
-			this.deleteButtonR = new System.Windows.Forms.Button();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this.deleteButtonR = new System.Windows.Forms.Button();
+			this.addButtonR = new System.Windows.Forms.Button();
+			this.viewButtonR = new System.Windows.Forms.Button();
+			this.addButtonS = new System.Windows.Forms.Button();
+			this.viewButtonS = new System.Windows.Forms.Button();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -87,65 +87,18 @@
 			this.recv_comBox.Size = new System.Drawing.Size(506, 26);
 			this.recv_comBox.TabIndex = 3;
 			// 
-			// viewButtonS
-			// 
-			this.viewButtonS.Location = new System.Drawing.Point(578, 54);
-			this.viewButtonS.Name = "viewButtonS";
-			this.viewButtonS.Size = new System.Drawing.Size(36, 26);
-			this.viewButtonS.TabIndex = 4;
-			this.viewButtonS.Text = "button1";
-			this.viewButtonS.UseVisualStyleBackColor = true;
-			this.viewButtonS.Click += new System.EventHandler(this.viewButtonS_Click);
-			// 
-			// addButtonS
-			// 
-			this.addButtonS.Location = new System.Drawing.Point(639, 54);
-			this.addButtonS.Name = "addButtonS";
-			this.addButtonS.Size = new System.Drawing.Size(36, 26);
-			this.addButtonS.TabIndex = 5;
-			this.addButtonS.Text = "button2";
-			this.addButtonS.UseVisualStyleBackColor = true;
-			this.addButtonS.Click += new System.EventHandler(this.addButtonS_Click);
-			// 
 			// deleteButtonS
 			// 
+			this.deleteButtonS.BackgroundImage = global::smart_logistics_app.Properties.Resources.delete;
+			this.deleteButtonS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.deleteButtonS.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.deleteButtonS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.deleteButtonS.Location = new System.Drawing.Point(700, 54);
 			this.deleteButtonS.Name = "deleteButtonS";
 			this.deleteButtonS.Size = new System.Drawing.Size(36, 26);
 			this.deleteButtonS.TabIndex = 6;
-			this.deleteButtonS.Text = "button3";
 			this.deleteButtonS.UseVisualStyleBackColor = true;
 			this.deleteButtonS.Click += new System.EventHandler(this.deleteButtonS_Click);
-			// 
-			// viewButtonR
-			// 
-			this.viewButtonR.Location = new System.Drawing.Point(578, 111);
-			this.viewButtonR.Name = "viewButtonR";
-			this.viewButtonR.Size = new System.Drawing.Size(36, 26);
-			this.viewButtonR.TabIndex = 7;
-			this.viewButtonR.Text = "button4";
-			this.viewButtonR.UseVisualStyleBackColor = true;
-			this.viewButtonR.Click += new System.EventHandler(this.viewButtonR_Click);
-			// 
-			// addButtonR
-			// 
-			this.addButtonR.Location = new System.Drawing.Point(639, 111);
-			this.addButtonR.Name = "addButtonR";
-			this.addButtonR.Size = new System.Drawing.Size(36, 26);
-			this.addButtonR.TabIndex = 8;
-			this.addButtonR.Text = "button5";
-			this.addButtonR.UseVisualStyleBackColor = true;
-			this.addButtonR.Click += new System.EventHandler(this.addButtonR_Click);
-			// 
-			// deleteButtonR
-			// 
-			this.deleteButtonR.Location = new System.Drawing.Point(700, 111);
-			this.deleteButtonR.Name = "deleteButtonR";
-			this.deleteButtonR.Size = new System.Drawing.Size(36, 26);
-			this.deleteButtonR.TabIndex = 9;
-			this.deleteButtonR.Text = "button6";
-			this.deleteButtonR.UseVisualStyleBackColor = true;
-			this.deleteButtonR.Click += new System.EventHandler(this.deleteButtonR_Click);
 			// 
 			// toolStrip1
 			// 
@@ -162,7 +115,7 @@
 			// toolStripButton1
 			// 
 			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.Image = global::smart_logistics_app.Properties.Resources.edit;
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
@@ -171,12 +124,78 @@
 			// toolStripButton2
 			// 
 			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+			this.toolStripButton2.Image = global::smart_logistics_app.Properties.Resources.view;
 			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton2.Name = "toolStripButton2";
 			this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
 			this.toolStripButton2.Text = "全屏显示";
 			this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+			// 
+			// deleteButtonR
+			// 
+			this.deleteButtonR.BackgroundImage = global::smart_logistics_app.Properties.Resources.delete;
+			this.deleteButtonR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.deleteButtonR.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.deleteButtonR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.deleteButtonR.Location = new System.Drawing.Point(700, 111);
+			this.deleteButtonR.Name = "deleteButtonR";
+			this.deleteButtonR.Size = new System.Drawing.Size(36, 26);
+			this.deleteButtonR.TabIndex = 9;
+			this.deleteButtonR.UseVisualStyleBackColor = true;
+			this.deleteButtonR.Click += new System.EventHandler(this.deleteButtonR_Click);
+			// 
+			// addButtonR
+			// 
+			this.addButtonR.BackgroundImage = global::smart_logistics_app.Properties.Resources.add;
+			this.addButtonR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.addButtonR.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.addButtonR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.addButtonR.Location = new System.Drawing.Point(639, 111);
+			this.addButtonR.Name = "addButtonR";
+			this.addButtonR.Size = new System.Drawing.Size(36, 26);
+			this.addButtonR.TabIndex = 8;
+			this.addButtonR.UseVisualStyleBackColor = true;
+			this.addButtonR.Click += new System.EventHandler(this.addButtonR_Click);
+			// 
+			// viewButtonR
+			// 
+			this.viewButtonR.BackgroundImage = global::smart_logistics_app.Properties.Resources.view;
+			this.viewButtonR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.viewButtonR.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.viewButtonR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.viewButtonR.Location = new System.Drawing.Point(578, 111);
+			this.viewButtonR.Name = "viewButtonR";
+			this.viewButtonR.Size = new System.Drawing.Size(36, 26);
+			this.viewButtonR.TabIndex = 7;
+			this.viewButtonR.UseVisualStyleBackColor = true;
+			this.viewButtonR.Click += new System.EventHandler(this.viewButtonR_Click);
+			// 
+			// addButtonS
+			// 
+			this.addButtonS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButtonS.BackgroundImage")));
+			this.addButtonS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.addButtonS.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.addButtonS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.addButtonS.Location = new System.Drawing.Point(639, 54);
+			this.addButtonS.Name = "addButtonS";
+			this.addButtonS.Size = new System.Drawing.Size(36, 26);
+			this.addButtonS.TabIndex = 5;
+			this.addButtonS.UseVisualStyleBackColor = true;
+			this.addButtonS.Click += new System.EventHandler(this.addButtonS_Click);
+			// 
+			// viewButtonS
+			// 
+			this.viewButtonS.BackColor = System.Drawing.SystemColors.Control;
+			this.viewButtonS.BackgroundImage = global::smart_logistics_app.Properties.Resources.view;
+			this.viewButtonS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.viewButtonS.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.viewButtonS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.viewButtonS.Location = new System.Drawing.Point(578, 54);
+			this.viewButtonS.Name = "viewButtonS";
+			this.viewButtonS.Size = new System.Drawing.Size(36, 27);
+			this.viewButtonS.TabIndex = 4;
+			this.viewButtonS.UseVisualStyleBackColor = false;
+			this.viewButtonS.Click += new System.EventHandler(this.viewButtonS_Click);
 			// 
 			// addrForm
 			// 

@@ -107,10 +107,12 @@ namespace smart_logistics_app
 			if(this.WindowState!=FormWindowState.Maximized)
 			{
 				goFull();
+				sizeButton.BackgroundImage = images.Images[1];
 			}
 			else
 			{
 				goEmbeded();
+				sizeButton.BackgroundImage = images.Images[0];
 			}
 		}
 
@@ -128,6 +130,7 @@ namespace smart_logistics_app
 			if(marker!=null)
 			markersOverlay.Markers.Remove(marker);
 			marker = null;
+			m_map.Refresh();
 		}
 
 		public void addMarker(PointLatLng p,string name,markerType type)
@@ -142,6 +145,7 @@ namespace smart_logistics_app
 							center = new GMarkerGoogle(p, GMarkerGoogleType.green_pushpin);
 							center.ToolTipText = name;
 							center.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+							center.Tag = "0";
 							markersOverlay.Markers.Add(center);
 						}
 						else
@@ -166,6 +170,8 @@ namespace smart_logistics_app
 					break;
 			}
 			GMapMarker marker = new GMarkerGoogle(p, marktype);
+			if (marktype == GMarkerGoogleType.green) marker.Tag = "2";
+			else marker.Tag = "1";
 			marker.ToolTipText = name;
 			marker.ToolTipMode = MarkerTooltipMode.Always;
 			markersOverlay.Markers.Add(marker);
@@ -194,18 +200,21 @@ namespace smart_logistics_app
 			}
 			okButton.Visible = false;
 			cacelButton.Visible = false;
+			addFlag = false;
+			m_form.enableButtons(true);
 		}
 
 		private void okButton_Click(object sender, EventArgs e)
 		{
-			if(!m_form.checkAddress(addPoint.ToolTipText))
+			if(!m_form.checkAddress(addPoint.ToolTipText,RSFlag))
 			{
 				MessageBox.Show("该地址名称重复使用！请更换地址！");
 				return;
 			}
 			if(addPoint.ToolTipText=="")
 			{
-				MessageBox.Show("地址名称不能为空!");
+				if (addrText.Text != "") addPoint.ToolTipText = addrText.Text;
+				else MessageBox.Show("地址名称不能为空!");
 				return;
 			}
 			outAddStatus(addPoint, true);
@@ -223,6 +232,17 @@ namespace smart_logistics_app
 				PointLatLng p = m_map.FromLocalToLatLng(e.X, e.Y);
 				removeMarker(addPoint);
 				addMarker(p, addrText.Text, RSFlag);
+			}
+		}
+		public void removeMarker(string name,string type)
+		{
+			foreach(var item in markersOverlay.Markers)
+			{
+				if(item.ToolTipText==name && item.Tag.ToString()==type)
+				{
+					removeMarker(item);
+					break;
+				}
 			}
 		}
 	}

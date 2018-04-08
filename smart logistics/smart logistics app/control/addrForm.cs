@@ -53,15 +53,18 @@ namespace smart_logistics_app
 
 		private void addrForm_Resize(object sender, EventArgs e)
 		{
+
 			m_map.resize();
 		}
 
 		private void addButtonS_Click(object sender, EventArgs e)
 		{
+			enableButtons(false);
 			m_map.intoAddStatus(mapForm.markerType.source);
 		}
 		private void addButtonR_Click(object sender, EventArgs e)
 		{
+			enableButtons(false);
 			m_map.intoAddStatus(mapForm.markerType.destination);
 		}
 		public void addAddress(GMapMarker marker,mapForm.markerType type)
@@ -82,15 +85,21 @@ namespace smart_logistics_app
 				recv_comBox.SelectedIndex = recv_comBox.Items.Count - 1;
 			}
 		}
-		public bool checkAddress(string name)
+		public bool checkAddress(string name,mapForm.markerType type)
 		{
-			foreach(var item in recvAddr)
+			if (type == mapForm.markerType.destination)
 			{
-				if (item.name == name) return false;
+				foreach (var item in recvAddr)
+				{
+					if (item.name == name) return false;
+				}
 			}
-			foreach (var item in sendAddr)
+			else
 			{
-				if (item.name == name) return false;
+				foreach (var item in sendAddr)
+				{
+					if (item.name == name) return false;
+				}
 			}
 			return true;
 		}
@@ -136,6 +145,8 @@ namespace smart_logistics_app
 		{
 			if(send_comBox.Text!="")
 			{
+				deleteAddress(sendAddr, send_comBox.Text);
+				m_map.removeMarker(send_comBox.Text,"1");
 				int index = send_comBox.SelectedIndex;
 				send_comBox.Items.RemoveAt(index);
 				while (index >= send_comBox.Items.Count) --index;
@@ -148,6 +159,8 @@ namespace smart_logistics_app
 		{
 			if (recv_comBox.Text != "")
 			{
+				deleteAddress(recvAddr, recv_comBox.Text);
+				m_map.removeMarker(recv_comBox.Text,"2");
 				int index = recv_comBox.SelectedIndex;
 				recv_comBox.Items.RemoveAt(index);
 				while (index >= recv_comBox.Items.Count) --index;
@@ -155,5 +168,24 @@ namespace smart_logistics_app
 					recv_comBox.SelectedIndex = index;
 			}
 		}
+		private void deleteAddress(List<address> li,string name)
+		{
+			foreach(var item in li)
+			{
+				if(item.name==name)
+				{
+					li.Remove(item);
+					break;
+				}
+			}
+		}
+		public void enableButtons(bool flag)
+		{
+			addButtonR.Enabled = flag;
+			addButtonS.Enabled = flag;
+			deleteButtonR.Enabled = flag;
+			deleteButtonS.Enabled = flag;
+		}
+		
 	}
 }
