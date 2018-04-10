@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace smart_logistics_app.map
 {
+
 	[System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
 	public struct point
 	{
@@ -33,6 +34,8 @@ namespace smart_logistics_app.map
 		public double distance;
 		public double duration;
 	}
+
+	//private const string dllAddr = Environment.CurrentDirectory + "\\smart logistic dll.dll";
 	class Amap
 	{
 		[DllImport("smart logistic dll.dll")]

@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include<iostream>
 #include"application\include\geoInfo.h"
 
 
@@ -12,6 +13,7 @@ int main()
 	point from, to;
 	from = geo.getAddressByName(L"北京交通大学");
 	to = geo.getAddressByName(L"北京师范大学");
+	std::cout << from.latitude << " " << to.longitude;
 	route r= geo.getRoute(from, to);
 	system("pause");
     return 0;

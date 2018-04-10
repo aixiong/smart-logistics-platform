@@ -8,3 +8,8 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.exe
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.pdb
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.mapForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\smart logistics app.exe.manifest
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\smart logistics app.application
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.TrustInfo.xml
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.exe.manifest
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.application

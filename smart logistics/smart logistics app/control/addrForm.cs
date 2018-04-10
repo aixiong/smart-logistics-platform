@@ -138,7 +138,7 @@ namespace smart_logistics_app
 
 		private void toolStripButton2_Click(object sender, EventArgs e)
 		{
-			m_map.goFull();
+			m_map.zoomInOut();
 		}
 
 		private void deleteButtonS_Click(object sender, EventArgs e)

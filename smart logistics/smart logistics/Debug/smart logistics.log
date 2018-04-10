@@ -1,7 +1,18 @@
-﻿  geoInfo.cpp
-  正在生成代码...
-  正在编译...
+﻿  stdafx.cpp
   smart logistics.cpp
-  正在生成代码...
+  json_writer.cpp
+  json_value.cpp
+  json_reader.cpp
+  geoInfo.cpp
+  geoImpl.cpp
+  communication.cpp
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics\application\source\communication.cpp(16): warning C4800: 'unsigned int' : forcing value to bool 'true' or 'false' (performance warning)
+  comImpl.cpp
+  charTrans.cpp
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics\application\source\chartrans.cpp(25): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(575) : see declaration of 'wcstombs'
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics\application\source\chartrans.cpp(36): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(528) : see declaration of 'mbstowcs'
+  Generating Code...
+d:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics\application\source\communication.cpp(12): warning C4715: 'communication::connectServer' : not all control paths return a value
   smart logistics.vcxproj -> D:\smart logistics platform\smart-logistics-platform\smart logistics\Debug\smart logistics.exe
-  smart logistics.vcxproj -> D:\smart logistics platform\smart-logistics-platform\smart logistics\Debug\smart logistics.pdb (Partial PDB)

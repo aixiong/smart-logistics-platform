@@ -104,7 +104,11 @@ namespace smart_logistics_app
 
 		private void sizeButton_Click(object sender, EventArgs e)
 		{
-			if(this.WindowState!=FormWindowState.Maximized)
+			zoomInOut();
+		}
+		public void zoomInOut()
+		{
+			if (this.WindowState != FormWindowState.Maximized)
 			{
 				goFull();
 				sizeButton.BackgroundImage = images.Images[1];
@@ -115,7 +119,6 @@ namespace smart_logistics_app
 				sizeButton.BackgroundImage = images.Images[0];
 			}
 		}
-
 		private void addrButton_Click(object sender, EventArgs e)
 		{
 			if (addrText.Text == "") return;

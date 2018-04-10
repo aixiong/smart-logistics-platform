@@ -1,0 +1,13 @@
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Release\smart logistics app.exe.config
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Release\smart logistics app.exe
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Release\smart logistics app.pdb
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Release\GMap.NET.Core.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Release\GMap.NET.WindowsForms.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Release\smart logistic dll.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Release\smart logistics app.csprojResolveAssemblyReference.cache
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Release\smart_logistics_app.addrForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Release\smart_logistics_app.mapForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Release\smart_logistics_app.Properties.Resources.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Release\smart logistics app.csproj.GenerateResource.Cache
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Release\smart logistics app.exe
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Release\smart logistics app.pdb
