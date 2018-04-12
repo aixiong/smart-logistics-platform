@@ -12,10 +12,9 @@ namespace smart_logistics_CSharp_test
 	{
 		static void Main(string[] args)
 		{
-			point p1 = geoInfo.getPointByName("北京师范大学");
-			point p2 = geoInfo.getPointByName("北京航天航空大学");
-			route r = geoInfo.getRoute(p1, p2);
-			
+
+			sqlTool one = new sqlTool("D:\\address.sqlite");
+			one.insertAddress();
 			Console.ReadKey();
 		}
 	}

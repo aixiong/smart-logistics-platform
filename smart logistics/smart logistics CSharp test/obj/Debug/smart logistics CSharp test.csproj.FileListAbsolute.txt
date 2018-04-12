@@ -2,7 +2,15 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\smart logistics CSharp test.exe
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\smart logistics CSharp test.pdb
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\smart logistic dll.dll
-D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\smart logistic dll.pdb
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\obj\Debug\smart logistics CSharp test.csprojResolveAssemblyReference.cache
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\obj\Debug\smart logistics CSharp test.exe
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\obj\Debug\smart logistics CSharp test.pdb
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\EntityFramework.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\EntityFramework.SqlServer.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\System.Data.SQLite.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\System.Data.SQLite.EF6.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\System.Data.SQLite.Linq.dll
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\EntityFramework.xml
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\EntityFramework.SqlServer.xml
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\System.Data.SQLite.xml
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\System.Data.SQLite.dll.config

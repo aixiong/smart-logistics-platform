@@ -172,7 +172,7 @@
 			// 
 			// addButtonS
 			// 
-			this.addButtonS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButtonS.BackgroundImage")));
+			this.addButtonS.BackgroundImage = (global::smart_logistics_app.Properties.Resources.add);
 			this.addButtonS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.addButtonS.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.addButtonS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;

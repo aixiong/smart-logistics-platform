@@ -11,28 +11,46 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms.Markers;
+using smart_logistics_app.data;
 
 namespace smart_logistics_app
 {
 	public partial class addrForm : Form
 	{
-		public class address
-		{
-			public PointLatLng addr;
-			public string name;
-		}
-
 		private mapForm m_map;
 		private List<address> sendAddr;
 		private List<address> recvAddr;
+
+		private addrSql m_sql;
 		
 		public addrForm()
 		{
 			InitializeComponent();
 			m_map = new mapForm(this);
 			m_map.Show();
-			sendAddr = new List<address>();
-			recvAddr = new List<address>();
+			loadData();
+		}
+		private void loadData()
+		{
+			m_sql = new addrSql("D:\\address.sqlite");
+			sendAddr = m_sql.getAllAddress(markerType.source);
+			recvAddr = m_sql.getAllAddress(markerType.destination);
+			foreach(var addr in sendAddr)
+			{
+				addAddress(addr, markerType.source);
+			}
+			foreach(var addr in recvAddr)
+			{
+				addAddress(addr, markerType.destination);
+			}
+		}
+		public void addAddress(address addr,markerType type)
+		{
+			if (type == markerType.source)
+				send_comBox.Items.Add(addr.name);
+			else
+				recv_comBox.Items.Add(addr.name);
+			m_map.addMarker(addr.pos, addr.name, type);
 		}
 		public int getSubLeft()
 		{
@@ -60,19 +78,19 @@ namespace smart_logistics_app
 		private void addButtonS_Click(object sender, EventArgs e)
 		{
 			enableButtons(false);
-			m_map.intoAddStatus(mapForm.markerType.source);
+			m_map.intoAddStatus(markerType.source);
 		}
 		private void addButtonR_Click(object sender, EventArgs e)
 		{
 			enableButtons(false);
-			m_map.intoAddStatus(mapForm.markerType.destination);
+			m_map.intoAddStatus(markerType.destination);
 		}
-		public void addAddress(GMapMarker marker,mapForm.markerType type)
+		public void addAddress(GMapMarker marker,markerType type)
 		{
 			address tmp = new address();
-			tmp.addr = marker.Position;
+			tmp.pos = marker.Position;
 			tmp.name = marker.ToolTipText;
-			if (type==mapForm.markerType.source)
+			if (type==markerType.source)
 			{
 				sendAddr.Add(tmp);
 				send_comBox.Items.Add(tmp.name);
@@ -85,9 +103,9 @@ namespace smart_logistics_app
 				recv_comBox.SelectedIndex = recv_comBox.Items.Count - 1;
 			}
 		}
-		public bool checkAddress(string name,mapForm.markerType type)
+		public bool checkAddress(string name,markerType type)
 		{
-			if (type == mapForm.markerType.destination)
+			if (type == markerType.destination)
 			{
 				foreach (var item in recvAddr)
 				{
@@ -113,7 +131,7 @@ namespace smart_logistics_app
 				{
 					if (item.name == str)
 					{
-						m_map.centerAt(item.addr);
+						m_map.centerAt(item.pos);
 						break;
 					}
 				}
@@ -129,7 +147,7 @@ namespace smart_logistics_app
 				{
 					if (item.name == str)
 					{
-						m_map.centerAt(item.addr);
+						m_map.centerAt(item.pos);
 						break;
 					}
 				}
@@ -187,5 +205,10 @@ namespace smart_logistics_app
 			deleteButtonS.Enabled = flag;
 		}
 		
+	}
+	public class address
+	{
+		public string name;
+		public PointLatLng pos;
 	}
 }

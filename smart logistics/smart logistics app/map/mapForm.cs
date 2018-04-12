@@ -15,6 +15,7 @@ using smart_logistics_app.map;
 
 namespace smart_logistics_app
 {
+	public enum markerType { center, source, destination };
 	public partial class mapForm : Form
 	{
 		private GMapControl m_map;
@@ -25,7 +26,6 @@ namespace smart_logistics_app
 		private GMapMarker addPoint;
 		private GMapMarker removePoint;
 
-		public enum markerType {center,source,destination };
 
 		private bool addFlag, removeFlag;
 		private markerType RSFlag;
@@ -209,6 +209,11 @@ namespace smart_logistics_app
 
 		private void okButton_Click(object sender, EventArgs e)
 		{
+			if(addPoint==null)
+			{
+				MessageBox.Show("请先添加地址!");
+				return;
+			}
 			if(!m_form.checkAddress(addPoint.ToolTipText,RSFlag))
 			{
 				MessageBox.Show("该地址名称重复使用！请更换地址！");
