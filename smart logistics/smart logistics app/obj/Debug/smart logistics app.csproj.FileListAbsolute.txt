@@ -21,3 +21,4 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\System.Data.SQLite.xml
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\System.Data.SQLite.dll.config
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.addrForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.csprojResolveAssemblyReference.cache

@@ -29,6 +29,12 @@ namespace smart_logistics_app
 			m_map = new mapForm(this);
 			m_map.Show();
 			loadData();
+			init();
+		}
+		private void init()
+		{
+			send_comBox.SelectedIndex = 0;
+			recv_comBox.SelectedIndex = 0;
 		}
 		private void loadData()
 		{
@@ -102,6 +108,7 @@ namespace smart_logistics_app
 				recv_comBox.Items.Add(tmp.name);
 				recv_comBox.SelectedIndex = recv_comBox.Items.Count - 1;
 			}
+			m_sql.insertAddress(tmp, type);
 		}
 		public bool checkAddress(string name,markerType type)
 		{
@@ -163,7 +170,7 @@ namespace smart_logistics_app
 		{
 			if(send_comBox.Text!="")
 			{
-				deleteAddress(sendAddr, send_comBox.Text);
+				deleteAddress(send_comBox.Text,markerType.source);
 				m_map.removeMarker(send_comBox.Text,"1");
 				int index = send_comBox.SelectedIndex;
 				send_comBox.Items.RemoveAt(index);
@@ -177,7 +184,7 @@ namespace smart_logistics_app
 		{
 			if (recv_comBox.Text != "")
 			{
-				deleteAddress(recvAddr, recv_comBox.Text);
+				deleteAddress(recv_comBox.Text,markerType.destination);
 				m_map.removeMarker(recv_comBox.Text,"2");
 				int index = recv_comBox.SelectedIndex;
 				recv_comBox.Items.RemoveAt(index);
@@ -186,12 +193,16 @@ namespace smart_logistics_app
 					recv_comBox.SelectedIndex = index;
 			}
 		}
-		private void deleteAddress(List<address> li,string name)
+		private void deleteAddress(string name,markerType type)
 		{
+			List<address> li = null;
+			if (type == markerType.source) li = sendAddr;
+			else li = recvAddr;
 			foreach(var item in li)
 			{
 				if(item.name==name)
 				{
+					m_sql.deleteAddress(item, type);
 					li.Remove(item);
 					break;
 				}

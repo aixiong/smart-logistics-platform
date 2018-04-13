@@ -242,6 +242,12 @@ namespace smart_logistics_app
 				addMarker(p, addrText.Text, RSFlag);
 			}
 		}
+
+		private void mapForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
+		}
+
 		public void removeMarker(string name,string type)
 		{
 			foreach(var item in markersOverlay.Markers)

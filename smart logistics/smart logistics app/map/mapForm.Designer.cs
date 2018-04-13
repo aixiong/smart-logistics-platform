@@ -128,6 +128,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "mapForm";
 			this.Text = "mapForm";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mapForm_FormClosing);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
