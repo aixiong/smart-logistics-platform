@@ -36,6 +36,13 @@
 			this.okButton = new System.Windows.Forms.Button();
 			this.addrButton = new System.Windows.Forms.Button();
 			this.sizeButton = new System.Windows.Forms.Button();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.图标显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.隐藏名称ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.掠过时显现ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.始终显现ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.全屏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// addrText
@@ -114,6 +121,53 @@
 			this.sizeButton.UseVisualStyleBackColor = false;
 			this.sizeButton.Click += new System.EventHandler(this.sizeButton_Click);
 			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.图标显示ToolStripMenuItem,
+            this.全屏ToolStripMenuItem});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(182, 84);
+			// 
+			// 图标显示ToolStripMenuItem
+			// 
+			this.图标显示ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.隐藏名称ToolStripMenuItem,
+            this.掠过时显现ToolStripMenuItem,
+            this.始终显现ToolStripMenuItem});
+			this.图标显示ToolStripMenuItem.Name = "图标显示ToolStripMenuItem";
+			this.图标显示ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.图标显示ToolStripMenuItem.Text = "图标显示";
+			// 
+			// 隐藏名称ToolStripMenuItem
+			// 
+			this.隐藏名称ToolStripMenuItem.Name = "隐藏名称ToolStripMenuItem";
+			this.隐藏名称ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.隐藏名称ToolStripMenuItem.Text = "隐藏名称";
+			this.隐藏名称ToolStripMenuItem.Click += new System.EventHandler(this.隐藏名称ToolStripMenuItem_Click);
+			// 
+			// 掠过时显现ToolStripMenuItem
+			// 
+			this.掠过时显现ToolStripMenuItem.Name = "掠过时显现ToolStripMenuItem";
+			this.掠过时显现ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.掠过时显现ToolStripMenuItem.Text = "掠过时显现";
+			this.掠过时显现ToolStripMenuItem.Click += new System.EventHandler(this.掠过时显现ToolStripMenuItem_Click);
+			// 
+			// 始终显现ToolStripMenuItem
+			// 
+			this.始终显现ToolStripMenuItem.Name = "始终显现ToolStripMenuItem";
+			this.始终显现ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.始终显现ToolStripMenuItem.Text = "始终显现";
+			this.始终显现ToolStripMenuItem.Click += new System.EventHandler(this.始终显现ToolStripMenuItem_Click);
+			// 
+			// 全屏ToolStripMenuItem
+			// 
+			this.全屏ToolStripMenuItem.Name = "全屏ToolStripMenuItem";
+			this.全屏ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.全屏ToolStripMenuItem.Text = "全屏";
+			this.全屏ToolStripMenuItem.Click += new System.EventHandler(this.全屏ToolStripMenuItem_Click);
+			// 
 			// mapForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -129,6 +183,7 @@
 			this.Name = "mapForm";
 			this.Text = "mapForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mapForm_FormClosing);
+			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -142,5 +197,11 @@
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Button cacelButton;
 		private System.Windows.Forms.ImageList images;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem 图标显示ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 隐藏名称ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 掠过时显现ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 始终显现ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 全屏ToolStripMenuItem;
 	}
 }

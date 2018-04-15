@@ -29,6 +29,7 @@ namespace smart_logistics_app
 
 		private bool addFlag, removeFlag;
 		private markerType RSFlag;
+		private MarkerTooltipMode mode = MarkerTooltipMode.Always;
 		public mapForm(addrForm form)
 		{
 			InitializeComponent();
@@ -176,7 +177,7 @@ namespace smart_logistics_app
 			if (marktype == GMarkerGoogleType.green) marker.Tag = "2";
 			else marker.Tag = "1";
 			marker.ToolTipText = name;
-			marker.ToolTipMode = MarkerTooltipMode.Always;
+			marker.ToolTipMode = mode;
 			markersOverlay.Markers.Add(marker);
 			if (addFlag) addPoint = marker;
 			else removePoint = marker;
@@ -235,17 +236,60 @@ namespace smart_logistics_app
 
 		private void M_map_MouseClick(object sender, MouseEventArgs e)
 		{
-			if (e.Button == MouseButtons.Right && addFlag)
+			if (e.Button == MouseButtons.Right )
 			{
-				PointLatLng p = m_map.FromLocalToLatLng(e.X, e.Y);
-				removeMarker(addPoint);
-				addMarker(p, addrText.Text, RSFlag);
+				if (addFlag)
+				{
+					PointLatLng p = m_map.FromLocalToLatLng(e.X, e.Y);
+					removeMarker(addPoint);
+					addMarker(p, addrText.Text, RSFlag);
+				}
+				else
+				{
+					contextMenuStrip1.Show();
+					contextMenuStrip1.Left = e.X-this.Left;
+					contextMenuStrip1.Top = e.Y+this.Top;
+				}
 			}
 		}
 
 		private void mapForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			Application.Exit();
+		}
+
+		private void 隐藏名称ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			setMarkTooltipMode( MarkerTooltipMode.Never);
+		}
+
+		private void 掠过时显现ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			setMarkTooltipMode( MarkerTooltipMode.OnMouseOver);
+		}
+
+		private void 始终显现ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			setMarkTooltipMode(MarkerTooltipMode.Always);
+		}
+		private void setMarkTooltipMode(MarkerTooltipMode type)
+		{
+			mode = type;
+			foreach(var item in markersOverlay.Markers)
+			{
+				item.ToolTipMode = mode;
+			}
+		}
+
+		private void 全屏ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ToolStripMenuItem one = sender as ToolStripMenuItem;
+			if (one.Text == "全屏")
+			{
+				one.Text = "半屛";
+			}
+			else one.Text = "全屏";
+			zoomInOut();
 		}
 
 		public void removeMarker(string name,string type)

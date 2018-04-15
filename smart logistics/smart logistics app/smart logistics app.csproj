@@ -122,6 +122,12 @@
     <Compile Include="control\addrForm.Designer.cs">
       <DependentUpon>addrForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="control\vechForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\vechForm.Designer.cs">
+      <DependentUpon>vechForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="data\addrSql.cs" />
     <Compile Include="data\sqltool.cs" />
     <Compile Include="map\AmapProvider.cs" />
@@ -136,6 +142,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="control\addrForm.resx">
       <DependentUpon>addrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\vechForm.resx">
+      <DependentUpon>vechForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="map\mapForm.resx">
       <DependentUpon>mapForm.cs</DependentUpon>
