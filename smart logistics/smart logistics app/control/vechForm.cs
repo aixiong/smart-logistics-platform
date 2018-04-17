@@ -16,5 +16,21 @@ namespace smart_logistics_app.control
 		{
 			InitializeComponent();
 		}
+		public void load()
+		{
+
+		}
+	}
+	public class vechType
+	{
+		public string name;
+		public double volume;
+		public double journey;
+	}
+	public class vech
+	{
+		public string typeName;
+		public string id;
+		public string status;
 	}
 }

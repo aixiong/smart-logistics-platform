@@ -128,8 +128,21 @@
     <Compile Include="control\vechForm.Designer.cs">
       <DependentUpon>vechForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="control\vechSubFormA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\vechSubFormA.Designer.cs">
+      <DependentUpon>vechSubFormA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\vechSubFormD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\vechSubFormD.Designer.cs">
+      <DependentUpon>vechSubFormD.cs</DependentUpon>
+    </Compile>
     <Compile Include="data\addrSql.cs" />
     <Compile Include="data\sqltool.cs" />
+    <Compile Include="data\vechSql.cs" />
     <Compile Include="map\AmapProvider.cs" />
     <Compile Include="map\geoInfo.cs" />
     <Compile Include="map\mapForm.cs">
@@ -145,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="control\vechForm.resx">
       <DependentUpon>vechForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\vechSubFormA.resx">
+      <DependentUpon>vechSubFormA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="map\mapForm.resx">
       <DependentUpon>mapForm.cs</DependentUpon>
