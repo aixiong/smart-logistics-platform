@@ -19,56 +19,67 @@ namespace smart_logistics_app.data
 			string str = "insert into type (name, volume, journey) values ('" +one.name + "', " + one.volume + ", " + one.journey + ")";
 			excuteCommand(str);
 		}
+
+		public void insertVech(vech one)
+		{
+			string str = "insert into detail (typeName, number, status) values ('" + one.typeName+ "', '" + one.number + "', '" + one.status + "')";
+			excuteCommand(str);
+		}
 		public void deleteVechType(vechType one)
 		{
-
+			string str = "delete from type where name=" + "'" + one.name + "'";
+			excuteCommand(str);
 		}
 
-		public void modifyVechType(vechType source,vechType dest)
+		public void deleteVech(vech one)
 		{
+			string str = "delete from detail where name=" + "'" + one.typeName + "'";
+			excuteCommand(str);
+		}
 
+		public void modifyVechType(vechType one)
+		{
+			string str = "update type set volume=" + one.volume + ", journey=" + one.journey + "where name=" + "'" + one.name + "'";
+			excuteCommand(str);
+		}
+
+		public void modifyVech(vech one)
+		{
+			string str = "update type set status ='"+one.status+ "'where typeName=" + "'" + one.typeName + "' and number ='"+one.number+"'";
+			excuteCommand(str);
 		}
 
 		public List<vechType> getAllVechTypes()
 		{
 			List<vechType> li = new List<vechType>();
-
-			return li;
-		}
-		public void insertAddress(address addr, markerType type)
-		{
-			string str = "";
-			if (type == markerType.source)
-				str = "insert into send (name, lat, lon) values ('" + addr.name + "', " + addr.pos.Lat + ", " + addr.pos.Lng + ")";
-			else
-				str = "insert into recv (name, lat, lon) values ('" + addr.name + "', " + addr.pos.Lat + ", " + addr.pos.Lng + ")";
-			excuteCommand(str);
-		}
-		public void deleteAddress(address addr, markerType type)
-		{
-			string str = "";
-			if (type == markerType.source)
-				str = "delete from send where name=" + "'" + addr.name + "'";
-			else
-				str = "delete from recv where name=" + "'" + addr.name + "'";
-			excuteCommand(str);
-		}
-		public List<address> getAllAddress(markerType type)
-		{
-			List<address> li = new List<address>();
 			SQLiteCommand cmd = new SQLiteCommand(m_con);
-			if (type == markerType.source)
-				cmd.CommandText = "select * from send";
-			else
-				cmd.CommandText = "select * from recv";
+			cmd.CommandText = "select * from type";
 			SQLiteDataReader dr = cmd.ExecuteReader();
 			StringBuilder sb = new StringBuilder();
 			while (dr.Read())
 			{
-				address one = new address();
+				vechType one = new vechType();
 				one.name = dr.GetString(0);
-				one.pos.Lat = dr.GetDouble(1);
-				one.pos.Lng = dr.GetDouble(2);
+				one.volume = dr.GetDouble(1);
+				one.journey = dr.GetDouble(2);
+				li.Add(one);
+			}
+			return li;
+		}
+
+		public List<vech> getAllVechs()
+		{
+			List<vech> li = new List<vech>();
+			SQLiteCommand cmd = new SQLiteCommand(m_con);
+			cmd.CommandText = "select * from detail";
+			SQLiteDataReader dr = cmd.ExecuteReader();
+			StringBuilder sb = new StringBuilder();
+			while (dr.Read())
+			{
+				vech one = new vech();
+				one.typeName = dr.GetString(0);
+				one.number = dr.GetString(1);
+				one.status = dr.GetString(2);
 				li.Add(one);
 			}
 			return li;
