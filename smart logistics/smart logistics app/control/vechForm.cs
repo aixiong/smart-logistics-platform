@@ -11,11 +11,13 @@ using smart_logistics_app.data;
 
 namespace smart_logistics_app.control
 {
-	enum formType { vech,vechType};
-	enum formStatus { addStatus,editStatus,noneStaus};
+	public enum formType { vech,vechType};
+	public enum formStatus { addStatus,editStatus,noneStaus};
 	public partial class vechForm : Form
 	{
 		private vechSql m_sql;
+		private vechSubFormA vechA;
+		private vechSubFormD vechD;
 		formType m_type;
 		formStatus m_status;
 
@@ -23,21 +25,34 @@ namespace smart_logistics_app.control
 		List<vechType> vechTypeList;
 		public vechForm()
 		{
-			InitializeComponent();
 			m_sql = new vechSql("D:\\vechicle.sqlite");
+			vechA = new vechSubFormA(this);
+			//vechD = new vechSubFormD(this);
+
 			m_type = formType.vech;
 			m_status = formStatus.noneStaus;
+			InitializeComponent();
 			goFull();
 			load();
 		}
+		public void setStatus(formStatus status)
+		{
+			m_status = status;
+		}
 		public void goFull()
 		{
-			dataView.Top = toolStrip1.Bottom;
+			if (m_status == formStatus.noneStaus)
+			{
+				dataView.Top = toolStrip1.Bottom;
+				vechA.Visible = false;
+				//vechD.Visible = false;
+			}
+			else dataView.Top = vechA.Bottom;
 			dataView.Height = this.Height - dataView.Top;
 		}
 		public void goSub()
 		{
-
+			dataView.Top = vechA.Bottom;
 		}
 		public void load()
 		{
@@ -53,11 +68,14 @@ namespace smart_logistics_app.control
 			{
 				dataView.Columns.Add(new DataGridViewButtonColumn());
 				dataView.Columns[0].HeaderCell.Value = "  车辆类别";
+				dataView.Columns[0].SortMode = DataGridViewColumnSortMode.Automatic;
 				dataView.Columns.Add(new DataGridViewButtonColumn());
 				dataView.Columns[1].HeaderCell.Value = "  车牌号或编号";
+				dataView.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
 				dataView.Columns.Add(new DataGridViewButtonColumn());
 				dataView.Columns[2].HeaderCell.Value = "  车辆状态";
-				foreach(var item in vechList)
+				dataView.Columns[2].SortMode = DataGridViewColumnSortMode.Automatic;
+				foreach (var item in vechList)
 				{
 					int index=dataView.Rows.Add();
 					dataView.Rows[index].Cells[0].Value = item.typeName;
@@ -69,10 +87,13 @@ namespace smart_logistics_app.control
 			{
 				dataView.Columns.Add(new DataGridViewButtonColumn());
 				dataView.Columns[0].HeaderCell.Value = "  车辆类别名称";
+				dataView.Columns[0].SortMode = DataGridViewColumnSortMode.Automatic;
 				dataView.Columns.Add(new DataGridViewButtonColumn());
 				dataView.Columns[1].HeaderCell.Value = "  配送容量";
+				dataView.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
 				dataView.Columns.Add(new DataGridViewButtonColumn());
 				dataView.Columns[2].HeaderCell.Value = "  续航里程";
+				dataView.Columns[2].SortMode = DataGridViewColumnSortMode.Automatic;
 				foreach (var item in vechTypeList)
 				{
 					int index = dataView.Rows.Add();
@@ -97,10 +118,7 @@ namespace smart_logistics_app.control
 
 		private void vechForm_Resize(object sender, EventArgs e)
 		{
-			if(m_status==formStatus.noneStaus)
-			{
-				goFull();
-			}
+			goFull();
 		}
 
 		private void dataView_SizeChanged(object sender, EventArgs e)
@@ -118,6 +136,63 @@ namespace smart_logistics_app.control
 		{
 			m_type = formType.vech;
 			load();
+		}
+
+		private void toolStripButton1_Click(object sender, EventArgs e)
+		{
+			m_status = formStatus.addStatus;
+			if(m_type==formType.vechType)
+			{
+				vechA.intoAdd();
+				goSub();
+			}
+			else
+			{
+
+			}
+		}
+
+		public void insertVech(vech one)
+		{
+
+		}
+		public void insertVechType(vechType one)
+		{
+			m_sql.insertVechType(one);
+			load();
+		}
+		public void updateVech(vech one)
+		{
+			
+		}
+
+		public void updateVechType(vechType one)
+		{
+			m_sql.updateVechType(one);
+			load();
+		}
+
+		public int getSubTop()
+		{
+			return toolStrip1.Bottom;
+		}
+
+		private void dataView_Click(object sender, EventArgs e)
+		{
+			if (m_type == formType.vechType)
+			{
+				int index = dataView.CurrentRow.Index;
+				vechType one = new vechType();
+				one.name = dataView.Rows[index].Cells[0].Value.ToString();
+				one.volume = Convert.ToDouble(dataView.Rows[index].Cells[1].Value);
+				one.journey = Convert.ToDouble(dataView.Rows[index].Cells[2].Value);
+				vechA.intoShow(one);
+			}
+			else
+			{
+				
+			}
+			goSub();
 		}
 	}
 	public class vechType

@@ -12,6 +12,7 @@ namespace smart_logistics_app.control
 {
 	public partial class vechSubFormD : Form
 	{
+		
 		public vechSubFormD()
 		{
 			InitializeComponent();

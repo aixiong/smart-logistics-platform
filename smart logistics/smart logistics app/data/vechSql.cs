@@ -37,13 +37,13 @@ namespace smart_logistics_app.data
 			excuteCommand(str);
 		}
 
-		public void modifyVechType(vechType one)
+		public void updateVechType(vechType one)
 		{
 			string str = "update type set volume=" + one.volume + ", journey=" + one.journey + "where name=" + "'" + one.name + "'";
 			excuteCommand(str);
 		}
 
-		public void modifyVech(vech one)
+		public void updateVech(vech one)
 		{
 			string str = "update type set status ='"+one.status+ "'where typeName=" + "'" + one.typeName + "' and number ='"+one.number+"'";
 			excuteCommand(str);

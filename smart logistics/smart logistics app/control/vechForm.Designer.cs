@@ -89,6 +89,7 @@
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
 			this.toolStripButton1.Text = "添加";
+			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
 			// 
 			// toolStripButton2
 			// 
@@ -129,6 +130,7 @@
 			this.dataView.Size = new System.Drawing.Size(856, 557);
 			this.dataView.TabIndex = 2;
 			this.dataView.SizeChanged += new System.EventHandler(this.dataView_SizeChanged);
+			this.dataView.Click += new System.EventHandler(this.dataView_Click);
 			// 
 			// vechForm
 			// 

@@ -94,7 +94,7 @@
 			this.cal_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.cancel;
 			this.cal_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.cal_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.cal_button.Location = new System.Drawing.Point(218, 191);
+			this.cal_button.Location = new System.Drawing.Point(429, 113);
 			this.cal_button.Name = "cal_button";
 			this.cal_button.Size = new System.Drawing.Size(49, 39);
 			this.cal_button.TabIndex = 7;
@@ -106,7 +106,7 @@
 			this.ok_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.ok;
 			this.ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.ok_button.Location = new System.Drawing.Point(129, 190);
+			this.ok_button.Location = new System.Drawing.Point(360, 113);
 			this.ok_button.Name = "ok_button";
 			this.ok_button.Size = new System.Drawing.Size(49, 39);
 			this.ok_button.TabIndex = 6;
@@ -117,7 +117,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(383, 253);
+			this.ClientSize = new System.Drawing.Size(578, 158);
 			this.Controls.Add(this.cal_button);
 			this.Controls.Add(this.ok_button);
 			this.Controls.Add(this.jour_textBox);
