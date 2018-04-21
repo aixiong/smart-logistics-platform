@@ -37,6 +37,7 @@ namespace smart_logistics_app.control
 
 		public void intoShow(vechType one)
 		{
+			m_status = Status.showStatus;
 			this.Top = m_form.getSubTop();
 			name_textBox.ReadOnly = true;
 			vol_textBox.ReadOnly = true;
@@ -50,8 +51,8 @@ namespace smart_logistics_app.control
 		}
 		public void intoAdd()
 		{
-			this.Top = m_form.getSubTop();
 			m_status = Status.addStatus;
+			this.Top = m_form.getSubTop();
 			this.Visible = true;
 			name_textBox.ReadOnly = false;
 			vol_textBox.ReadOnly = false;
@@ -60,11 +61,19 @@ namespace smart_logistics_app.control
 			cal_button.Visible = true;
 		}
 
-		public void intoEdit()
+		public void intoEdit(vechType one)
 		{
 			this.Top = m_form.getSubTop();
 			m_status = Status.editStatus;
-
+			name_textBox.ReadOnly = true;
+			vol_textBox.ReadOnly = false;
+			jour_textBox.ReadOnly = false;
+			name_textBox.Text = one.name;
+			vol_textBox.Text = one.volume.ToString();
+			jour_textBox.Text = one.journey.ToString();
+			this.Visible = true;
+			ok_button.Visible = true;
+			cal_button.Visible = true;
 		}
 
 		private void ok_button_Click(object sender, EventArgs e)
@@ -111,5 +120,6 @@ namespace smart_logistics_app.control
 			m_form.goFull();
 			this.Visible = false;
 		}
+
 	}
 }

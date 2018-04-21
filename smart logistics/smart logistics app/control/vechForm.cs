@@ -27,7 +27,7 @@ namespace smart_logistics_app.control
 		{
 			m_sql = new vechSql("D:\\vechicle.sqlite");
 			vechA = new vechSubFormA(this);
-			//vechD = new vechSubFormD(this);
+			vechD = new vechSubFormD(this);
 
 			m_type = formType.vech;
 			m_status = formStatus.noneStaus;
@@ -45,14 +45,16 @@ namespace smart_logistics_app.control
 			{
 				dataView.Top = toolStrip1.Bottom;
 				vechA.Visible = false;
-				//vechD.Visible = false;
+				vechD.Visible = false;
 			}
 			else dataView.Top = vechA.Bottom;
 			dataView.Height = this.Height - dataView.Top;
 		}
 		public void goSub()
 		{
-			dataView.Top = vechA.Bottom;
+			if (m_type == formType.vechType)
+				dataView.Top = vechA.Bottom;
+			else dataView.Top = vechD.Bottom;
 		}
 		public void load()
 		{
@@ -129,12 +131,14 @@ namespace smart_logistics_app.control
 		private void 车型管理ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			m_type = formType.vechType;
+			vechD.Visible = false;
 			load();
 		}
 
 		private void 车辆管理ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			m_type = formType.vech;
+			vechA.Visible = false;
 			load();
 		}
 
@@ -148,28 +152,35 @@ namespace smart_logistics_app.control
 			}
 			else
 			{
-
+				vechD.intoAdd(vechTypeList);
+				goSub();
 			}
 		}
 
 		public void insertVech(vech one)
 		{
-
+			m_sql.insertVech(one);
+			load();
+			m_status = formStatus.noneStaus;
 		}
 		public void insertVechType(vechType one)
 		{
 			m_sql.insertVechType(one);
 			load();
+			m_status = formStatus.noneStaus;
 		}
 		public void updateVech(vech one)
 		{
-			
+			m_sql.updateVech(one);
+			load();
+			m_status = formStatus.noneStaus;
 		}
 
 		public void updateVechType(vechType one)
 		{
 			m_sql.updateVechType(one);
 			load();
+			m_status = formStatus.noneStaus;
 		}
 
 		public int getSubTop()
@@ -182,6 +193,7 @@ namespace smart_logistics_app.control
 			if (m_type == formType.vechType)
 			{
 				int index = dataView.CurrentRow.Index;
+				if (index >= vechTypeList.Count) return;
 				vechType one = new vechType();
 				one.name = dataView.Rows[index].Cells[0].Value.ToString();
 				one.volume = Convert.ToDouble(dataView.Rows[index].Cells[1].Value);
@@ -190,9 +202,61 @@ namespace smart_logistics_app.control
 			}
 			else
 			{
-				
+				int index = dataView.CurrentRow.Index;
+				if (index >= vechList.Count) return;
+				vech one = new vech();
+				one.typeName = dataView.Rows[index].Cells[0].Value.ToString();
+				one.number = dataView.Rows[index].Cells[1].Value.ToString();
+				one.status = dataView.Rows[index].Cells[2].Value.ToString();
+				vechD.intoShow(one);
 			}
 			goSub();
+		}
+
+		private void toolStripButton2_Click(object sender, EventArgs e)
+		{
+			if (m_type == formType.vechType)
+			{
+				int index = dataView.CurrentRow.Index;
+				vechType one = new vechType();
+				one.name = dataView.Rows[index].Cells[0].Value.ToString();
+				one.volume = Convert.ToDouble(dataView.Rows[index].Cells[1].Value);
+				one.journey = Convert.ToDouble(dataView.Rows[index].Cells[2].Value);
+				vechA.intoEdit(one);
+			}
+			else
+			{
+				int index = dataView.CurrentRow.Index;
+				vech one = new vech();
+				one.typeName= dataView.Rows[index].Cells[0].Value.ToString();
+				one.number =  dataView.Rows[index].Cells[1].Value.ToString();
+				one.status =  dataView.Rows[index].Cells[2].Value.ToString();
+				vechD.intoEdit(one);
+			}
+		}
+
+		private void toolStripButton3_Click(object sender, EventArgs e)
+		{
+			if (m_type == formType.vechType)
+			{
+				int index = dataView.CurrentRow.Index;
+				vechType one = new vechType();
+				one.name = dataView.Rows[index].Cells[0].Value.ToString();
+				one.volume = Convert.ToDouble(dataView.Rows[index].Cells[1].Value);
+				one.journey = Convert.ToDouble(dataView.Rows[index].Cells[2].Value);
+				m_sql.deleteVechType(one);
+				load();
+			}
+			else
+			{
+				int index = dataView.CurrentRow.Index;
+				vech one = new vech();
+				one.typeName = dataView.Rows[index].Cells[0].Value.ToString();
+				one.number = dataView.Rows[index].Cells[1].Value.ToString();
+				one.status = dataView.Rows[index].Cells[2].Value.ToString();
+				m_sql.deleteVech(one);
+				load();
+			}
 		}
 	}
 	public class vechType

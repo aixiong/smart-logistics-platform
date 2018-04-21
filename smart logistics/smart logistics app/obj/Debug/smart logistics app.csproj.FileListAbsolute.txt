@@ -24,3 +24,4 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.csprojResolveAssemblyReference.cache
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.vechForm.resources
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.vechSubFormA.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.vechSubFormD.resources

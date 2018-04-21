@@ -162,6 +162,9 @@
     <EmbeddedResource Include="control\vechSubFormA.resx">
       <DependentUpon>vechSubFormA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="control\vechSubFormD.resx">
+      <DependentUpon>vechSubFormD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="map\mapForm.resx">
       <DependentUpon>mapForm.cs</DependentUpon>
     </EmbeddedResource>
