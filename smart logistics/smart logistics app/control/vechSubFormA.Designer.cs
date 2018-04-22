@@ -47,7 +47,6 @@
 			this.label1.Size = new System.Drawing.Size(71, 15);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "车型名称";
-			//this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// label2
 			// 
@@ -58,7 +57,6 @@
 			this.label2.Size = new System.Drawing.Size(71, 15);
 			this.label2.TabIndex = 1;
 			this.label2.Text = "配送容积";
-			//this.label2.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// label3
 			// 
@@ -69,7 +67,6 @@
 			this.label3.Size = new System.Drawing.Size(71, 15);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "续航路程";
-			//this.label3.Click += new System.EventHandler(this.label3_Click);
 			// 
 			// name_textBox
 			// 
@@ -77,7 +74,6 @@
 			this.name_textBox.Name = "name_textBox";
 			this.name_textBox.Size = new System.Drawing.Size(221, 25);
 			this.name_textBox.TabIndex = 3;
-			//this.name_textBox.TextChanged += new System.EventHandler(this.name_textBox_TextChanged);
 			// 
 			// vol_textBox
 			// 
@@ -85,7 +81,6 @@
 			this.vol_textBox.Name = "vol_textBox";
 			this.vol_textBox.Size = new System.Drawing.Size(221, 25);
 			this.vol_textBox.TabIndex = 4;
-			//this.vol_textBox.TextChanged += new System.EventHandler(this.vol_textBox_TextChanged);
 			// 
 			// jour_textBox
 			// 
@@ -93,12 +88,12 @@
 			this.jour_textBox.Name = "jour_textBox";
 			this.jour_textBox.Size = new System.Drawing.Size(221, 25);
 			this.jour_textBox.TabIndex = 5;
-			//this.jour_textBox.TextChanged += new System.EventHandler(this.jour_textBox_TextChanged);
 			// 
 			// cal_button
 			// 
 			this.cal_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.cancel;
 			this.cal_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.cal_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.cal_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.cal_button.Location = new System.Drawing.Point(429, 113);
 			this.cal_button.Name = "cal_button";
@@ -111,6 +106,7 @@
 			// 
 			this.ok_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.ok;
 			this.ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ok_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.ok_button.Location = new System.Drawing.Point(360, 113);
 			this.ok_button.Name = "ok_button";
@@ -135,7 +131,6 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "vechSubFormA";
 			this.Text = "vechSubForm";
-			//this.Load += new System.EventHandler(this.vechSubFormA_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

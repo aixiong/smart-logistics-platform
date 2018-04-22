@@ -47,7 +47,18 @@ namespace smart_logistics_app.control
 				vechA.Visible = false;
 				vechD.Visible = false;
 			}
-			else dataView.Top = vechA.Bottom;
+			else
+			{
+				if(m_type == formType.vechType)
+				{
+					dataView.Top = vechA.Bottom;
+				}
+				else
+				{
+					dataView.Top = vechD.Bottom;
+				}
+			
+			}
 			dataView.Height = this.Height - dataView.Top;
 		}
 		public void goSub()
@@ -190,6 +201,7 @@ namespace smart_logistics_app.control
 
 		private void dataView_Click(object sender, EventArgs e)
 		{
+			if (m_status != formStatus.noneStaus) return;
 			if (m_type == formType.vechType)
 			{
 				int index = dataView.CurrentRow.Index;
@@ -234,7 +246,7 @@ namespace smart_logistics_app.control
 				vechD.intoEdit(one);
 			}
 		}
-
+		//注意判断误删
 		private void toolStripButton3_Click(object sender, EventArgs e)
 		{
 			if (m_type == formType.vechType)

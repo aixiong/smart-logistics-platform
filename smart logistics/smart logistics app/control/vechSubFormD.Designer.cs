@@ -103,6 +103,7 @@
 			// 
 			this.ok_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.ok;
 			this.ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ok_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.ok_button.Location = new System.Drawing.Point(337, 131);
 			this.ok_button.Name = "ok_button";
@@ -115,6 +116,7 @@
 			// 
 			this.cal_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.cancel;
 			this.cal_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.cal_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.cal_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.cal_button.Location = new System.Drawing.Point(392, 131);
 			this.cal_button.Name = "cal_button";

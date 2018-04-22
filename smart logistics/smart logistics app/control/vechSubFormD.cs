@@ -40,9 +40,20 @@ namespace smart_logistics_app.control
 			num_textBox.ReadOnly = true;
 			ok_button.Visible = false;
 			cal_button.Visible = false;
-			type_comBox.Text = one.typeName;
+			type_comBox.Items.Clear();
+			type_comBox.Items.Add(one.typeName);
+			type_comBox.SelectedIndex = 0;
+			type_comBox.Enabled = false;
+			status_comBox.Enabled = false;
 			num_textBox.Text = one.number;
-			status_comBox.Text = one.status;
+			for(int i=0;i<status_comBox.Items.Count;++i)
+			{
+				if(status_comBox.Items[i].ToString()==one.status)
+				{
+					status_comBox.SelectedIndex = i;
+					break;
+				}
+			}
 			this.Visible = true;
 		}
 		public void intoAdd(List<vechType> li)
@@ -52,6 +63,8 @@ namespace smart_logistics_app.control
 			num_textBox.ReadOnly = false;
 			ok_button.Visible = true;
 			cal_button.Visible = true;
+			type_comBox.Enabled = true;
+			status_comBox.Enabled = true;
 			type_comBox.Items.Clear();
 			foreach (var item in li) type_comBox.Items.Add(item.name);
 			type_comBox.SelectedIndex = 0;
@@ -65,8 +78,10 @@ namespace smart_logistics_app.control
 			num_textBox.ReadOnly = true;
 			ok_button.Visible = true;
 			cal_button.Visible = true;
+			status_comBox.Enabled = true;
 			type_comBox.Items.Clear();
-			type_comBox.Text = one.typeName;
+			type_comBox.Items.Add(one.typeName);
+			type_comBox.SelectedIndex = 0;
 			status_comBox.Text = one.status;
 			this.Visible = true;
 		}
@@ -114,7 +129,9 @@ namespace smart_logistics_app.control
 
 		private void cal_button_Click(object sender, EventArgs e)
 		{
-			m_form.Visible = false;
+			this.Visible = false;
+			m_form.setStatus(formStatus.noneStaus);
+			m_status = Status.showStatus;
 			m_form.goFull();
 		}
 	}

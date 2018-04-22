@@ -33,7 +33,7 @@ namespace smart_logistics_app.data
 
 		public void deleteVech(vech one)
 		{
-			string str = "delete from detail where name=" + "'" + one.typeName + "'";
+			string str = "delete from detail where typename=" + "'" + one.typeName + "' and number ='" + one.number + "'";
 			excuteCommand(str);
 		}
 
@@ -45,7 +45,7 @@ namespace smart_logistics_app.data
 
 		public void updateVech(vech one)
 		{
-			string str = "update type set status ='"+one.status+ "' where typeName=" + "'" + one.typeName + "' and number ='"+one.number+"'";
+			string str = "update detail set status ='"+one.status+ "' where typeName=" + "'" + one.typeName + "' and number ='"+one.number+"'";
 			excuteCommand(str);
 		}
 
