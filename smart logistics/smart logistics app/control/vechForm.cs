@@ -144,6 +144,7 @@ namespace smart_logistics_app.control
 			m_type = formType.vechType;
 			vechD.Visible = false;
 			load();
+			goFull();
 		}
 
 		private void 车辆管理ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,6 +152,7 @@ namespace smart_logistics_app.control
 			m_type = formType.vech;
 			vechA.Visible = false;
 			load();
+			goFull();
 		}
 
 		private void toolStripButton1_Click(object sender, EventArgs e)
@@ -249,6 +251,8 @@ namespace smart_logistics_app.control
 		//注意判断误删
 		private void toolStripButton3_Click(object sender, EventArgs e)
 		{
+			DialogResult result= MessageBox.Show("确定删除该项数据", "车辆管理",MessageBoxButtons.OKCancel);
+			if (result == DialogResult.Cancel) return;
 			if (m_type == formType.vechType)
 			{
 				int index = dataView.CurrentRow.Index;
@@ -269,6 +273,22 @@ namespace smart_logistics_app.control
 				m_sql.deleteVech(one);
 				load();
 			}
+		}
+		public bool containNumber(string number)
+		{
+			foreach(var item in vechList)
+			{
+				if (item.number == number) return true;
+			}
+			return false;
+		}
+		public bool containTypeName(string name)
+		{
+			foreach (var item in vechTypeList)
+			{
+				if (item.name==name) return true;
+			}
+			return false;
 		}
 	}
 	public class vechType

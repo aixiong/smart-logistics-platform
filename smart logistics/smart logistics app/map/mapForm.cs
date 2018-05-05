@@ -212,18 +212,18 @@ namespace smart_logistics_app
 		{
 			if(addPoint==null)
 			{
-				MessageBox.Show("请先添加地址!");
+				MessageBox.Show("请先添加地址!", "地址管理", MessageBoxButtons.OK);
 				return;
 			}
 			if(!m_form.checkAddress(addPoint.ToolTipText,RSFlag))
 			{
-				MessageBox.Show("该地址名称重复使用！请更换地址！");
+				MessageBox.Show("该地址名称重复使用！请更换地址！","地址管理",MessageBoxButtons.OK);
 				return;
 			}
 			if(addPoint.ToolTipText=="")
 			{
 				if (addrText.Text != "") addPoint.ToolTipText = addrText.Text;
-				else MessageBox.Show("地址名称不能为空!");
+				else MessageBox.Show("地址名称不能为空!", "地址管理", MessageBoxButtons.OK);
 				return;
 			}
 			outAddStatus(addPoint, true);

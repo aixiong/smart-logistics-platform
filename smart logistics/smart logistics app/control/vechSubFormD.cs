@@ -91,11 +91,16 @@ namespace smart_logistics_app.control
 			{
 				if (type_comBox.Text == "" || num_textBox.Text=="" || status_comBox.Text=="")
 				{
-					MessageBox.Show("请完整填写车辆信息");
+					MessageBox.Show("请完整填写车辆信息", "车辆管理", MessageBoxButtons.OK);
 					return;
 				}
 				else
 				{
+					if(m_form.containNumber(num_textBox.Text))
+					{
+						MessageBox.Show("车辆编码重复，请填写其它编码", "车辆管理", MessageBoxButtons.OK);
+						return;
+					}
 					vech one = new vech();
 					one.typeName = type_comBox.Text;
 					one.number = num_textBox.Text;
@@ -110,7 +115,7 @@ namespace smart_logistics_app.control
 			{
 				if (type_comBox.Text == "" || num_textBox.Text == "" || status_comBox.Text == "")
 				{
-					MessageBox.Show("请完整填写车辆信息");
+					MessageBox.Show("请完整填写车辆信息","车辆管理",MessageBoxButtons.OK);
 					return;
 				}
 				else

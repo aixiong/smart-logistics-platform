@@ -82,11 +82,16 @@ namespace smart_logistics_app.control
 			{
 				if(name_textBox.Text=="" || vol_textBox.Text=="" || jour_textBox.Text=="")
 				{
-					MessageBox.Show("请完整填写车型信息");
+					MessageBox.Show("请完整填写车型信息", "车辆管理", MessageBoxButtons.OK);
 					return;
 				}
 				else
 				{
+					if(m_form.containTypeName(name_textBox.Text))
+					{
+						MessageBox.Show("车型名称重复,请填写其它名称", "车辆管理", MessageBoxButtons.OK);
+						return;
+					}
 					vechType one = new vechType();
 					one.name = name_textBox.Text;
 					one.volume = Convert.ToDouble(vol_textBox.Text);
@@ -98,7 +103,7 @@ namespace smart_logistics_app.control
 			{
 				if (vol_textBox.Text == "" || jour_textBox.Text == "")
 				{
-					MessageBox.Show("请完整填写车型信息");
+					MessageBox.Show("请完整填写车型信息", "车辆管理", MessageBoxButtons.OK);
 					return;
 				}
 				else

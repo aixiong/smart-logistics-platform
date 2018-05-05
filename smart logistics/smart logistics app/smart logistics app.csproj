@@ -122,6 +122,18 @@
     <Compile Include="control\addrForm.Designer.cs">
       <DependentUpon>addrForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="control\goodsA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\goodsA.Designer.cs">
+      <DependentUpon>goodsA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\goodsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\goodsForm.Designer.cs">
+      <DependentUpon>goodsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="control\vechForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +153,7 @@
       <DependentUpon>vechSubFormD.cs</DependentUpon>
     </Compile>
     <Compile Include="data\addrSql.cs" />
+    <Compile Include="data\goodsSql.cs" />
     <Compile Include="data\sqltool.cs" />
     <Compile Include="data\vechSql.cs" />
     <Compile Include="map\AmapProvider.cs" />
@@ -155,6 +168,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="control\addrForm.resx">
       <DependentUpon>addrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\goodsA.resx">
+      <DependentUpon>goodsA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\goodsForm.resx">
+      <DependentUpon>goodsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="control\vechForm.resx">
       <DependentUpon>vechForm.cs</DependentUpon>
