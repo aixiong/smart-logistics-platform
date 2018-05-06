@@ -28,3 +28,4 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.csproj.CoreCompileInputs.cache
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.csproj.CopyComplete
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.goodsForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.goodsAForm.resources

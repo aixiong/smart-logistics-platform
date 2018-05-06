@@ -14,11 +14,14 @@ namespace smart_logistics_app.control
 		formStatus m_status;
 		List<goods> goodsList;
 		goodsSql m_sql;
+
+		private goodsAForm goodsA;
 		public goodsForm()
 		{
 			m_sql = new goodsSql("D:\\goods.sqlite");
 			m_status = formStatus.noneStaus;
 
+			
 			InitializeComponent();
 			goFull();
 			load();
@@ -86,6 +89,15 @@ namespace smart_logistics_app.control
 
 		}
 
+		public void setStatus(formStatus status)
+		{
+			m_status = status;
+		}
+
+		public int getSubTop()
+		{
+			return toolStrip1.Bottom;
+		}
 		private void goodsForm_Resize(object sender, EventArgs e)
 		{
 			goFull();
@@ -94,6 +106,26 @@ namespace smart_logistics_app.control
 		private void dataView_SizeChanged(object sender, EventArgs e)
 		{
 			columnResize();
+		}
+
+		
+
+		private void dataView_Click(object sender, EventArgs e)
+		{
+			if (m_status != formStatus.noneStaus) return;
+			int index = dataView.CurrentRow.Index;
+			if (index >= goodsList.Count) return;
+			goods one = new goods();
+			one.number= dataView.Rows[index].Cells[0].Value.ToString();
+			one.from= dataView.Rows[index].Cells[1].Value.ToString();
+			one.to= dataView.Rows[index].Cells[2].Value.ToString();
+			one.arriveTime= dataView.Rows[index].Cells[3].Value.ToString();
+			one.deadline= dataView.Rows[index].Cells[4].Value.ToString();
+			one.status= dataView.Rows[index].Cells[5].Value.ToString();
+			one.objVechicle= dataView.Rows[index].Cells[6].Value.ToString();
+			one.finishTime= dataView.Rows[index].Cells[7].Value.ToString();
+			goodsA.intoShow(one);
+			goSub();
 		}
 	}
 	public struct goods

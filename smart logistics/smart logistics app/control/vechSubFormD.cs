@@ -46,9 +46,10 @@ namespace smart_logistics_app.control
 			type_comBox.Enabled = false;
 			status_comBox.Enabled = false;
 			num_textBox.Text = one.number;
-			for(int i=0;i<status_comBox.Items.Count;++i)
+
+			for (int i = 0; i < status_comBox.Items.Count; ++i)
 			{
-				if(status_comBox.Items[i].ToString()==one.status)
+				if (status_comBox.Items[i].ToString() == one.status)
 				{
 					status_comBox.SelectedIndex = i;
 					break;

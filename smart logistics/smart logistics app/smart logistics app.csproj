@@ -122,11 +122,11 @@
     <Compile Include="control\addrForm.Designer.cs">
       <DependentUpon>addrForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="control\goodsA.cs">
+    <Compile Include="control\goodsAForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="control\goodsA.Designer.cs">
-      <DependentUpon>goodsA.cs</DependentUpon>
+    <Compile Include="control\goodsAForm.Designer.cs">
+      <DependentUpon>goodsAForm.cs</DependentUpon>
     </Compile>
     <Compile Include="control\goodsForm.cs">
       <SubType>Form</SubType>
@@ -169,8 +169,8 @@
     <EmbeddedResource Include="control\addrForm.resx">
       <DependentUpon>addrForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="control\goodsA.resx">
-      <DependentUpon>goodsA.cs</DependentUpon>
+    <EmbeddedResource Include="control\goodsAForm.resx">
+      <DependentUpon>goodsAForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="control\goodsForm.resx">
       <DependentUpon>goodsForm.cs</DependentUpon>

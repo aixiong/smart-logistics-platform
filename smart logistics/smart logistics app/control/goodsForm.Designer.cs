@@ -125,7 +125,9 @@
 			this.dataView.RowTemplate.Height = 27;
 			this.dataView.Size = new System.Drawing.Size(874, 506);
 			this.dataView.TabIndex = 2;
+			//this.dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellContentClick);
 			this.dataView.SizeChanged += new System.EventHandler(this.dataView_SizeChanged);
+			this.dataView.Click += new System.EventHandler(this.dataView_Click);
 			// 
 			// Column8
 			// 
@@ -154,7 +156,7 @@
 			// 
 			// Column5
 			// 
-			this.Column5.HeaderText = "状态";
+			this.Column5.HeaderText = "配送状态";
 			this.Column5.Name = "Column5";
 			// 
 			// Column6

@@ -52,5 +52,19 @@ namespace smart_logistics_app.data
 			}
 			return li;
 		}
+
+		public List<string> getAllDestName()
+		{
+			List<string> li = new List<string>();
+			SQLiteCommand cmd = new SQLiteCommand(m_con);
+			cmd.CommandText = "select * from recv";
+			SQLiteDataReader dr = cmd.ExecuteReader();
+			StringBuilder sb = new StringBuilder();
+			while (dr.Read())
+			{
+				li.Add(dr.GetString(0));
+			}
+			return li;
+		}
 	}
 }
