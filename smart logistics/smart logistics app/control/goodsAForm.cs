@@ -108,7 +108,11 @@ namespace smart_logistics_app.control
 		{
 			addrSql one = new addrSql("D:\\addr.sqlite");
 			List<string> li = one.getAllDestName();
-			foreach()
+			dest_comBox.Items.Clear();
+			foreach(var item in li)
+			{
+				dest_comBox.Items.Add(item.ToString());
+			}
 		}
 
 		private void loadStatus()
@@ -169,7 +173,14 @@ namespace smart_logistics_app.control
 
 		private void ok_button_Click(object sender, EventArgs e)
 		{
+			if(m_status==Status.addStatus)
+			{
 
+			}
+			else
+			{
+
+			}
 		}
 
 		private void cal_button_Click(object sender, EventArgs e)

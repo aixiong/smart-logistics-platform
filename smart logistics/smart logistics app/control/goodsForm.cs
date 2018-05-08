@@ -127,6 +127,24 @@ namespace smart_logistics_app.control
 			goodsA.intoShow(one);
 			goSub();
 		}
+
+		private void toolStripButton1_Click(object sender, EventArgs e)
+		{   //add
+			m_status = formStatus.addStatus;
+			goodsA.intoAdd();
+			goSub();
+		}
+
+		private void toolStripButton2_Click(object sender, EventArgs e)
+		{   //edit
+
+		}
+
+		private void toolStripButton3_Click(object sender, EventArgs e)
+		{   //delete
+
+		}
+
 	}
 	public struct goods
 	{

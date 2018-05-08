@@ -87,6 +87,7 @@
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
 			this.toolStripButton1.Text = "toolStripButton1";
+			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
 			// 
 			// toolStripButton2
 			// 
@@ -96,6 +97,7 @@
 			this.toolStripButton2.Name = "toolStripButton2";
 			this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
 			this.toolStripButton2.Text = "toolStripButton2";
+			this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
 			// 
 			// toolStripButton3
 			// 
@@ -105,6 +107,7 @@
 			this.toolStripButton3.Name = "toolStripButton3";
 			this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
 			this.toolStripButton3.Text = "toolStripButton3";
+			this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
 			// 
 			// dataView
 			// 
@@ -125,7 +128,6 @@
 			this.dataView.RowTemplate.Height = 27;
 			this.dataView.Size = new System.Drawing.Size(874, 506);
 			this.dataView.TabIndex = 2;
-			//this.dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellContentClick);
 			this.dataView.SizeChanged += new System.EventHandler(this.dataView_SizeChanged);
 			this.dataView.Click += new System.EventHandler(this.dataView_Click);
 			// 
