@@ -101,14 +101,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="smart logistics app.exe" size="341912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="smart logistics app.exe" size="343448">
       <assemblyIdentity name="smart logistics app" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XOb9DYhMii9TrKM3ICbgG8uef3IVwNoxrvAoAuh6FtQ=</dsig:DigestValue>
+        <dsig:DigestValue>bnClW4uhl1R/BiLWQPKOwKCldiL2w7bG2nB9R0f4ezQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

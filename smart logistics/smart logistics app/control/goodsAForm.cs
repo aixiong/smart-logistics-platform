@@ -43,10 +43,10 @@ namespace smart_logistics_app.control
 			number_textBox.Text = one.number;
 
 			source_textBox.ReadOnly = true;
-			source_textBox.Text = one.from;
+			source_textBox.Text = one.source;
 
 			dest_comBox.Items.Clear();
-			dest_comBox.Items.Add(one.to);
+			dest_comBox.Items.Add(one.dest);
 			dest_comBox.SelectedIndex = 0;
 
 			arrive_time.Enabled = false;
@@ -77,7 +77,7 @@ namespace smart_logistics_app.control
 			cal_button.Visible = true;
 
 			number_textBox.ReadOnly = false;
-			number_textBox.Text = "";
+			number_textBox.Text = DateTime.Now.Ticks.ToString();
 
 			source_textBox.ReadOnly = false;
 			source_textBox.Text = "";
@@ -93,8 +93,16 @@ namespace smart_logistics_app.control
 
 			status_comBox.Enabled = true;
 			loadStatus();
+			for (int i = 0; i < status_comBox.Items.Count; ++i)
+			{
+				if (status_comBox.Items[i].ToString() =="待配送")
+				{
+					status_comBox.SelectedIndex = i;
+					break;
+				}
+			}
 
-			vech_textBox.ReadOnly = false;
+			vech_textBox.ReadOnly = true;
 			vech_textBox.Text ="";
 
 			finish_time.Enabled = true;
@@ -106,7 +114,7 @@ namespace smart_logistics_app.control
 
 		private void loadDestination()
 		{
-			addrSql one = new addrSql("D:\\addr.sqlite");
+			addrSql one = new addrSql("D:\\address.sqlite");
 			List<string> li = one.getAllDestName();
 			dest_comBox.Items.Clear();
 			foreach(var item in li)
@@ -133,7 +141,7 @@ namespace smart_logistics_app.control
 			number_textBox.Text = one.number;
 
 			source_textBox.ReadOnly = false;
-			source_textBox.Text = one.from;
+			source_textBox.Text = one.source;
 
 			loadDestination();
 			for (int i = 0; i < dest_comBox.Items.Count; ++i)
@@ -173,14 +181,26 @@ namespace smart_logistics_app.control
 
 		private void ok_button_Click(object sender, EventArgs e)
 		{
-			if(m_status==Status.addStatus)
+			goods one = new goods();
+			one.number = number_textBox.Text;
+			one.source= source_textBox.Text;
+			one.dest = dest_comBox.Text;
+			one.arriveTime = arrive_time.Value.ToString("yyyy-MM-dd");
+			one.deadline = dead_time.Value.ToString("yyyy-MM-dd");
+			one.objVechicle = vech_textBox.Text;
+			one.status = status_comBox.Text;
+			one.finishTime = finish_time.Value.ToString("yyyy-MM-dd");
+			if (m_status==Status.addStatus)
 			{
-
+				m_form.insertGoods(one);
 			}
 			else
 			{
-
+				m_form.updateGoods(one);
 			}
+			m_form.setStatus(formStatus.noneStaus);
+			m_form.goFull();
+			this.Visible = false;
 		}
 
 		private void cal_button_Click(object sender, EventArgs e)
@@ -189,6 +209,16 @@ namespace smart_logistics_app.control
 			m_form.setStatus(formStatus.noneStaus);
 			m_status = Status.showStatus;
 			m_form.goFull();
+		}
+
+		private void addrM_button_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void vechM_button_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

@@ -16,8 +16,8 @@ namespace smart_logistics_app.data
 
 		public void insertGoods(goods one)
 		{
-			string str = "insert into global (number, from, to, arriveTime, deadline, status, objVechicle,finishTime) values ('" 
-				+one.number+ "', '"+one.from + "', '" + one.to + "', '" + one.arriveTime +one.deadline + "', '" + one.status + "', '" +one.objVechicle+ "', '"+one.finishTime+ "')";
+			string str = "insert into global (number, source, dest, arriveTime, deadline, status, objVechicle,finishTime) values ('" 
+				+one.number+ "', '"+one.source + "', '" + one.dest + "', '" + one.arriveTime +"', '"+one.deadline + "', '" + one.status + "', '" +one.objVechicle+ "', '"+one.finishTime+ "')";
 			excuteCommand(str);
 		}
 
@@ -27,7 +27,7 @@ namespace smart_logistics_app.data
 			excuteCommand(str);
 		}
 
-		public void updateVech(goods one)
+		public void updateGoods(goods one)
 		{
 			string str = "update global set  deadline ='" + one.deadline + "', status ='"+one.status + "', objVechicle =" + one.objVechicle + "', finishTime = '" +one.finishTime+ "' where number =" + "'" + one.number + "'";
 			excuteCommand(str);
@@ -44,8 +44,8 @@ namespace smart_logistics_app.data
 			{
 				goods one = new goods();
 				one.number = dr.GetString(0);
-				one.from = dr.GetString(1);
-				one.to = dr.GetString(2);
+				one.source = dr.GetString(1);
+				one.dest= dr.GetString(2);
 				one.arriveTime = dr.GetString(3);
 				one.deadline = dr.GetString(4);
 				one.status = dr.GetString(5);

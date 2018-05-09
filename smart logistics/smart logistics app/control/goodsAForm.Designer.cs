@@ -46,7 +46,8 @@
 			this.vech_textBox = new System.Windows.Forms.TextBox();
 			this.cal_button = new System.Windows.Forms.Button();
 			this.ok_button = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.addrM_button = new System.Windows.Forms.Button();
+			this.vechM_button = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// number_textBox
@@ -199,7 +200,7 @@
 			this.cal_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.cal_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.cal_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.cal_button.Location = new System.Drawing.Point(710, 211);
+			this.cal_button.Location = new System.Drawing.Point(857, 139);
 			this.cal_button.Name = "cal_button";
 			this.cal_button.Size = new System.Drawing.Size(49, 39);
 			this.cal_button.TabIndex = 23;
@@ -212,29 +213,44 @@
 			this.ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ok_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.ok_button.Location = new System.Drawing.Point(641, 211);
+			this.ok_button.Location = new System.Drawing.Point(788, 139);
 			this.ok_button.Name = "ok_button";
 			this.ok_button.Size = new System.Drawing.Size(49, 39);
 			this.ok_button.TabIndex = 22;
 			this.ok_button.UseVisualStyleBackColor = true;
 			this.ok_button.Click += new System.EventHandler(this.ok_button_Click);
 			// 
-			// button1
+			// addrM_button
 			// 
-			this.button1.BackgroundImage = global::smart_logistics_app.Properties.Resources.edit;
-			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.button1.Location = new System.Drawing.Point(354, 109);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(27, 23);
-			this.button1.TabIndex = 24;
-			this.button1.UseVisualStyleBackColor = true;
+			this.addrM_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.edit;
+			this.addrM_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.addrM_button.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.addrM_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.addrM_button.Location = new System.Drawing.Point(339, 109);
+			this.addrM_button.Name = "addrM_button";
+			this.addrM_button.Size = new System.Drawing.Size(27, 23);
+			this.addrM_button.TabIndex = 24;
+			this.addrM_button.UseVisualStyleBackColor = true;
+			this.addrM_button.Click += new System.EventHandler(this.addrM_button_Click);
+			// 
+			// vechM_button
+			// 
+			this.vechM_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.edit;
+			this.vechM_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.vechM_button.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.vechM_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.vechM_button.Location = new System.Drawing.Point(774, 108);
+			this.vechM_button.Name = "vechM_button";
+			this.vechM_button.Size = new System.Drawing.Size(27, 23);
+			this.vechM_button.TabIndex = 25;
+			this.vechM_button.UseVisualStyleBackColor = true;
+			this.vechM_button.Click += new System.EventHandler(this.vechM_button_Click);
 			// 
 			// goodsAForm
 			// 
-			this.ClientSize = new System.Drawing.Size(815, 258);
-			this.Controls.Add(this.button1);
+			this.ClientSize = new System.Drawing.Size(917, 187);
+			this.Controls.Add(this.vechM_button);
+			this.Controls.Add(this.addrM_button);
 			this.Controls.Add(this.cal_button);
 			this.Controls.Add(this.ok_button);
 			this.Controls.Add(this.vech_textBox);
@@ -280,6 +296,7 @@
 		private System.Windows.Forms.TextBox vech_textBox;
 		private System.Windows.Forms.Button cal_button;
 		private System.Windows.Forms.Button ok_button;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button addrM_button;
+		private System.Windows.Forms.Button vechM_button;
 	}
 }
