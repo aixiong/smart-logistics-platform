@@ -124,6 +124,7 @@ namespace smart_logistics_app.control
 		{
 			m_form.goFull();
 			this.Visible = false;
+			m_form.setStatus(formStatus.noneStaus);
 		}
 
 	}

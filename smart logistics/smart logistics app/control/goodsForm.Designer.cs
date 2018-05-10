@@ -30,6 +30,9 @@
 		{
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.货物信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.货物查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.货物完成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.打印货单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +46,9 @@
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.打印设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.打印ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
@@ -52,7 +58,10 @@
 			// 
 			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.货物信息ToolStripMenuItem});
+            this.货物信息ToolStripMenuItem,
+            this.货物查询ToolStripMenuItem,
+            this.货物完成ToolStripMenuItem,
+            this.打印货单ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(903, 28);
@@ -64,6 +73,28 @@
 			this.货物信息ToolStripMenuItem.Name = "货物信息ToolStripMenuItem";
 			this.货物信息ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
 			this.货物信息ToolStripMenuItem.Text = "货物信息";
+			// 
+			// 货物查询ToolStripMenuItem
+			// 
+			this.货物查询ToolStripMenuItem.Name = "货物查询ToolStripMenuItem";
+			this.货物查询ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+			this.货物查询ToolStripMenuItem.Text = "货物查询";
+			// 
+			// 货物完成ToolStripMenuItem
+			// 
+			this.货物完成ToolStripMenuItem.Name = "货物完成ToolStripMenuItem";
+			this.货物完成ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+			this.货物完成ToolStripMenuItem.Text = "货物完成";
+			// 
+			// 打印货单ToolStripMenuItem
+			// 
+			this.打印货单ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.打印ToolStripMenuItem,
+            this.打印设置ToolStripMenuItem,
+            this.打印ToolStripMenuItem1});
+			this.打印货单ToolStripMenuItem.Name = "打印货单ToolStripMenuItem";
+			this.打印货单ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+			this.打印货单ToolStripMenuItem.Text = "打印货单";
 			// 
 			// toolStrip1
 			// 
@@ -171,6 +202,27 @@
 			this.Column7.HeaderText = "送达时间";
 			this.Column7.Name = "Column7";
 			// 
+			// 打印ToolStripMenuItem
+			// 
+			this.打印ToolStripMenuItem.Name = "打印ToolStripMenuItem";
+			this.打印ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.打印ToolStripMenuItem.Text = "打印预览";
+			this.打印ToolStripMenuItem.Click += new System.EventHandler(this.打印ToolStripMenuItem_Click);
+			// 
+			// 打印设置ToolStripMenuItem
+			// 
+			this.打印设置ToolStripMenuItem.Name = "打印设置ToolStripMenuItem";
+			this.打印设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.打印设置ToolStripMenuItem.Text = "打印设置";
+			this.打印设置ToolStripMenuItem.Click += new System.EventHandler(this.打印设置ToolStripMenuItem_Click);
+			// 
+			// 打印ToolStripMenuItem1
+			// 
+			this.打印ToolStripMenuItem1.Name = "打印ToolStripMenuItem1";
+			this.打印ToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+			this.打印ToolStripMenuItem1.Text = "打印";
+			this.打印ToolStripMenuItem1.Click += new System.EventHandler(this.打印ToolStripMenuItem1_Click);
+			// 
 			// goodsForm
 			// 
 			this.ClientSize = new System.Drawing.Size(903, 626);
@@ -208,5 +260,11 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+		private System.Windows.Forms.ToolStripMenuItem 货物查询ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 货物完成ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 打印货单ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 打印ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 打印设置ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 打印ToolStripMenuItem1;
 	}
 }

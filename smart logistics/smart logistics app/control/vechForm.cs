@@ -12,7 +12,7 @@ using smart_logistics_app.data;
 namespace smart_logistics_app.control
 {
 	public enum formType { vech,vechType};
-	public enum formStatus { addStatus,editStatus,noneStaus};
+	public enum formStatus { addStatus,editStatus,noneStaus,queryStatus};
 	public partial class vechForm : Form
 	{
 		private vechSql m_sql;

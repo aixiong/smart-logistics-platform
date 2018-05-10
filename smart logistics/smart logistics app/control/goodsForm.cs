@@ -14,6 +14,7 @@ namespace smart_logistics_app.control
 		formStatus m_status;
 		List<goods> goodsList;
 		goodsSql m_sql;
+		DGVPrinter m_printer;
 
 		private goodsAForm goodsA;
 		public goodsForm()
@@ -21,7 +22,9 @@ namespace smart_logistics_app.control
 			m_sql = new goodsSql("D:\\goods.sqlite");
 			m_status = formStatus.noneStaus;
 			goodsA = new goodsAForm(this);
-			
+			m_printer = new DGVPrinter();
+			m_printer.SourceDGV = dataView;
+
 			InitializeComponent();
 			goFull();
 			load();
@@ -77,7 +80,7 @@ namespace smart_logistics_app.control
 			for (int i = 0; i < cnt; ++i)
 			{
 				dataView.Columns[i].SortMode = DataGridViewColumnSortMode.Automatic;
-				dataView.Columns[i].Width = dataView.Width / cnt;
+				dataView.Columns[i].Width = (dataView.Width-10) / cnt;
 			}
 
 		}
@@ -163,6 +166,26 @@ namespace smart_logistics_app.control
 		{
 			m_sql.deleteGoods(one);
 			load();
+		}
+
+		private void 打印ToolStripMenuItem1_Click(object sender, EventArgs e)
+		{   //打印
+			m_printer.mainTitle = "货物清单";
+			m_printer.subTitle = "配送单";
+			m_printer.PrintDataGridView(dataView);
+		}
+
+		private void 打印ToolStripMenuItem_Click(object sender, EventArgs e)
+		{   //打印预览
+			m_printer.mainTitle = "货物清单";
+			m_printer.subTitle = "配送单";
+			m_printer.SourceDGV = dataView;
+			m_printer.PrintPreview();
+		}
+
+		private void 打印设置ToolStripMenuItem_Click(object sender, EventArgs e)
+		{   //打印设置
+			m_printer.SetupPage();
 		}
 	}
 	public struct goods

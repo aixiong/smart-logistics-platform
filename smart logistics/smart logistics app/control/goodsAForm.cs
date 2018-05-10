@@ -137,7 +137,7 @@ namespace smart_logistics_app.control
 			ok_button.Visible = true;
 			cal_button.Visible = true;
 
-			number_textBox.ReadOnly = false;
+			number_textBox.ReadOnly =true;
 			number_textBox.Text = one.number;
 
 			source_textBox.ReadOnly = false;

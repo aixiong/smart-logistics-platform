@@ -134,6 +134,12 @@
     <Compile Include="control\goodsForm.Designer.cs">
       <DependentUpon>goodsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="control\goodsQForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\goodsQForm.Designer.cs">
+      <DependentUpon>goodsQForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="control\vechForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,7 @@
       <DependentUpon>vechSubFormD.cs</DependentUpon>
     </Compile>
     <Compile Include="data\addrSql.cs" />
+    <Compile Include="data\DGVPrinter.cs" />
     <Compile Include="data\goodsSql.cs" />
     <Compile Include="data\sqltool.cs" />
     <Compile Include="data\vechSql.cs" />
@@ -174,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="control\goodsForm.resx">
       <DependentUpon>goodsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\goodsQForm.resx">
+      <DependentUpon>goodsQForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="control\vechForm.resx">
       <DependentUpon>vechForm.cs</DependentUpon>
