@@ -33,6 +33,9 @@
 			this.货物查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.货物完成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.打印货单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.打印设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.打印ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -46,9 +49,6 @@
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.打印设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.打印ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
@@ -73,12 +73,14 @@
 			this.货物信息ToolStripMenuItem.Name = "货物信息ToolStripMenuItem";
 			this.货物信息ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
 			this.货物信息ToolStripMenuItem.Text = "货物信息";
+			this.货物信息ToolStripMenuItem.Click += new System.EventHandler(this.货物信息ToolStripMenuItem_Click);
 			// 
 			// 货物查询ToolStripMenuItem
 			// 
 			this.货物查询ToolStripMenuItem.Name = "货物查询ToolStripMenuItem";
 			this.货物查询ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
 			this.货物查询ToolStripMenuItem.Text = "货物查询";
+			this.货物查询ToolStripMenuItem.Click += new System.EventHandler(this.货物查询ToolStripMenuItem_Click);
 			// 
 			// 货物完成ToolStripMenuItem
 			// 
@@ -95,6 +97,27 @@
 			this.打印货单ToolStripMenuItem.Name = "打印货单ToolStripMenuItem";
 			this.打印货单ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
 			this.打印货单ToolStripMenuItem.Text = "打印货单";
+			// 
+			// 打印ToolStripMenuItem
+			// 
+			this.打印ToolStripMenuItem.Name = "打印ToolStripMenuItem";
+			this.打印ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+			this.打印ToolStripMenuItem.Text = "打印预览";
+			this.打印ToolStripMenuItem.Click += new System.EventHandler(this.打印ToolStripMenuItem_Click);
+			// 
+			// 打印设置ToolStripMenuItem
+			// 
+			this.打印设置ToolStripMenuItem.Name = "打印设置ToolStripMenuItem";
+			this.打印设置ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+			this.打印设置ToolStripMenuItem.Text = "打印设置";
+			this.打印设置ToolStripMenuItem.Click += new System.EventHandler(this.打印设置ToolStripMenuItem_Click);
+			// 
+			// 打印ToolStripMenuItem1
+			// 
+			this.打印ToolStripMenuItem1.Name = "打印ToolStripMenuItem1";
+			this.打印ToolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
+			this.打印ToolStripMenuItem1.Text = "打印";
+			this.打印ToolStripMenuItem1.Click += new System.EventHandler(this.打印ToolStripMenuItem1_Click);
 			// 
 			// toolStrip1
 			// 
@@ -201,27 +224,6 @@
 			// 
 			this.Column7.HeaderText = "送达时间";
 			this.Column7.Name = "Column7";
-			// 
-			// 打印ToolStripMenuItem
-			// 
-			this.打印ToolStripMenuItem.Name = "打印ToolStripMenuItem";
-			this.打印ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-			this.打印ToolStripMenuItem.Text = "打印预览";
-			this.打印ToolStripMenuItem.Click += new System.EventHandler(this.打印ToolStripMenuItem_Click);
-			// 
-			// 打印设置ToolStripMenuItem
-			// 
-			this.打印设置ToolStripMenuItem.Name = "打印设置ToolStripMenuItem";
-			this.打印设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-			this.打印设置ToolStripMenuItem.Text = "打印设置";
-			this.打印设置ToolStripMenuItem.Click += new System.EventHandler(this.打印设置ToolStripMenuItem_Click);
-			// 
-			// 打印ToolStripMenuItem1
-			// 
-			this.打印ToolStripMenuItem1.Name = "打印ToolStripMenuItem1";
-			this.打印ToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
-			this.打印ToolStripMenuItem1.Text = "打印";
-			this.打印ToolStripMenuItem1.Click += new System.EventHandler(this.打印ToolStripMenuItem1_Click);
 			// 
 			// goodsForm
 			// 

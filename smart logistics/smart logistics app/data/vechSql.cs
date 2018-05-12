@@ -84,5 +84,24 @@ namespace smart_logistics_app.data
 			}
 			return li;
 		}
+
+		public List<string> getAllVechName()
+		{
+			List<string> li = new List<string>();
+			SQLiteCommand cmd = new SQLiteCommand(m_con);
+			cmd.CommandText = "select * from detail";
+			SQLiteDataReader dr = cmd.ExecuteReader();
+			StringBuilder sb = new StringBuilder();
+			while (dr.Read())
+			{
+				string one = "";
+				one += dr.GetString(0);
+				one += "(";
+				one += dr.GetString(1);
+				one += ")";
+				li.Add(one);
+			}
+			return li;
+		}
 	}
 }

@@ -17,11 +17,13 @@ namespace smart_logistics_app.control
 		DGVPrinter m_printer;
 
 		private goodsAForm goodsA;
+		private goodsQForm goodsQ;
 		public goodsForm()
 		{
 			m_sql = new goodsSql("D:\\goods.sqlite");
 			m_status = formStatus.noneStaus;
 			goodsA = new goodsAForm(this);
+			goodsQ = new goodsQForm(this);
 			m_printer = new DGVPrinter();
 			m_printer.SourceDGV = dataView;
 
@@ -47,6 +49,11 @@ namespace smart_logistics_app.control
 		
 		public void goSub()
 		{
+			if(m_status==formStatus.queryStatus)
+			{
+				dataView.Top = goodsQ.Bottom;
+			}
+			else
 			dataView.Top = goodsA.Bottom;
 		}
 
@@ -129,6 +136,7 @@ namespace smart_logistics_app.control
 
 		private void toolStripButton1_Click(object sender, EventArgs e)
 		{   //add
+			if (m_status == formStatus.queryStatus) return;
 			m_status = formStatus.addStatus;
 			goodsA.intoAdd();
 			goSub();
@@ -136,6 +144,7 @@ namespace smart_logistics_app.control
 
 		private void toolStripButton2_Click(object sender, EventArgs e)
 		{   //edit
+			if (m_status == formStatus.queryStatus) return;
 			m_status = formStatus.editStatus;
 			goodsA.intoAdd();
 			goSub();
@@ -143,6 +152,7 @@ namespace smart_logistics_app.control
 
 		private void toolStripButton3_Click(object sender, EventArgs e)
 		{   //delete
+			if (m_status == formStatus.queryStatus) return;
 			DialogResult result = MessageBox.Show("确定删除该项数据", "货物管理", MessageBoxButtons.OKCancel);
 			if (result == DialogResult.Cancel) return;
 			int index = dataView.CurrentRow.Index;
@@ -168,6 +178,12 @@ namespace smart_logistics_app.control
 			load();
 		}
 
+		public void queryGoods(string request)
+		{
+			goodsList = m_sql.getAllGoods(request);
+			show();
+		}
+
 		private void 打印ToolStripMenuItem1_Click(object sender, EventArgs e)
 		{   //打印
 			m_printer.mainTitle = "货物清单";
@@ -186,6 +202,18 @@ namespace smart_logistics_app.control
 		private void 打印设置ToolStripMenuItem_Click(object sender, EventArgs e)
 		{   //打印设置
 			m_printer.SetupPage();
+		}
+
+		private void 货物查询ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			m_status = formStatus.queryStatus;
+			goodsQ.intoShow();
+			goSub();
+		}
+
+		private void 货物信息ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			
 		}
 	}
 	public struct goods

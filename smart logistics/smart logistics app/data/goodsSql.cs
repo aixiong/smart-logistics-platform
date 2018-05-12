@@ -33,11 +33,11 @@ namespace smart_logistics_app.data
 			excuteCommand(str);
 		}
 
-		public List<goods> getAllGoods()
+		public List<goods> getAllGoods(string request="")
 		{
 			List<goods> li = new List<goods>();
 			SQLiteCommand cmd = new SQLiteCommand(m_con);
-			cmd.CommandText = "select * from global";
+			cmd.CommandText = "select * from global "+request;
 			SQLiteDataReader dr = cmd.ExecuteReader();
 			StringBuilder sb = new StringBuilder();
 			while (dr.Read())
@@ -55,6 +55,5 @@ namespace smart_logistics_app.data
 			}
 			return li;
 		}
-
 	}
 }

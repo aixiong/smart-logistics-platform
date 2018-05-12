@@ -17,7 +17,7 @@ namespace smart_logistics_app
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new vechForm());
+			Application.Run(new goodsForm());
 		}
 	}
 }
