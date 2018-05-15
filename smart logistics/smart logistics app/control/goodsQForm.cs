@@ -63,13 +63,13 @@ namespace smart_logistics_app.control
 		}
 		private void ok_button_Click(object sender, EventArgs e)
 		{
-			string str = " where ";
+			string str ="";
 			bool first = true;
 			if(num_checkBox.Checked)
 			{
 				if(first)
 				{
-					str += " number = '" + number_textBox.Text + "' ";
+					str += "where number = '" + number_textBox.Text + "' ";
 					first = false;
 				}
 			}
@@ -77,7 +77,7 @@ namespace smart_logistics_app.control
 			{
 				if (first)
 				{
-					str += " arriveTime >= '" + arriveS_time.Value.ToString("yyyy-MM-dd") + "' and arriveTime <= '" + arriveF_time.Value.ToString("yyyy-MM-dd") + "' ";
+					str += "where  arriveTime >= '" + arriveS_time.Value.ToString("yyyy-MM-dd") + "' and arriveTime <= '" + arriveF_time.Value.ToString("yyyy-MM-dd") + "' ";
 					first = false;
 				}
 				else str += " and arriveTime >= '" + arriveS_time.Value.ToString("yyyy-MM-dd") + "' and arriveTime <= '" + arriveF_time.Value.ToString("yyyy-MM-dd") + "' ";
@@ -86,7 +86,7 @@ namespace smart_logistics_app.control
 			{
 				if(first)
 				{
-					str += " finishTime >= '" + finishS_time.Value.ToString("yyyy-MM-dd") + "' and finishTime <= '" + finishF_time.Value.ToString("yyyy-MM-dd") + "' ";
+					str += "where  finishTime >= '" + finishS_time.Value.ToString("yyyy-MM-dd") + "' and finishTime <= '" + finishF_time.Value.ToString("yyyy-MM-dd") + "' ";
 					first = false;
 				}
 				else str += " and finishTime >= '" + finishS_time.Value.ToString("yyyy-MM-dd") + "' and finishTime <= '" + finishF_time.Value.ToString("yyyy-MM-dd") + "' ";
@@ -95,7 +95,7 @@ namespace smart_logistics_app.control
 			{
 				if(first)
 				{
-					str += " status = '" + status_comBox.Text + "' ";
+					str += "where  status = '" + status_comBox.Text + "' ";
 					first = false;
 				}
 				else str += " and status = '" + status_comBox.Text + "' ";
@@ -104,7 +104,7 @@ namespace smart_logistics_app.control
 			{
 				if(first)
 				{
-					str += " objVechicle = '" + deferVech() + " '";
+					str += "where  objVechicle = '" + deferVech() + " '";
 					first = false;
 				}
 				else str += " and objVechicle = '" + deferVech() + " '";
@@ -113,14 +113,14 @@ namespace smart_logistics_app.control
 			{
 				if(first)
 				{
-					str += " dest = '" + dest_comBox.Text + "'";
+					str += "where  dest = '" + dest_comBox.Text + "'";
 					first = false;
 				}
 				else str += " and dest = '" + dest_comBox.Text + "'";
 			}
 			m_form.queryGoods(str);
 			m_form.setStatus(formStatus.noneStaus);
-			this.Visible = false;
+			//this.Visible = false;
 		}
 
 		private string deferVech()

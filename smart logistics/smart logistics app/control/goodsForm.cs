@@ -175,6 +175,11 @@ namespace smart_logistics_app.control
 			load();
 		}
 
+		public void updateGoods(List<goods> li)
+		{
+			foreach (goods one in li) m_sql.updateGoods(one);
+			load();
+		}
 		public void updateGoods(goods one)
 		{
 			m_sql.updateGoods(one);
@@ -224,7 +229,12 @@ namespace smart_logistics_app.control
 			goodsQ.intoShow();
 			goSub();
 		}
-
+		private void 货物完成ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			m_status = formStatus.queryStatus;
+			goodsQ.intoShow();
+			goSub();
+		}
 		private void 货物信息ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			
@@ -232,18 +242,66 @@ namespace smart_logistics_app.control
 
 		private void 设为配送中ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-
+			List<goods> li = new List<goods>();
+			foreach (DataGridViewRow item in dataView.SelectedRows)
+			{
+				if (item.Index >= dataView.RowCount - 1) continue;
+				goods one = getGoodsfromView(item.Index);
+				if(one.status=="待配送")
+				{
+					one.status = "配送中";
+					li.Add(one);
+				}
+			}
+			updateGoods(li);
 		}
 
 		private void 设为完成ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-
+			List<goods> li = new List<goods>();
+			foreach (DataGridViewRow item in dataView.SelectedRows)
+			{
+				if (item.Index >= dataView.RowCount - 1) continue;
+				goods one = getGoodsfromView(item.Index);
+				if (one.status == "配送中")
+				{
+					one.status = "已送达";
+					one.finishTime = DateTime.Now.ToString("yyyy-MM-dd");
+					li.Add(one);
+				}
+			}
+			updateGoods(li);
 		}
 
 		private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-
+			if (m_status == formStatus.queryStatus) return;
+			DialogResult result = MessageBox.Show("确定删除选中的数据", "货物管理", MessageBoxButtons.OKCancel);
+			if (result == DialogResult.Cancel) return;
+			List<goods> li = new List<goods>();
+			foreach (DataGridViewRow item in dataView.SelectedRows)
+			{
+				if (item.Index >= dataView.RowCount - 1) continue;
+				goods one = getGoodsfromView(item.Index);
+				li.Add(one);
+			}
+			deleteGoods(li);
 		}
+
+		private void dataView_MouseClick(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Right)
+			{
+				help_menuStrip.Show();
+				help_menuStrip.Left = e.X+dataView.Left+20;
+				help_menuStrip.Top = e.Y+dataView.Top;
+			}
+		}
+
+		private void goodsForm_MouseClick(object sender, MouseEventArgs e)
+		{
+		}
+
 	}
 	public struct goods
 	{

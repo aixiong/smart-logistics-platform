@@ -221,8 +221,8 @@ namespace smart_logistics_app.control
 				m_form.updateGoods(one);
 			}
 			m_form.setStatus(formStatus.noneStaus);
-			m_form.goFull();
-			this.Visible = false;
+			//m_form.goFull();
+			//this.Visible = false;
 		}
 
 		private void cal_button_Click(object sender, EventArgs e)
@@ -234,6 +234,7 @@ namespace smart_logistics_app.control
 		}
 		private string deferVech(string text)
 		{
+			if (text == "") return "";
 			string str = text;
 			int pos = str.IndexOf('(');
 			return str.Substring(0, pos);

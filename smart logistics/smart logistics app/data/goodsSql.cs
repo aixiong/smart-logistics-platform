@@ -29,7 +29,7 @@ namespace smart_logistics_app.data
 
 		public void updateGoods(goods one)
 		{
-			string str = "update global set  deadline ='" + one.deadline + "', status ='"+one.status + "', objVechicle =" + one.objVechicle + "', finishTime = '" +one.finishTime+ "' where number =" + "'" + one.number + "'";
+			string str = "update global set  deadline ='" + one.deadline + "', status ='"+one.status + "', objVechicle = '" + one.objVechicle + "', finishTime = '" +one.finishTime+ "' where number =" + "'" + one.number + "'";
 			excuteCommand(str);
 		}
 
