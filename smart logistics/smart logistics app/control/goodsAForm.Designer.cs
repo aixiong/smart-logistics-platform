@@ -43,11 +43,11 @@
 			this.finish_time = new System.Windows.Forms.DateTimePicker();
 			this.dest_comBox = new System.Windows.Forms.ComboBox();
 			this.status_comBox = new System.Windows.Forms.ComboBox();
-			this.vech_textBox = new System.Windows.Forms.TextBox();
 			this.cal_button = new System.Windows.Forms.Button();
 			this.ok_button = new System.Windows.Forms.Button();
 			this.addrM_button = new System.Windows.Forms.Button();
 			this.vechM_button = new System.Windows.Forms.Button();
+			this.vech_comBox = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// number_textBox
@@ -187,13 +187,6 @@
 			this.status_comBox.Size = new System.Drawing.Size(220, 23);
 			this.status_comBox.TabIndex = 20;
 			// 
-			// vech_textBox
-			// 
-			this.vech_textBox.Location = new System.Drawing.Point(544, 106);
-			this.vech_textBox.Name = "vech_textBox";
-			this.vech_textBox.Size = new System.Drawing.Size(219, 25);
-			this.vech_textBox.TabIndex = 21;
-			// 
 			// cal_button
 			// 
 			this.cal_button.BackgroundImage = global::smart_logistics_app.Properties.Resources.cancel;
@@ -231,7 +224,7 @@
 			this.addrM_button.Size = new System.Drawing.Size(27, 23);
 			this.addrM_button.TabIndex = 24;
 			this.addrM_button.UseVisualStyleBackColor = true;
-			this.addrM_button.Click += new System.EventHandler(this.addrM_button_Click);
+			//this.addrM_button.Click += new System.EventHandler(this.addrM_button_Click);
 			// 
 			// vechM_button
 			// 
@@ -244,16 +237,24 @@
 			this.vechM_button.Size = new System.Drawing.Size(27, 23);
 			this.vechM_button.TabIndex = 25;
 			this.vechM_button.UseVisualStyleBackColor = true;
-			this.vechM_button.Click += new System.EventHandler(this.vechM_button_Click);
+			//this.vechM_button.Click += new System.EventHandler(this.vechM_button_Click);
+			// 
+			// vech_comBox
+			// 
+			this.vech_comBox.FormattingEnabled = true;
+			this.vech_comBox.Location = new System.Drawing.Point(544, 111);
+			this.vech_comBox.Name = "vech_comBox";
+			this.vech_comBox.Size = new System.Drawing.Size(220, 23);
+			this.vech_comBox.TabIndex = 26;
 			// 
 			// goodsAForm
 			// 
 			this.ClientSize = new System.Drawing.Size(917, 187);
+			this.Controls.Add(this.vech_comBox);
 			this.Controls.Add(this.vechM_button);
 			this.Controls.Add(this.addrM_button);
 			this.Controls.Add(this.cal_button);
 			this.Controls.Add(this.ok_button);
-			this.Controls.Add(this.vech_textBox);
 			this.Controls.Add(this.status_comBox);
 			this.Controls.Add(this.dest_comBox);
 			this.Controls.Add(this.finish_time);
@@ -293,10 +294,10 @@
 		private System.Windows.Forms.DateTimePicker finish_time;
 		private System.Windows.Forms.ComboBox dest_comBox;
 		private System.Windows.Forms.ComboBox status_comBox;
-		private System.Windows.Forms.TextBox vech_textBox;
 		private System.Windows.Forms.Button cal_button;
 		private System.Windows.Forms.Button ok_button;
 		private System.Windows.Forms.Button addrM_button;
 		private System.Windows.Forms.Button vechM_button;
+		private System.Windows.Forms.ComboBox vech_comBox;
 	}
 }

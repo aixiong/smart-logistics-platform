@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.货物信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.货物查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,9 +50,15 @@
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.运行算法ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.help_menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.设为配送中ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.设为完成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
+			this.help_menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -61,7 +68,8 @@
             this.货物信息ToolStripMenuItem,
             this.货物查询ToolStripMenuItem,
             this.货物完成ToolStripMenuItem,
-            this.打印货单ToolStripMenuItem});
+            this.打印货单ToolStripMenuItem,
+            this.运行算法ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(903, 28);
@@ -225,6 +233,43 @@
 			this.Column7.HeaderText = "送达时间";
 			this.Column7.Name = "Column7";
 			// 
+			// 运行算法ToolStripMenuItem
+			// 
+			this.运行算法ToolStripMenuItem.Name = "运行算法ToolStripMenuItem";
+			this.运行算法ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+			this.运行算法ToolStripMenuItem.Text = "运行算法";
+			// 
+			// help_menuStrip
+			// 
+			this.help_menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.help_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设为配送中ToolStripMenuItem,
+            this.设为完成ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
+			this.help_menuStrip.Name = "help_menuStrip";
+			this.help_menuStrip.Size = new System.Drawing.Size(217, 110);
+			// 
+			// 设为配送中ToolStripMenuItem
+			// 
+			this.设为配送中ToolStripMenuItem.Name = "设为配送中ToolStripMenuItem";
+			this.设为配送中ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.设为配送中ToolStripMenuItem.Text = "设为配送中";
+			this.设为配送中ToolStripMenuItem.Click += new System.EventHandler(this.设为配送中ToolStripMenuItem_Click);
+			// 
+			// 设为完成ToolStripMenuItem
+			// 
+			this.设为完成ToolStripMenuItem.Name = "设为完成ToolStripMenuItem";
+			this.设为完成ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.设为完成ToolStripMenuItem.Text = "设为完成";
+			this.设为完成ToolStripMenuItem.Click += new System.EventHandler(this.设为完成ToolStripMenuItem_Click);
+			// 
+			// 删除ToolStripMenuItem
+			// 
+			this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+			this.删除ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.删除ToolStripMenuItem.Text = "删除";
+			this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+			// 
 			// goodsForm
 			// 
 			this.ClientSize = new System.Drawing.Size(903, 626);
@@ -240,6 +285,7 @@
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
+			this.help_menuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -268,5 +314,10 @@
 		private System.Windows.Forms.ToolStripMenuItem 打印ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem 打印设置ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem 打印ToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem 运行算法ToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip help_menuStrip;
+		private System.Windows.Forms.ToolStripMenuItem 设为配送中ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 设为完成ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
 	}
 }

@@ -49,12 +49,16 @@ namespace smart_logistics_app.control
 		
 		public void goSub()
 		{
-			if(m_status==formStatus.queryStatus)
+			if (m_status == formStatus.queryStatus)
 			{
+				goodsA.Visible = false;
 				dataView.Top = goodsQ.Bottom;
 			}
 			else
-			dataView.Top = goodsA.Bottom;
+			{
+				goodsQ.Visible = false;
+				dataView.Top = goodsA.Bottom;
+			}
 		}
 
 		public void load()
@@ -153,11 +157,16 @@ namespace smart_logistics_app.control
 		private void toolStripButton3_Click(object sender, EventArgs e)
 		{   //delete
 			if (m_status == formStatus.queryStatus) return;
-			DialogResult result = MessageBox.Show("确定删除该项数据", "货物管理", MessageBoxButtons.OKCancel);
+			DialogResult result = MessageBox.Show("确定删除选中的数据", "货物管理", MessageBoxButtons.OKCancel);
 			if (result == DialogResult.Cancel) return;
-			int index = dataView.CurrentRow.Index;
-			goods one = getGoodsfromView(index);
-			deleteGoods(one);
+			List<goods> li = new List<goods>();
+			foreach(DataGridViewRow item in dataView.SelectedRows)
+			{
+				if (item.Index >= dataView.RowCount-1) continue;
+				goods one = getGoodsfromView(item.Index);
+				li.Add(one);
+			}
+			deleteGoods(li);
 		}
 
 		public void insertGoods(goods one)
@@ -171,7 +180,12 @@ namespace smart_logistics_app.control
 			m_sql.updateGoods(one);
 			load();
 		}
-
+		
+		public void deleteGoods(List<goods> li)
+		{
+			foreach (goods one in li) m_sql.deleteGoods(one);
+			load();
+		}
 		public void deleteGoods(goods one)
 		{
 			m_sql.deleteGoods(one);
@@ -214,6 +228,21 @@ namespace smart_logistics_app.control
 		private void 货物信息ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			
+		}
+
+		private void 设为配送中ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void 设为完成ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 	public struct goods

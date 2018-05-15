@@ -197,7 +197,7 @@
 			this.cal_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.cal_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.cal_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.cal_button.Location = new System.Drawing.Point(694, 160);
+			this.cal_button.Location = new System.Drawing.Point(829, 109);
 			this.cal_button.Name = "cal_button";
 			this.cal_button.Size = new System.Drawing.Size(49, 39);
 			this.cal_button.TabIndex = 32;
@@ -210,7 +210,7 @@
 			this.ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ok_button.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.ok_button.Location = new System.Drawing.Point(625, 160);
+			this.ok_button.Location = new System.Drawing.Point(760, 109);
 			this.ok_button.Name = "ok_button";
 			this.ok_button.Size = new System.Drawing.Size(49, 39);
 			this.ok_button.TabIndex = 31;
@@ -221,7 +221,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 204);
+			this.ClientSize = new System.Drawing.Size(992, 160);
 			this.Controls.Add(this.cal_button);
 			this.Controls.Add(this.ok_button);
 			this.Controls.Add(this.dest_comBox);

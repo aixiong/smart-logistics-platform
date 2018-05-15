@@ -60,8 +60,10 @@ namespace smart_logistics_app.control
 			status_comBox.Items.Add(one.status);
 			status_comBox.SelectedIndex = 0;
 
-			vech_textBox.ReadOnly = true;
-			vech_textBox.Text = one.objVechicle;
+			vech_comBox.Enabled = false;
+			vech_comBox.Items.Clear();
+			vech_comBox.Items.Add(one.objVechicle);
+			vech_comBox.SelectedIndex = 0;
 
 			finish_time.Enabled = false;
 			finish_time.Value = Convert.ToDateTime(one.finishTime);
@@ -102,8 +104,10 @@ namespace smart_logistics_app.control
 				}
 			}
 
-			vech_textBox.ReadOnly = true;
-			vech_textBox.Text ="";
+			vech_comBox.Enabled = true;
+			loadVech();
+			vech_comBox.Items.Add("");
+			vech_comBox.SelectedIndex = vech_comBox.Items.Count - 1;
 
 			finish_time.Enabled = true;
 			finish_time.Value = DateTime.Now;
@@ -123,6 +127,16 @@ namespace smart_logistics_app.control
 			}
 		}
 
+		private void loadVech()
+		{
+			vechSql one = new vechSql("D:\\vechicle.sqlite");
+			List<string> li = one.getAllVechName();
+			vech_comBox.Items.Clear();
+			foreach(var item in li)
+			{
+				vech_comBox.Items.Add(item.ToString());
+			}
+		}
 		private void loadStatus()
 		{
 			status_comBox.Items.Clear();
@@ -170,8 +184,16 @@ namespace smart_logistics_app.control
 				}
 			}
 
-			vech_textBox.ReadOnly = false;
-			vech_textBox.Text = one.objVechicle;
+			vech_comBox.Enabled = true;
+			loadVech();
+			for(int i=0;i<vech_comBox.Items.Count;++i)
+			{
+				if(deferVech(vech_comBox.Items[i].ToString())==one.objVechicle)
+				{
+					vech_comBox.SelectedIndex = i;
+					break;
+				}
+			}
 
 			finish_time.Enabled =true;
 			finish_time.Value = Convert.ToDateTime(one.finishTime);
@@ -187,7 +209,7 @@ namespace smart_logistics_app.control
 			one.dest = dest_comBox.Text;
 			one.arriveTime = arrive_time.Value.ToString("yyyy-MM-dd");
 			one.deadline = dead_time.Value.ToString("yyyy-MM-dd");
-			one.objVechicle = vech_textBox.Text;
+			one.objVechicle =deferVech(vech_comBox.Text);
 			one.status = status_comBox.Text;
 			one.finishTime = finish_time.Value.ToString("yyyy-MM-dd");
 			if (m_status==Status.addStatus)
@@ -210,15 +232,11 @@ namespace smart_logistics_app.control
 			m_status = Status.showStatus;
 			m_form.goFull();
 		}
-
-		private void addrM_button_Click(object sender, EventArgs e)
+		private string deferVech(string text)
 		{
-
-		}
-
-		private void vechM_button_Click(object sender, EventArgs e)
-		{
-
+			string str = text;
+			int pos = str.IndexOf('(');
+			return str.Substring(0, pos);
 		}
 	}
 }
