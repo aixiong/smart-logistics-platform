@@ -217,7 +217,7 @@ namespace smart_logistics_app
 		}
 		
 	}
-	public class address
+	public struct address
 	{
 		public string name;
 		public PointLatLng pos;
