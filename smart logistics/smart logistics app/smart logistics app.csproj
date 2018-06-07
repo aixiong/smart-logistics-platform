@@ -121,6 +121,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="control\addrAnalyser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\addrAnalyser.Designer.cs">
+      <DependentUpon>addrAnalyser.cs</DependentUpon>
+    </Compile>
     <Compile Include="control\addrForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,12 @@
     <Compile Include="data\vechSql.cs" />
     <Compile Include="map\AmapProvider.cs" />
     <Compile Include="map\geoInfo.cs" />
+    <Compile Include="map\mapControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="map\mapControl.Designer.cs">
+      <DependentUpon>mapControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="map\mapForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +199,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="control\addrAnalyser.resx">
+      <DependentUpon>addrAnalyser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="control\addrForm.resx">
       <DependentUpon>addrForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="control\vechSubFormD.resx">
       <DependentUpon>vechSubFormD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="map\mapControl.resx">
+      <DependentUpon>mapControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="map\mapForm.resx">
       <DependentUpon>mapForm.cs</DependentUpon>

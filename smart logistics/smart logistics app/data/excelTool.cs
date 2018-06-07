@@ -64,8 +64,9 @@ namespace smart_logistics_app.data
 		}
 	}
 
-	struct Item
+    class Item
 	{
+		public int index;
 		public string name;
 		public int number;
 		public string info;
@@ -76,4 +77,8 @@ namespace smart_logistics_app.data
 		public string remark;
 		public string source;
 	}
+	enum itemProperty
+	{
+		index,name,number,info,phone,Destaddr,time,sign,remark,source
+	};
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using smart_logistics_app.control;
 using smart_logistics_app.data;
+using smart_logistics_app.map;
 
 namespace smart_logistics_app
 {
@@ -18,7 +19,7 @@ namespace smart_logistics_app
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new listForm());
+			Application.Run(new mapControl());
 			//ExcelTool tool = new ExcelTool("D:\\2018.4.6周五分享、中农配送清单.xls");
 			//string one=tool.ReadData(1, 1);
 

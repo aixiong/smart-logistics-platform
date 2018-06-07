@@ -28,9 +28,11 @@ namespace smart_logistics_app.data
 
 				Item one = new Item();
 				one.name=m_tool.ReadData(r, 2);
-				if(m_tool.ReadData(r,3)!="")one.number = Convert.ToInt32(m_tool.ReadData(r, 3));
+				if (m_tool.ReadData(r, 3) != "") one.number = Convert.ToInt32(m_tool.ReadData(r, 3));
+				else one.number = 1;
 				one.info = m_tool.ReadData(r, 4);
 				one.phone = m_tool.ReadData(r, 5);
+				one.Destaddr = new address();
 				one.Destaddr.name = m_tool.ReadData(r, 6);
 				one.time = m_tool.ReadData(r, 7);
 				one.sign = m_tool.ReadData(r, 8);

@@ -41,6 +41,7 @@ namespace smart_logistics_app
 			TopLevel = false;
 			this.Parent = m_form;
 			this.FormBorderStyle = FormBorderStyle.None;
+			
 			resize();
 			initMap();
 			this.Controls.Add(m_map);

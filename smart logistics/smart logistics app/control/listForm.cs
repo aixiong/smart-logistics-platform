@@ -34,15 +34,16 @@ namespace smart_logistics_app.control
 		{
 			int cnt =dataView.Columns.Count;
 			if (cnt == 0) return;
-			dataView.Columns[0].Width = 1 * dataView.Width / 24;
-			dataView.Columns[1].Width = 1 * dataView.Width / 24;
-			dataView.Columns[2].Width = 5 * dataView.Width / 24;
-			dataView.Columns[3].Width = 3 * dataView.Width / 24;
-			dataView.Columns[4].Width = 4 * dataView.Width / 24;
-			dataView.Columns[5].Width = 2 * dataView.Width / 24;
-			dataView.Columns[6].Width = 2 * dataView.Width / 24;
-			dataView.Columns[7].Width = 3 * dataView.Width / 24;
-			dataView.Columns[8].Width = 3 * dataView.Width / 24;
+			dataView.Columns[0].Width = 1 * dataView.Width / 25;
+			dataView.Columns[1].Width = 1 * dataView.Width / 25;
+			dataView.Columns[2].Width = 1 * dataView.Width / 25;
+			dataView.Columns[3].Width = 5 * dataView.Width / 25;
+			dataView.Columns[4].Width = 3 * dataView.Width / 25;
+			dataView.Columns[5].Width = 4 * dataView.Width / 25;
+			dataView.Columns[6].Width = 2 * dataView.Width / 25;
+			dataView.Columns[7].Width = 2 * dataView.Width / 25;
+			dataView.Columns[8].Width = 3 * dataView.Width / 25;
+			dataView.Columns[9].Width = 3 * dataView.Width / 25;
 		}
 
 		private void dataGrid_Resize(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace smart_logistics_app.control
 		private void resize()
 		{
 			dataView.Top = menuStrip1.Bottom;
-			dataView.Height = this.Height - menuStrip1.Height-status_Strip.Height-10;
+			dataView.Height = this.Height - menuStrip1.Height-status_Strip.Height-20;
 		}
 		private void listForm_Resize(object sender, EventArgs e)
 		{
@@ -64,19 +65,27 @@ namespace smart_logistics_app.control
 
 		private void addItems(List<Item> items)
 		{
-			m_items.AddRange(items);
-			foreach(var c in items)
+
+			int newIndex = m_items.Count;
+			foreach(Item one in items)
+			{
+				Item newOne = one;
+				newOne.index = newIndex++;
+				m_items.Add(newOne);
+			}
+			foreach(var c in m_items)
 			{
 				int index = dataView.Rows.Add();
-				dataView.Rows[index].Cells[0].Value = c.name;
-				dataView.Rows[index].Cells[1].Value = c.number;
-				dataView.Rows[index].Cells[2].Value = c.info;
-				dataView.Rows[index].Cells[3].Value = c.phone;
-				dataView.Rows[index].Cells[4].Value = c.Destaddr.name;
-				dataView.Rows[index].Cells[5].Value = c.time;
-				dataView.Rows[index].Cells[6].Value = c.sign;
-				dataView.Rows[index].Cells[7].Value = c.remark;
-				dataView.Rows[index].Cells[8].Value = c.source;
+				dataView.Rows[index].Cells[0].Value = c.index;
+				dataView.Rows[index].Cells[1].Value = c.name;
+				dataView.Rows[index].Cells[2].Value = c.number;
+				dataView.Rows[index].Cells[3].Value = c.info;
+				dataView.Rows[index].Cells[4].Value = c.phone;
+				dataView.Rows[index].Cells[5].Value = c.Destaddr.name;
+				dataView.Rows[index].Cells[6].Value = c.time;
+				dataView.Rows[index].Cells[7].Value = c.sign;
+				dataView.Rows[index].Cells[8].Value = c.remark;
+				dataView.Rows[index].Cells[9].Value = c.source;
 			}
 		}
 
@@ -104,6 +113,51 @@ namespace smart_logistics_app.control
 			status_Label1.Text = message;
 		}
 		private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		{
+
+		}
+
+		string old_value;
+		private void dataView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+		{
+			old_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+		}
+
+		private void dataView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			string new_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+			if (new_value != old_value)
+			{
+				if (DialogResult.OK == MessageBox.Show("是否保存更改: " + old_value + " -> " + new_value, "表单管理", MessageBoxButtons.OKCancel))
+				{
+					int index =(int)dataView.Rows[e.RowIndex].Cells[0].Value;
+					updateItems(index, e.ColumnIndex, new_value);
+				}
+				else
+				{
+					dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = old_value;
+				}
+			}
+		}
+
+		void updateItems(int index,int property,string val)
+		{
+			switch (property)
+			{
+				case 1: m_items[index].name = val; break;
+				case 2: m_items[index].number =Convert.ToInt32(val); break;
+				case 3:m_items[index].info = val;break;
+				case 4:m_items[index].phone = val;break;
+				case 5:m_items[index].Destaddr.name = val;break;
+				case 6:m_items[index].time = val;break;
+				case 7:m_items[index].sign = val;break;
+				case 8:m_items[index].remark = val;break;
+				case 9:m_items[index].source = val;break;
+			}
+
+		}
+
+		private void 分析地址ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
 		}
