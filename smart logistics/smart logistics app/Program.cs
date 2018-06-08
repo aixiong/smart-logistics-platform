@@ -19,7 +19,7 @@ namespace smart_logistics_app
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new mapControl());
+			Application.Run(new listForm());
 			//ExcelTool tool = new ExcelTool("D:\\2018.4.6周五分享、中农配送清单.xls");
 			//string one=tool.ReadData(1, 1);
 

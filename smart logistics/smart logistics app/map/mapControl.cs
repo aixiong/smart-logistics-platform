@@ -17,16 +17,11 @@ namespace smart_logistics_app.map
 {
 	public partial class mapControl : Form
 	{
-		//public mapControl(addrAnalyser form)
-		//{
-		//	InitializeComponent();
-		//	m_form = form;
-		//	initAll();
-		//}
-		public mapControl()
+		public mapControl(addrAnalyser form)
 		{
 			InitializeComponent();
-			initMap();
+			m_form = form;
+			initAll();
 		}
 
 		private void initAll()

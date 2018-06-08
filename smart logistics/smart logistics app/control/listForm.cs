@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using smart_logistics_app.data;
+using GMap.NET;
 
 namespace smart_logistics_app.control
 {
 	public partial class listForm : Form
 	{
+		//data 
+		private List<Item> m_items;
 		public listForm()
 		{
 			InitializeComponent();
@@ -89,10 +92,6 @@ namespace smart_logistics_app.control
 			}
 		}
 
-		
-		//data 
-		private List<Item> m_items;
-
 		private void 加载文件ToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog handle = new OpenFileDialog();
@@ -158,6 +157,27 @@ namespace smart_logistics_app.control
 		}
 
 		private void 分析地址ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			addrAnalyser analyser = new addrAnalyser(this);
+			analyser.Show();
+		}
+
+		public List<address> GetAddresses()
+		{
+			List<address> li = new List<address>();
+			foreach(var c in m_items)
+			{ 
+				li.Add(c.Destaddr);
+			}
+			return li;
+		}
+
+		public void setAddress(int index,PointLatLng p)
+		{
+			
+		}
+
+		public void refreshAddr()
 		{
 
 		}
