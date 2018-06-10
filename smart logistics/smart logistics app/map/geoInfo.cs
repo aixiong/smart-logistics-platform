@@ -49,32 +49,52 @@ namespace smart_logistics_app.map
 		public static point getPointByName(string name)
 		{
 			point p = new point();
-			modifiedPoint mp = new modifiedPoint();
-			mp.str = name;
-			Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
-			t.Wait(2000);
-			if (t.IsCompleted)
+			try
 			{
+				//modifiedPoint mp = new modifiedPoint();
+				//mp.str = name;
+				//Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
+				//t.Wait(2000);
+				//if (t.IsCompleted)
+				//{
+				//	p.lat = mp.lat;
+				//	p.lon = mp.lon;
+				//}
+				//else p.lat = p.lon = -1;
+				modifiedPoint mp = new modifiedPoint();
+				mp.str = name;
+				Amap.getPointByName(ref mp);
 				p.lat = mp.lat;
 				p.lon = mp.lon;
 			}
-			else p.lat = p.lon = -1;
+			catch (Exception)
+			{
+				return p;
+			}
 			return p;
 		}
 		public static route getRoute(point from, point to)
 		{
 			route r = new route();
-			modifiedRoute mr = new modifiedRoute();
-			mr.from = from;
-			mr.to = to;
-			Task t = Task.Factory.StartNew(delegate { Amap.getRoute(ref mr); });
-			t.Wait(2000);
-			if (t.IsCompleted)
+			try
 			{
-				r.distance = mr.distance;
-				r.duration = mr.duration;
+				modifiedRoute mr = new modifiedRoute();
+				mr.from = from;
+				mr.to = to;
+				Task t = Task.Factory.StartNew(delegate { Amap.getRoute(ref mr); });
+				t.Wait(2000);
+				if (t.IsCompleted)
+				{
+					r.distance = mr.distance;
+					r.duration = mr.duration;
+				}
+				else r.distance = r.duration = -1;
 			}
-			else r.distance = r.duration = -1;
+			catch(Exception)
+			{
+				r.distance = 0;
+				r.duration = 0;
+			}
 			return r;
 		}
 	}

@@ -47,6 +47,16 @@ namespace smart_logistics_app.map
 			okButton.Visible = false;
 			cacelButton.Visible = false;
 			this.Controls.Add(m_map);
+			m_map.MouseClick += M_map_MouseClick;
+		}
+
+		public void centerAt(address addr)
+		{
+			addrText.Text = addr.name;
+			if(addr.pos.Lat!=0 && addr.pos.Lng!=0)
+			{
+				addMarker(addr.pos, addr.name,markerType.center);
+			}
 		}
 
 
@@ -59,18 +69,15 @@ namespace smart_logistics_app.map
 				{
 					PointLatLng p = m_map.FromLocalToLatLng(e.X, e.Y);
 					if(oldMarker!=null)removeMarker(oldMarker);
-					addMarker(p);
+					addMarker(p,addrText.Text,markerType.destination);
 					okButton.Visible = true;
 					cacelButton.Visible =true;
 				}
 			}
 		}
 
-		private void addMarker(PointLatLng point,markerType type=markerType.destination)
-		{
-			GMapMarker marker =new GMarkerGoogle(point, GMarkerGoogleType.yellow);
-			markersOverlay.Markers.Add(marker);
-		}
+
+		
 
 		private void removeMarker(GMapMarker marker)
 		{
@@ -84,5 +91,76 @@ namespace smart_logistics_app.map
 		private GMapOverlay markersOverlay = new GMapOverlay("markers");
 
 		private MarkerTooltipMode mode = MarkerTooltipMode.OnMouseOver;
+		private GMapMarker center;
+		private GMapMarker dest;
+
+		private void addMarker(PointLatLng p, string name, markerType type)
+		{
+			if(type==markerType.center)
+			{
+				if (center == null)
+				{
+					center = new GMarkerGoogle(p, GMarkerGoogleType.green_pushpin);
+					center.ToolTipText = name;
+					center.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+					markersOverlay.Markers.Add(center);
+				}
+				else
+				{
+					center.Position = p;
+					center.ToolTipText = name;
+				}
+				m_map.Position = center.Position;
+			}
+			else if(type==markerType.destination)
+			{
+				if (dest == null)
+				{
+					dest = new GMarkerGoogle(p, GMarkerGoogleType.green);
+					dest.ToolTipText = name;
+					dest.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+					markersOverlay.Markers.Add(dest);
+				}
+				else
+				{
+					dest.Position = p;
+					dest.ToolTipText = name;
+				}
+			}
+		}
+
+		private void addrButton_Click(object sender, EventArgs e)
+		{
+			if (addrText.Text == "") return;
+			PointLatLng p = m_form.querySqlite(addrText.Text);
+			if (p.Lat != 0 && p.Lng != 0)
+			{
+				addMarker(p, addrText.Text, markerType.center);
+			}
+			else
+			{
+				point p1 = geoInfo.getPointByName(addrText.Text);
+				if (p1.lat >= 39 && p1.lat <= 42 && p1.lon >= 115 && p1.lon <= 118)
+				{
+					m_map.Position = new PointLatLng(p1.lat, p1.lon);
+					addMarker(m_map.Position, addrText.Text, markerType.center);
+				}
+			}
+
+		}
+
+		private void okButton_Click(object sender, EventArgs e)
+		{
+			m_form.updateAddress(dest.Position);
+			okButton.Visible = false;
+			cacelButton.Visible = false;
+		}
+
+		private void cacelButton_Click(object sender, EventArgs e)
+		{
+			okButton.Visible = false;
+			cacelButton.Visible = false;
+			removeMarker(dest);
+		}
 	}
 }

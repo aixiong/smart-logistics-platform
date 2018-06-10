@@ -119,23 +119,36 @@ namespace smart_logistics_app.control
 		string old_value;
 		private void dataView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
 		{
-			old_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+			try
+			{
+				old_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+			}
+			catch(Exception)
+			{
+			}
 		}
 
 		private void dataView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
-			string new_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-			if (new_value != old_value)
+			try
 			{
-				if (DialogResult.OK == MessageBox.Show("是否保存更改: " + old_value + " -> " + new_value, "表单管理", MessageBoxButtons.OKCancel))
+				string new_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+				if (new_value != old_value)
 				{
-					int index =(int)dataView.Rows[e.RowIndex].Cells[0].Value;
-					updateItems(index, e.ColumnIndex, new_value);
+					if (DialogResult.OK == MessageBox.Show("是否保存更改: " + old_value + " -> " + new_value, "表单管理", MessageBoxButtons.OKCancel))
+					{
+						int index = (int)dataView.Rows[e.RowIndex].Cells[0].Value;
+						updateItems(index, e.ColumnIndex, new_value);
+					}
+					else
+					{
+						dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = old_value;
+					}
 				}
-				else
-				{
-					dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = old_value;
-				}
+			}
+			catch (Exception)
+			{
+				return;
 			}
 		}
 
@@ -180,6 +193,12 @@ namespace smart_logistics_app.control
 		public void refreshAddr()
 		{
 
+		}
+
+		private void 清空表单ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			dataView.Rows.Clear();
+			m_items.Clear();
 		}
 	}
 }

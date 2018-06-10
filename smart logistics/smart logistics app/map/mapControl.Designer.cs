@@ -47,6 +47,7 @@
 			this.cacelButton.Size = new System.Drawing.Size(66, 49);
 			this.cacelButton.TabIndex = 8;
 			this.cacelButton.UseVisualStyleBackColor = false;
+			this.cacelButton.Click += new System.EventHandler(this.cacelButton_Click);
 			// 
 			// okButton
 			// 
@@ -60,6 +61,7 @@
 			this.okButton.Size = new System.Drawing.Size(66, 49);
 			this.okButton.TabIndex = 7;
 			this.okButton.UseVisualStyleBackColor = false;
+			this.okButton.Click += new System.EventHandler(this.okButton_Click);
 			// 
 			// addrButton
 			// 
@@ -68,11 +70,12 @@
 			this.addrButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.addrButton.FlatAppearance.BorderSize = 0;
 			this.addrButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.addrButton.Location = new System.Drawing.Point(452, 11);
+			this.addrButton.Location = new System.Drawing.Point(439, 13);
 			this.addrButton.Name = "addrButton";
 			this.addrButton.Size = new System.Drawing.Size(70, 49);
 			this.addrButton.TabIndex = 6;
 			this.addrButton.UseVisualStyleBackColor = true;
+			this.addrButton.Click += new System.EventHandler(this.addrButton_Click);
 			// 
 			// addrText
 			// 
@@ -80,7 +83,7 @@
 			this.addrText.Location = new System.Drawing.Point(8, 13);
 			this.addrText.Multiline = true;
 			this.addrText.Name = "addrText";
-			this.addrText.Size = new System.Drawing.Size(425, 47);
+			this.addrText.Size = new System.Drawing.Size(425, 62);
 			this.addrText.TabIndex = 5;
 			// 
 			// mapControl

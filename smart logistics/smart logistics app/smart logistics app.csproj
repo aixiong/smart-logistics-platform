@@ -176,6 +176,7 @@
       <DependentUpon>vechSubFormD.cs</DependentUpon>
     </Compile>
     <Compile Include="data\addrSql.cs" />
+    <Compile Include="data\addrTool.cs" />
     <Compile Include="data\DGVPrinter.cs" />
     <Compile Include="data\dirReader.cs" />
     <Compile Include="data\excelTool.cs" />
