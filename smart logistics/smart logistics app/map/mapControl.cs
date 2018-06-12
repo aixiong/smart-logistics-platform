@@ -68,7 +68,6 @@ namespace smart_logistics_app.map
 				if(m_form.addSelected())
 				{
 					PointLatLng p = m_map.FromLocalToLatLng(e.X, e.Y);
-					if(oldMarker!=null)removeMarker(oldMarker);
 					addMarker(p,addrText.Text,markerType.destination);
 					okButton.Visible = true;
 					cacelButton.Visible =true;
@@ -79,7 +78,7 @@ namespace smart_logistics_app.map
 
 		
 
-		private void removeMarker(GMapMarker marker)
+		private void removeMarker(ref GMapMarker marker)
 		{
 			markersOverlay.Markers.Remove(marker);
 			marker = null;
@@ -94,6 +93,24 @@ namespace smart_logistics_app.map
 		private GMapMarker center;
 		private GMapMarker dest;
 
+		public void clearMarkers()
+		{
+			markersOverlay.Markers.Clear();
+			center = null;
+			dest = null;
+			m_map.Refresh();
+		}
+		public void addMarker(address one)
+		{
+			if(one.pos.Lat!=0 && one.pos.Lng!=0)
+			{
+				GMarkerGoogle tmp = new GMarkerGoogle(one.pos, GMarkerGoogleType.green);
+				tmp.ToolTipText = one.name;
+				tmp.ToolTipMode = mode;
+				markersOverlay.Markers.Add(tmp);
+			}
+		}
+
 		private void addMarker(PointLatLng p, string name, markerType type)
 		{
 			if(type==markerType.center)
@@ -102,7 +119,7 @@ namespace smart_logistics_app.map
 				{
 					center = new GMarkerGoogle(p, GMarkerGoogleType.green_pushpin);
 					center.ToolTipText = name;
-					center.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+					center.ToolTipMode = mode;
 					markersOverlay.Markers.Add(center);
 				}
 				else
@@ -116,9 +133,9 @@ namespace smart_logistics_app.map
 			{
 				if (dest == null)
 				{
-					dest = new GMarkerGoogle(p, GMarkerGoogleType.green);
+					dest = new GMarkerGoogle(p, GMarkerGoogleType.blue);
 					dest.ToolTipText = name;
-					dest.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+					dest.ToolTipMode = mode;
 					markersOverlay.Markers.Add(dest);
 				}
 				else
@@ -160,7 +177,18 @@ namespace smart_logistics_app.map
 		{
 			okButton.Visible = false;
 			cacelButton.Visible = false;
-			removeMarker(dest);
+			removeMarker(ref dest);
 		}
+
+		public void setMarkTooltipMode(MarkerTooltipMode type)
+		{
+			mode = type;
+			foreach (var item in markersOverlay.Markers)
+			{
+				item.ToolTipMode = mode;
+			}
+		}
+
+		
 	}
 }

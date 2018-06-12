@@ -28,8 +28,8 @@ namespace smart_logistics_app.data
 
 				Item one = new Item();
 				one.name=m_tool.ReadData(r, 2);
-				if (m_tool.ReadData(r, 3) != "") one.number = Convert.ToInt32(m_tool.ReadData(r, 3));
-				else one.number = 1;
+				if (m_tool.ReadData(r, 3) != "")
+					one.number = strToInt(m_tool.ReadData(r, 3));
 				one.info = m_tool.ReadData(r, 4);
 				one.phone = m_tool.ReadData(r, 5);
 				one.Destaddr = new address();
@@ -43,6 +43,20 @@ namespace smart_logistics_app.data
 			return li;
 		}
 	
+		private int strToInt(string str)
+		{
+			int n;
+			try
+			{
+				n = Convert.ToInt32(str);
+			}
+			catch(Exception)
+			{
+				return 1;
+			}
+			return n;
+		}
 		private ExcelTool m_tool;
+
 	}
 }

@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dataView = new System.Windows.Forms.DataGridView();
 			this.index_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.name_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +53,10 @@
 			this.导出ExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.status_Strip = new System.Windows.Forms.StatusStrip();
 			this.status_Label1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.车辆设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.装载箱设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			this.status_Strip.SuspendLayout();
@@ -76,14 +80,14 @@
             this.client_column,
             this.remark_column,
             this.source_column});
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataView.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dataView.Location = new System.Drawing.Point(4, 49);
 			this.dataView.Name = "dataView";
 			this.dataView.RowTemplate.Height = 27;
@@ -150,7 +154,8 @@
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.加载文件ToolStripMenuItem,
             this.加载文件夹ToolStripMenuItem,
-            this.数据ToolStripMenuItem});
+            this.数据ToolStripMenuItem,
+            this.设置ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(1119, 28);
@@ -170,20 +175,20 @@
 			// 加载文件ToolStripMenuItem1
 			// 
 			this.加载文件ToolStripMenuItem1.Name = "加载文件ToolStripMenuItem1";
-			this.加载文件ToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
+			this.加载文件ToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
 			this.加载文件ToolStripMenuItem1.Text = "加载文件";
 			this.加载文件ToolStripMenuItem1.Click += new System.EventHandler(this.加载文件ToolStripMenuItem1_Click);
 			// 
 			// 加载文件夹ToolStripMenuItem1
 			// 
 			this.加载文件夹ToolStripMenuItem1.Name = "加载文件夹ToolStripMenuItem1";
-			this.加载文件夹ToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
+			this.加载文件夹ToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
 			this.加载文件夹ToolStripMenuItem1.Text = "加载文件夹";
 			// 
 			// 清空表单ToolStripMenuItem
 			// 
 			this.清空表单ToolStripMenuItem.Name = "清空表单ToolStripMenuItem";
-			this.清空表单ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+			this.清空表单ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
 			this.清空表单ToolStripMenuItem.Text = "清空表单";
 			this.清空表单ToolStripMenuItem.Click += new System.EventHandler(this.清空表单ToolStripMenuItem_Click);
 			// 
@@ -199,13 +204,13 @@
 			// 分析表单ToolStripMenuItem
 			// 
 			this.分析表单ToolStripMenuItem.Name = "分析表单ToolStripMenuItem";
-			this.分析表单ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+			this.分析表单ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
 			this.分析表单ToolStripMenuItem.Text = "分析表单";
 			// 
 			// 分析地址ToolStripMenuItem
 			// 
 			this.分析地址ToolStripMenuItem.Name = "分析地址ToolStripMenuItem";
-			this.分析地址ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+			this.分析地址ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
 			this.分析地址ToolStripMenuItem.Text = "分析地址";
 			this.分析地址ToolStripMenuItem.Click += new System.EventHandler(this.分析地址ToolStripMenuItem_Click);
 			// 
@@ -221,13 +226,13 @@
 			// 保存至数据库ToolStripMenuItem
 			// 
 			this.保存至数据库ToolStripMenuItem.Name = "保存至数据库ToolStripMenuItem";
-			this.保存至数据库ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+			this.保存至数据库ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
 			this.保存至数据库ToolStripMenuItem.Text = "保存至数据库";
 			// 
 			// 导出ExcelToolStripMenuItem
 			// 
 			this.导出ExcelToolStripMenuItem.Name = "导出ExcelToolStripMenuItem";
-			this.导出ExcelToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+			this.导出ExcelToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
 			this.导出ExcelToolStripMenuItem.Text = "导出Excel";
 			// 
 			// status_Strip
@@ -248,6 +253,35 @@
 			this.status_Label1.Name = "status_Label1";
 			this.status_Label1.Size = new System.Drawing.Size(39, 20);
 			this.status_Label1.Text = "状态";
+			// 
+			// 设置ToolStripMenuItem
+			// 
+			this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.系统设置ToolStripMenuItem,
+            this.车辆设置ToolStripMenuItem,
+            this.装载箱设置ToolStripMenuItem});
+			this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+			this.设置ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+			this.设置ToolStripMenuItem.Text = "设置";
+			// 
+			// 系统设置ToolStripMenuItem
+			// 
+			this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
+			this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.系统设置ToolStripMenuItem.Text = "系统设置";
+			this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
+			// 
+			// 车辆设置ToolStripMenuItem
+			// 
+			this.车辆设置ToolStripMenuItem.Name = "车辆设置ToolStripMenuItem";
+			this.车辆设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.车辆设置ToolStripMenuItem.Text = "车辆设置";
+			// 
+			// 装载箱设置ToolStripMenuItem
+			// 
+			this.装载箱设置ToolStripMenuItem.Name = "装载箱设置ToolStripMenuItem";
+			this.装载箱设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.装载箱设置ToolStripMenuItem.Text = "装载箱设置";
 			// 
 			// listForm
 			// 
@@ -298,5 +332,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn remark_column;
 		private System.Windows.Forms.DataGridViewTextBoxColumn source_column;
 		private System.Windows.Forms.ToolStripMenuItem 清空表单ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 车辆设置ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 装载箱设置ToolStripMenuItem;
 	}
 }

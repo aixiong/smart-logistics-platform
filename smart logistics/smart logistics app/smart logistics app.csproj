@@ -133,6 +133,12 @@
     <Compile Include="control\addrForm.Designer.cs">
       <DependentUpon>addrForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="control\envForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\envForm.Designer.cs">
+      <DependentUpon>envForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="control\goodsAForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,7 @@
     <Compile Include="data\addrTool.cs" />
     <Compile Include="data\DGVPrinter.cs" />
     <Compile Include="data\dirReader.cs" />
+    <Compile Include="data\envTool.cs" />
     <Compile Include="data\excelTool.cs" />
     <Compile Include="data\fileReader.cs" />
     <Compile Include="data\goodsSql.cs" />
@@ -205,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="control\addrForm.resx">
       <DependentUpon>addrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\envForm.resx">
+      <DependentUpon>envForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="control\goodsAForm.resx">
       <DependentUpon>goodsAForm.cs</DependentUpon>

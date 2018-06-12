@@ -48,54 +48,71 @@ namespace smart_logistics_app.map
 	{
 		public static point getPointByName(string name)
 		{
+			name = extractAddress(name);
 			point p = new point();
+			p.lat = 0;
+			p.lon = 0;
+			modifiedPoint mp = new modifiedPoint();
+			mp.str = name;
+			Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
 			try
 			{
-				//modifiedPoint mp = new modifiedPoint();
-				//mp.str = name;
-				//Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
-				//t.Wait(2000);
-				//if (t.IsCompleted)
-				//{
-				//	p.lat = mp.lat;
-				//	p.lon = mp.lon;
-				//}
-				//else p.lat = p.lon = -1;
-				modifiedPoint mp = new modifiedPoint();
-				mp.str = name;
-				Amap.getPointByName(ref mp);
-				p.lat = mp.lat;
-				p.lon = mp.lon;
+				t.Wait(400);
+				if (t.IsCompleted)
+				{
+					p.lat = mp.lat;
+					p.lon = mp.lon;
+				}
 			}
 			catch (Exception)
 			{
 				return p;
+			}
+			finally
+			{
+				GC.Collect();
 			}
 			return p;
 		}
 		public static route getRoute(point from, point to)
 		{
 			route r = new route();
+			r.duration = r.distance = 0;
+			modifiedRoute mr = new modifiedRoute();
+			mr.from = from;
+			mr.to = to;
+			Task t = Task.Factory.StartNew(delegate { Amap.getRoute(ref mr); });
 			try
 			{
-				modifiedRoute mr = new modifiedRoute();
-				mr.from = from;
-				mr.to = to;
-				Task t = Task.Factory.StartNew(delegate { Amap.getRoute(ref mr); });
-				t.Wait(2000);
+				t.Wait(500);
 				if (t.IsCompleted)
 				{
 					r.distance = mr.distance;
 					r.duration = mr.duration;
 				}
-				else r.distance = r.duration = -1;
 			}
 			catch(Exception)
 			{
-				r.distance = 0;
-				r.duration = 0;
+				return r;
+			}
+			finally
+			{
+				GC.Collect();
 			}
 			return r;
+		}
+
+		private static string extractAddress(string name)
+		{
+			string str = "北京市";
+			foreach (var c in name)
+			{
+				if (c != ' ' && c != '(' && c != ')' && c != ',' && c != '#')
+				{
+					str += c;
+				}
+			}
+			return str;
 		}
 	}
 }

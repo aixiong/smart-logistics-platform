@@ -33,3 +33,4 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.listForm.resources
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.addrAnalyser.resources
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.map.mapControl.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.envForm.resources

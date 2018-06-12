@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.dataView = new System.Windows.Forms.DataGridView();
 			this.index_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +45,10 @@
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.status_strip = new System.Windows.Forms.ToolStripStatusLabel();
 			this.status_progress = new System.Windows.Forms.ToolStripProgressBar();
+			this.图标名称ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.掠过时显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.始终显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.始终隐藏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
 			this.menuStrip1.SuspendLayout();
@@ -71,14 +75,14 @@
             this.addrName,
             this.latitude,
             this.longitude});
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataView.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataView.DefaultCellStyle = dataGridViewCellStyle5;
 			this.dataView.Location = new System.Drawing.Point(0, 0);
 			this.dataView.Name = "dataView";
 			this.dataView.RowTemplate.Height = 27;
@@ -135,7 +139,8 @@
 			// 显示ToolStripMenuItem
 			// 
 			this.显示ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.显示所有目标点ToolStripMenuItem});
+            this.显示所有目标点ToolStripMenuItem,
+            this.图标名称ToolStripMenuItem});
 			this.显示ToolStripMenuItem.Name = "显示ToolStripMenuItem";
 			this.显示ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
 			this.显示ToolStripMenuItem.Text = "显示";
@@ -143,7 +148,7 @@
 			// 显示所有目标点ToolStripMenuItem
 			// 
 			this.显示所有目标点ToolStripMenuItem.Name = "显示所有目标点ToolStripMenuItem";
-			this.显示所有目标点ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.显示所有目标点ToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
 			this.显示所有目标点ToolStripMenuItem.Text = "显示所有目标点";
 			this.显示所有目标点ToolStripMenuItem.Click += new System.EventHandler(this.显示所有目标点ToolStripMenuItem_Click);
 			// 
@@ -194,6 +199,37 @@
 			this.status_progress.Size = new System.Drawing.Size(500, 19);
 			this.status_progress.Step = 1;
 			// 
+			// 图标名称ToolStripMenuItem
+			// 
+			this.图标名称ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.掠过时显示ToolStripMenuItem,
+            this.始终显示ToolStripMenuItem,
+            this.始终隐藏ToolStripMenuItem});
+			this.图标名称ToolStripMenuItem.Name = "图标名称ToolStripMenuItem";
+			this.图标名称ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.图标名称ToolStripMenuItem.Text = "图标名称";
+			// 
+			// 掠过时显示ToolStripMenuItem
+			// 
+			this.掠过时显示ToolStripMenuItem.Name = "掠过时显示ToolStripMenuItem";
+			this.掠过时显示ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.掠过时显示ToolStripMenuItem.Text = "掠过时显示";
+			this.掠过时显示ToolStripMenuItem.Click += new System.EventHandler(this.掠过时显示ToolStripMenuItem_Click);
+			// 
+			// 始终显示ToolStripMenuItem
+			// 
+			this.始终显示ToolStripMenuItem.Name = "始终显示ToolStripMenuItem";
+			this.始终显示ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.始终显示ToolStripMenuItem.Text = "始终显示";
+			this.始终显示ToolStripMenuItem.Click += new System.EventHandler(this.始终显示ToolStripMenuItem_Click);
+			// 
+			// 始终隐藏ToolStripMenuItem
+			// 
+			this.始终隐藏ToolStripMenuItem.Name = "始终隐藏ToolStripMenuItem";
+			this.始终隐藏ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.始终隐藏ToolStripMenuItem.Text = "始终隐藏";
+			this.始终隐藏ToolStripMenuItem.Click += new System.EventHandler(this.始终隐藏ToolStripMenuItem_Click);
+			// 
 			// addrAnalyser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -205,6 +241,7 @@
 			this.Controls.Add(this.menuStrip1);
 			this.Name = "addrAnalyser";
 			this.Text = "addrAnalyser";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.addrAnalyser_FormClosing);
 			this.Load += new System.EventHandler(this.addrAnalyser_Load);
 			this.Resize += new System.EventHandler(this.addrAnalyser_Resize);
 			this.panel1.ResumeLayout(false);
@@ -236,5 +273,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn longitude;
 		private System.Windows.Forms.ToolStripProgressBar status_progress;
 		private System.Windows.Forms.ToolStripMenuItem 自动定位ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 图标名称ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 掠过时显示ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 始终显示ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 始终隐藏ToolStripMenuItem;
 	}
 }

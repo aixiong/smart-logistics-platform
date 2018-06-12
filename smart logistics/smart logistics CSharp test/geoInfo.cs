@@ -46,16 +46,23 @@ namespace smart_logistics_CSharp_test
 		public static point getPointByName(string name)
 		{
 			point p = new point();
+			p.lat = p.lon = 0;
 			modifiedPoint mp = new modifiedPoint();
 			mp.str = name;
-			Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
-			t.Wait(2000);
-			if (t.IsCompleted)
+			try
 			{
-				p.lat = mp.lat;
-				p.lon = mp.lon;
+				Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
+				t.Wait(2000);
+				if (t.IsCompleted)
+				{
+					p.lat = mp.lat;
+					p.lon = mp.lon;
+				}
 			}
-			else p.lat = p.lon = -1;
+			catch(Exception )
+			{
+				return p;
+			}
 			return p;
 		}
 		public static route getRoute(point from,point to)

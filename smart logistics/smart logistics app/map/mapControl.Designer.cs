@@ -28,10 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.cacelButton = new System.Windows.Forms.Button();
 			this.okButton = new System.Windows.Forms.Button();
 			this.addrButton = new System.Windows.Forms.Button();
 			this.addrText = new System.Windows.Forms.TextBox();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.图标显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.掠过时显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.始终显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.始终隐藏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// cacelButton
@@ -85,7 +92,7 @@
 			this.addrText.Name = "addrText";
 			this.addrText.Size = new System.Drawing.Size(425, 62);
 			this.addrText.TabIndex = 5;
-			// 
+			
 			// mapControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -98,6 +105,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "mapControl";
 			this.Text = "mapControl";
+			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -109,5 +117,10 @@
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Button addrButton;
 		private System.Windows.Forms.TextBox addrText;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem 图标显示ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 掠过时显示ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 始终显示ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 始终隐藏ToolStripMenuItem;
 	}
 }

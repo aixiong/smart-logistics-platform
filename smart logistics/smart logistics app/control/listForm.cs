@@ -200,5 +200,11 @@ namespace smart_logistics_app.control
 			dataView.Rows.Clear();
 			m_items.Clear();
 		}
+
+		private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			envForm m_env = new envForm();
+			m_env.Show();
+		}
 	}
 }
