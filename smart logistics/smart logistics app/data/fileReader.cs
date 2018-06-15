@@ -13,6 +13,11 @@ namespace smart_logistics_app.data
 			m_tool = new ExcelTool(filename);
 		}
 
+		public void close()
+		{
+			m_tool.Close();
+		}
+
 		public List<Item> GetItems()
 		{
 			List<Item> li = new List<Item>();

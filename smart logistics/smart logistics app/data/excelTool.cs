@@ -19,12 +19,26 @@ namespace smart_logistics_app.data
 			if (excelName == null)
 			{
 				myWorkBook = myExcel.Application.Workbooks.Add(true);
-
 			}
 			else
 			{
 				myWorkBook = myExcel.Workbooks.Add(excelName);
 			}
+		}
+		public void setCaption(string name)
+		{
+			_Worksheet ws= myWorkBook.Worksheets.Item[1];
+			ws.Name ="订单导出表";
+			myExcel.Caption = name;
+		}
+
+		public void setFormat()
+		{
+			Excel.Worksheet mysheet = myWorkBook.Sheets[1] as Excel.Worksheet;
+			mysheet.Cells.WrapText = true;
+			//mysheet.Cells.AutoFit();
+			mysheet.Rows.AutoFit();
+			mysheet.Columns.AutoFit();
 		}
 		public void WriteData(string data, int row, int column)
 		{
@@ -61,6 +75,11 @@ namespace smart_logistics_app.data
 			{
 				myExcel.Visible = value;
 			}
+		}
+
+		public void Save(string filePath)
+		{
+			myWorkBook.SaveAs(filePath, Type.Missing, Type.Missing, Type.Missing);
 		}
 	}
 

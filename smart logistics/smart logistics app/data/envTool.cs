@@ -42,16 +42,19 @@ namespace smart_logistics_app.data
 
 		public string getAddress()
 		{
+			querySql();
 			return centerName;
 		}
 
 		public double getWorkTime()
 		{
+			querySql();
 			return workTime;
 		}
 
 		public double getLoadTime()
 		{
+			querySql();
 			return loadTime;
 		}
 	}

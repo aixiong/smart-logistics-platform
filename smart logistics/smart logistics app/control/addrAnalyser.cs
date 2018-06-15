@@ -158,8 +158,6 @@ namespace smart_logistics_app.control
 			panel1.Height = (this.Height - menuStrip1.Height - statusStrip1.Height) * 2 / 5 - 10;
 			dataView.Width = panel1.Width - 10;
 			dataView.Height = panel1.Height - 10;
-			//statusStrip1.Width = this.Width;
-			//status_progress.Width = statusStrip1.Width - status_strip.Width;
 		}
 		private void addrAnalyser_Resize(object sender, EventArgs e)
 		{
@@ -197,11 +195,14 @@ namespace smart_logistics_app.control
 		private void saveToSqlite()
 		{
 			logMessage("正在保存地址到数据库");
-			int num = 0;
-			foreach (var c in m_addresses)
+			if (changed)
 			{
-				m_addr.replaceAddress(c);
-				status_progress.Value = ++num;
+				int num = 0;
+				foreach (var c in m_addresses)
+				{
+					m_addr.replaceAddress(c);
+					status_progress.Value = ++num;
+				}
 			}
 			logMessage("地址保存完毕");
 		}
@@ -226,13 +227,15 @@ namespace smart_logistics_app.control
 			m_map.clearMarkers();
 			if (one.Text == "显示所有目标点")
 			{
-				int num = 0;
-				foreach(var c in m_addresses)
+				logMessage("正在绘制目标点");
+				m_map.addMarker(m_addresses[0].pos,m_addresses[0].name, markerType.source);
+				for(int i = 1;i< m_addresses.Count;++i)
 				{
-					m_map.addMarker(c);
-					status_progress.Value = ++num;
+					m_map.addMarker(m_addresses[i]);
+					status_progress.Value = i+1;
 				}
 				one.Text = "隐藏所有目标点";
+				logMessage("目标点绘制完毕");
 			}
 			else
 			{

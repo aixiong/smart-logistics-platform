@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dataView = new System.Windows.Forms.DataGridView();
 			this.index_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.name_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,12 +51,13 @@
 			this.数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.保存至数据库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.导出ExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.status_Strip = new System.Windows.Forms.StatusStrip();
-			this.status_Label1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.车辆设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.装载箱设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.status_Strip = new System.Windows.Forms.StatusStrip();
+			this.status_Label1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.status_progress = new System.Windows.Forms.ToolStripProgressBar();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			this.status_Strip.SuspendLayout();
@@ -80,14 +81,14 @@
             this.client_column,
             this.remark_column,
             this.source_column});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataView.DefaultCellStyle = dataGridViewCellStyle1;
 			this.dataView.Location = new System.Drawing.Point(4, 49);
 			this.dataView.Name = "dataView";
 			this.dataView.RowTemplate.Height = 27;
@@ -184,6 +185,7 @@
 			this.加载文件夹ToolStripMenuItem1.Name = "加载文件夹ToolStripMenuItem1";
 			this.加载文件夹ToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
 			this.加载文件夹ToolStripMenuItem1.Text = "加载文件夹";
+			this.加载文件夹ToolStripMenuItem1.Click += new System.EventHandler(this.加载文件夹ToolStripMenuItem1_Click);
 			// 
 			// 清空表单ToolStripMenuItem
 			// 
@@ -204,13 +206,13 @@
 			// 分析表单ToolStripMenuItem
 			// 
 			this.分析表单ToolStripMenuItem.Name = "分析表单ToolStripMenuItem";
-			this.分析表单ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.分析表单ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
 			this.分析表单ToolStripMenuItem.Text = "分析表单";
 			// 
 			// 分析地址ToolStripMenuItem
 			// 
 			this.分析地址ToolStripMenuItem.Name = "分析地址ToolStripMenuItem";
-			this.分析地址ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.分析地址ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
 			this.分析地址ToolStripMenuItem.Text = "分析地址";
 			this.分析地址ToolStripMenuItem.Click += new System.EventHandler(this.分析地址ToolStripMenuItem_Click);
 			// 
@@ -226,33 +228,15 @@
 			// 保存至数据库ToolStripMenuItem
 			// 
 			this.保存至数据库ToolStripMenuItem.Name = "保存至数据库ToolStripMenuItem";
-			this.保存至数据库ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.保存至数据库ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
 			this.保存至数据库ToolStripMenuItem.Text = "保存至数据库";
 			// 
 			// 导出ExcelToolStripMenuItem
 			// 
 			this.导出ExcelToolStripMenuItem.Name = "导出ExcelToolStripMenuItem";
-			this.导出ExcelToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.导出ExcelToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
 			this.导出ExcelToolStripMenuItem.Text = "导出Excel";
-			// 
-			// status_Strip
-			// 
-			this.status_Strip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-			this.status_Strip.ImageScalingSize = new System.Drawing.Size(20, 20);
-			this.status_Strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.status_Label1});
-			this.status_Strip.Location = new System.Drawing.Point(0, 635);
-			this.status_Strip.Name = "status_Strip";
-			this.status_Strip.Size = new System.Drawing.Size(1119, 25);
-			this.status_Strip.TabIndex = 2;
-			this.status_Strip.Text = "statusStrip1";
-			this.status_Strip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
-			// 
-			// status_Label1
-			// 
-			this.status_Label1.Name = "status_Label1";
-			this.status_Label1.Size = new System.Drawing.Size(39, 20);
-			this.status_Label1.Text = "状态";
+			this.导出ExcelToolStripMenuItem.Click += new System.EventHandler(this.导出ExcelToolStripMenuItem_Click);
 			// 
 			// 设置ToolStripMenuItem
 			// 
@@ -267,21 +251,48 @@
 			// 系统设置ToolStripMenuItem
 			// 
 			this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-			this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
 			this.系统设置ToolStripMenuItem.Text = "系统设置";
 			this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
 			// 
 			// 车辆设置ToolStripMenuItem
 			// 
 			this.车辆设置ToolStripMenuItem.Name = "车辆设置ToolStripMenuItem";
-			this.车辆设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.车辆设置ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
 			this.车辆设置ToolStripMenuItem.Text = "车辆设置";
+			this.车辆设置ToolStripMenuItem.Click += new System.EventHandler(this.车辆设置ToolStripMenuItem_Click);
 			// 
 			// 装载箱设置ToolStripMenuItem
 			// 
 			this.装载箱设置ToolStripMenuItem.Name = "装载箱设置ToolStripMenuItem";
-			this.装载箱设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.装载箱设置ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
 			this.装载箱设置ToolStripMenuItem.Text = "装载箱设置";
+			// 
+			// status_Strip
+			// 
+			this.status_Strip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+			this.status_Strip.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.status_Strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.status_Label1,
+            this.status_progress});
+			this.status_Strip.Location = new System.Drawing.Point(0, 635);
+			this.status_Strip.Name = "status_Strip";
+			this.status_Strip.Size = new System.Drawing.Size(1119, 25);
+			this.status_Strip.TabIndex = 2;
+			this.status_Strip.Text = "statusStrip1";
+			this.status_Strip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+			// 
+			// status_Label1
+			// 
+			this.status_Label1.Name = "status_Label1";
+			this.status_Label1.Size = new System.Drawing.Size(39, 20);
+			this.status_Label1.Text = "状态";
+			// 
+			// status_progress
+			// 
+			this.status_progress.Name = "status_progress";
+			this.status_progress.Size = new System.Drawing.Size(500, 19);
+			this.status_progress.Step = 1;
 			// 
 			// listForm
 			// 
@@ -336,5 +347,6 @@
 		private System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem 车辆设置ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem 装载箱设置ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripProgressBar status_progress;
 	}
 }

@@ -6,11 +6,6 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.exe
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.pdb
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.mapForm.resources
-D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\smart logistics app.exe.manifest
-D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\smart logistics app.application
-D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.TrustInfo.xml
-D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.exe.manifest
-D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart logistics app.application
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\EntityFramework.dll
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\EntityFramework.SqlServer.dll
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\bin\Debug\System.Data.SQLite.dll
@@ -34,3 +29,4 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.addrAnalyser.resources
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.map.mapControl.resources
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.envForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.vehForm.resources

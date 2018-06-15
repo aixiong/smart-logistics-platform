@@ -92,12 +92,14 @@ namespace smart_logistics_app.map
 		private MarkerTooltipMode mode = MarkerTooltipMode.OnMouseOver;
 		private GMapMarker center;
 		private GMapMarker dest;
+		private GMapMarker source;
 
 		public void clearMarkers()
 		{
 			markersOverlay.Markers.Clear();
 			center = null;
 			dest = null;
+			source = null;
 			m_map.Refresh();
 		}
 		public void addMarker(address one)
@@ -111,7 +113,7 @@ namespace smart_logistics_app.map
 			}
 		}
 
-		private void addMarker(PointLatLng p, string name, markerType type)
+		public void addMarker(PointLatLng p, string name, markerType type)
 		{
 			if(type==markerType.center)
 			{
@@ -142,6 +144,21 @@ namespace smart_logistics_app.map
 				{
 					dest.Position = p;
 					dest.ToolTipText = name;
+				}
+			}
+			else
+			{
+				if (source == null)
+				{
+					source = new GMarkerGoogle(p, GMarkerGoogleType.arrow);
+					source.ToolTipText = name;
+					source.ToolTipMode = mode;
+					markersOverlay.Markers.Add(source);
+				}
+				else
+				{
+					source.Position = p;
+					source.ToolTipText = name;
 				}
 			}
 		}
