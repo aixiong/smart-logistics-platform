@@ -21,10 +21,20 @@ namespace smart_logistics_app.control
 		List<address> m_addresses;
 		addrTool m_addr;
 		bool changed;
+
+		private delegate void logD(string message);
+		logD logF;
 		public addrAnalyser(listForm form)
 		{
 			InitializeComponent();
+			CheckForIllegalCrossThreadCalls = false;
 			m_form = form;
+			logF = new logD(logMessage);
+			init();
+		}
+
+		private void init()
+		{
 			m_map = new mapControl(this);
 			m_addr = new addrTool("D:\\logistics data\\address-backup.sqlite");
 			addMap();
@@ -38,12 +48,18 @@ namespace smart_logistics_app.control
 			changed = false;
 		}
 
+		private void enableOperation(bool flag)
+		{
+			menuStrip1.Enabled = flag;
+		}
 		private void loadData()
 		{
+			enableOperation(false);
 			loadAmap();
 			int cnt = getUnknown();
-			logMessage("定位完毕,剩余" + cnt + "个地址未知");
+			this.BeginInvoke(logF,"定位完毕,剩余" + cnt + "个地址未知");
 			reShow();
+			enableOperation(true);
 		}
 
 		private int getUnknown()
@@ -74,7 +90,7 @@ namespace smart_logistics_app.control
 		}
 		private void loadAmap()
 		{
-			logMessage("正在利用高德地图定位");
+			this.BeginInvoke(logF,"正在利用高德地图定位");
 			int num = 0;
 			foreach (var c in m_addresses)
 			{
@@ -90,7 +106,7 @@ namespace smart_logistics_app.control
 				}
 				status_progress.Value = ++num;
 			}
-			logMessage("高德地图定位完毕");
+			this.BeginInvoke(logF,"高德地图定位完毕");
 		}
 
 		void show()
@@ -184,17 +200,18 @@ namespace smart_logistics_app.control
 		private void logMessage(string message)
 		{
 			status_strip.Text = message;
-			this.Refresh();
 		}
 
 		private void 自动定位ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			loadData();
+			Task t = new Task(delegate { loadData(); });
+			t.Start();
 		}
 
 		private void saveToSqlite()
 		{
-			logMessage("正在保存地址到数据库");
+			enableOperation(false);
+			this.Invoke(logF,"正在保存地址到数据库");
 			if (changed)
 			{
 				int num = 0;
@@ -204,12 +221,14 @@ namespace smart_logistics_app.control
 					status_progress.Value = ++num;
 				}
 			}
-			logMessage("地址保存完毕");
+			this.Invoke(logF,"地址保存完毕");
+			enableOperation(true);
 		}
 
 		private void 保存至数据库ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			saveToSqlite();
+			Task t = new Task(delegate { saveToSqlite(); });
+			t.Start();
 		}
 
 		private void dataView_Click(object sender, EventArgs e)
@@ -221,21 +240,28 @@ namespace smart_logistics_app.control
 			m_map.centerAt(m_addresses[index]);
 		}
 
+		private void drawTargets()
+		{
+			enableOperation(false);
+			this.BeginInvoke(logF,"正在绘制目标点");
+			m_map.addMarker(m_addresses[0].pos, m_addresses[0].name, markerType.source);
+			for (int i = 1; i < m_addresses.Count; ++i)
+			{
+				m_map.addMarker(m_addresses[i]);
+				status_progress.Value = i + 1;
+			}
+			this.BeginInvoke(logF,"目标点绘制完毕");
+			enableOperation(true);
+		}
 		private void 显示所有目标点ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			ToolStripMenuItem one = sender as ToolStripMenuItem;
 			m_map.clearMarkers();
 			if (one.Text == "显示所有目标点")
 			{
-				logMessage("正在绘制目标点");
-				m_map.addMarker(m_addresses[0].pos,m_addresses[0].name, markerType.source);
-				for(int i = 1;i< m_addresses.Count;++i)
-				{
-					m_map.addMarker(m_addresses[i]);
-					status_progress.Value = i+1;
-				}
 				one.Text = "隐藏所有目标点";
-				logMessage("目标点绘制完毕");
+				Task t = new Task(delegate { drawTargets(); });
+				t.Start();
 			}
 			else
 			{

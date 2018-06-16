@@ -168,6 +168,7 @@ namespace smart_logistics_app.control
 			}
 			catch(Exception)
 			{
+				old_value = "";
 			}
 		}
 
