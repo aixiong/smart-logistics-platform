@@ -30,3 +30,5 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.map.mapControl.resources
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.envForm.resources
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.vehForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.boxForm.resources
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics app\obj\Debug\smart_logistics_app.control.algoForm.resources

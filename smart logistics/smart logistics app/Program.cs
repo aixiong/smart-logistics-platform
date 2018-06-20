@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using smart_logistics_app.control;
 using smart_logistics_app.data;
 using smart_logistics_app.map;
+using smart_logistics_app.algo;
 
 namespace smart_logistics_app
 {
@@ -17,9 +18,12 @@ namespace smart_logistics_app
 		[STAThread]
 		static void Main()
 		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new listForm());
+			//Application.EnableVisualStyles();
+			//Application.SetCompatibleTextRenderingDefault(false);
+			//Application.Run(new listForm());
+			txtTool one = new txtTool(@"D:\logistics data\in.txt");
+			one.write("This is input data for logistics algorithm.");
+			one.close();
 		}
 	}
 }

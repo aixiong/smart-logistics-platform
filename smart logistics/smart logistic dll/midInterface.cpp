@@ -4,18 +4,34 @@
 
 void __getPointByName(modifiedPoint& p)
 {
-	geoInfo geo;
-	std::string address = p.address;
-	std::wstring addressw = charTrans::stringToWstring(address);
-	point obj = geo.getAddressByName(addressw);
-	p.lat = obj.latitude;
-	p.lon = obj.longitude;
+	try
+	{
+		geoInfo geo;
+		std::string address = p.address;
+		std::wstring addressw = charTrans::stringToWstring(address);
+		point obj = geo.getAddressByName(addressw);
+		p.lat = obj.latitude;
+		p.lon = obj.longitude;
+	}
+	catch (...)
+	{
+		p.lat = 0;
+		p.lon = 0;
+	}
 }
 
 void __getRoute(modifiedRoute& r)
 {
-	geoInfo geo;
-	route obj = geo.getRoute(r.from, r.to);
-	r.distance = obj.distance;
-	r.duration = obj.duration;
+	try
+	{
+		geoInfo geo;
+		route obj = geo.getRoute(r.from, r.to);
+		r.distance = obj.distance;
+		r.duration = obj.duration;
+	}
+	catch (...)
+	{
+		r.distance = 0;
+		r.duration = 0;
+	}
 }

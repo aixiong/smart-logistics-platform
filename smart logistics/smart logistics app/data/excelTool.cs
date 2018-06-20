@@ -83,7 +83,7 @@ namespace smart_logistics_app.data
 		}
 	}
 
-    class Item
+    public class Item
 	{
 		public int index;
 		public string name;

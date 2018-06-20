@@ -150,7 +150,7 @@ namespace smart_logistics_app.map
 			{
 				if (source == null)
 				{
-					source = new GMarkerGoogle(p, GMarkerGoogleType.arrow);
+					source = new GMarkerGoogle(p, GMarkerGoogleType.yellow);
 					source.ToolTipText = name;
 					source.ToolTipMode = mode;
 					markersOverlay.Markers.Add(source);

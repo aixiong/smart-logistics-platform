@@ -121,6 +121,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="algo\txtTool.cs" />
     <Compile Include="control\addrAnalyser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +133,18 @@
     </Compile>
     <Compile Include="control\addrForm.Designer.cs">
       <DependentUpon>addrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\algoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\algoForm.Designer.cs">
+      <DependentUpon>algoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\boxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\boxForm.Designer.cs">
+      <DependentUpon>boxForm.cs</DependentUpon>
     </Compile>
     <Compile Include="control\envForm.cs">
       <SubType>Form</SubType>
@@ -189,6 +202,7 @@
     </Compile>
     <Compile Include="data\addrSql.cs" />
     <Compile Include="data\addrTool.cs" />
+    <Compile Include="data\boxTool.cs" />
     <Compile Include="data\DGVPrinter.cs" />
     <Compile Include="data\dirReader.cs" />
     <Compile Include="data\envTool.cs" />
@@ -220,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="control\addrForm.resx">
       <DependentUpon>addrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\algoForm.resx">
+      <DependentUpon>algoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\boxForm.resx">
+      <DependentUpon>boxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="control\envForm.resx">
       <DependentUpon>envForm.cs</DependentUpon>

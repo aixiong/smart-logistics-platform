@@ -55,13 +55,13 @@ namespace smart_logistics_app.control
 		private void saveToSqlite()
 		{
 			enableOperation(false);
-			logMessage("正在保存地址到数据库");
+			logMessage("正在保存车辆信息到数据库");
 			if (changed)
 			{
 				m_veh.UpdateVehs(m_vehs);
 				changed = false;
 			}
-			logMessage("地址保存完毕");
+			logMessage("车辆信息保存完毕");
 			enableOperation(true);
 		}
 		private void 保存到数据库ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,24 +80,23 @@ namespace smart_logistics_app.control
 			{
 				oldRecord = "";
 			}
-			
 		}
 
 		private void dataView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
-			string new_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-			if(oldRecord!=new_value)
+			try
 			{
-				changed = true;
-				try
+				string new_value = dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+				if (oldRecord != new_value)
 				{
+					changed = true;
 					updateVehs(e.RowIndex, e.ColumnIndex, new_value);
 				}
-				catch(Exception one)
-				{
-					showError(one.Message);
-					dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldRecord;
-				}
+			}
+			catch(Exception err)
+			{
+				showError(err.Message);
+				dataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldRecord;
 			}
 		}
 

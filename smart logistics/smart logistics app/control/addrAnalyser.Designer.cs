@@ -65,9 +65,10 @@
 			// 
 			// dataView
 			// 
+			this.dataView.AllowUserToAddRows = false;
+			this.dataView.AllowUserToDeleteRows = false;
 			this.dataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
 			this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -84,6 +85,7 @@
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dataView.DefaultCellStyle = dataGridViewCellStyle1;
 			this.dataView.Location = new System.Drawing.Point(0, 0);
+			this.dataView.MultiSelect = false;
 			this.dataView.Name = "dataView";
 			this.dataView.RowTemplate.Height = 27;
 			this.dataView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -97,24 +99,28 @@
 			this.index_column.HeaderText = "序号";
 			this.index_column.Name = "index_column";
 			this.index_column.ReadOnly = true;
+			this.index_column.Width = 220;
 			// 
 			// addrName
 			// 
 			this.addrName.HeaderText = "地址名称";
 			this.addrName.Name = "addrName";
 			this.addrName.ReadOnly = true;
+			this.addrName.Width = 219;
 			// 
 			// latitude
 			// 
 			this.latitude.HeaderText = "纬度";
 			this.latitude.Name = "latitude";
 			this.latitude.ReadOnly = true;
+			this.latitude.Width = 220;
 			// 
 			// longitude
 			// 
 			this.longitude.HeaderText = "经度";
 			this.longitude.Name = "longitude";
 			this.longitude.ReadOnly = true;
+			this.longitude.Width = 219;
 			// 
 			// panel2
 			// 

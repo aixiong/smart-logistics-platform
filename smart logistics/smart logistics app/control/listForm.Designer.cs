@@ -58,6 +58,8 @@
 			this.status_Strip = new System.Windows.Forms.StatusStrip();
 			this.status_Label1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.status_progress = new System.Windows.Forms.ToolStripProgressBar();
+			this.算法ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.执行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			this.status_Strip.SuspendLayout();
@@ -65,6 +67,7 @@
 			// 
 			// dataView
 			// 
+			this.dataView.AllowUserToAddRows = false;
 			this.dataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -156,7 +159,8 @@
             this.加载文件ToolStripMenuItem,
             this.加载文件夹ToolStripMenuItem,
             this.数据ToolStripMenuItem,
-            this.设置ToolStripMenuItem});
+            this.设置ToolStripMenuItem,
+            this.算法ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(1119, 28);
@@ -176,21 +180,21 @@
 			// 加载文件ToolStripMenuItem1
 			// 
 			this.加载文件ToolStripMenuItem1.Name = "加载文件ToolStripMenuItem1";
-			this.加载文件ToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+			this.加载文件ToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
 			this.加载文件ToolStripMenuItem1.Text = "加载文件";
 			this.加载文件ToolStripMenuItem1.Click += new System.EventHandler(this.加载文件ToolStripMenuItem1_Click);
 			// 
 			// 加载文件夹ToolStripMenuItem1
 			// 
 			this.加载文件夹ToolStripMenuItem1.Name = "加载文件夹ToolStripMenuItem1";
-			this.加载文件夹ToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+			this.加载文件夹ToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
 			this.加载文件夹ToolStripMenuItem1.Text = "加载文件夹";
 			this.加载文件夹ToolStripMenuItem1.Click += new System.EventHandler(this.加载文件夹ToolStripMenuItem1_Click);
 			// 
 			// 清空表单ToolStripMenuItem
 			// 
 			this.清空表单ToolStripMenuItem.Name = "清空表单ToolStripMenuItem";
-			this.清空表单ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.清空表单ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
 			this.清空表单ToolStripMenuItem.Text = "清空表单";
 			this.清空表单ToolStripMenuItem.Click += new System.EventHandler(this.清空表单ToolStripMenuItem_Click);
 			// 
@@ -267,6 +271,7 @@
 			this.装载箱设置ToolStripMenuItem.Name = "装载箱设置ToolStripMenuItem";
 			this.装载箱设置ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
 			this.装载箱设置ToolStripMenuItem.Text = "装载箱设置";
+			this.装载箱设置ToolStripMenuItem.Click += new System.EventHandler(this.装载箱设置ToolStripMenuItem_Click);
 			// 
 			// status_Strip
 			// 
@@ -293,6 +298,21 @@
 			this.status_progress.Name = "status_progress";
 			this.status_progress.Size = new System.Drawing.Size(500, 19);
 			this.status_progress.Step = 1;
+			// 
+			// 算法ToolStripMenuItem
+			// 
+			this.算法ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.执行ToolStripMenuItem});
+			this.算法ToolStripMenuItem.Name = "算法ToolStripMenuItem";
+			this.算法ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+			this.算法ToolStripMenuItem.Text = "算法";
+			// 
+			// 执行ToolStripMenuItem
+			// 
+			this.执行ToolStripMenuItem.Name = "执行ToolStripMenuItem";
+			this.执行ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.执行ToolStripMenuItem.Text = "执行";
+			this.执行ToolStripMenuItem.Click += new System.EventHandler(this.执行ToolStripMenuItem_Click);
 			// 
 			// listForm
 			// 
@@ -348,5 +368,7 @@
 		private System.Windows.Forms.ToolStripMenuItem 车辆设置ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem 装载箱设置ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripProgressBar status_progress;
+		private System.Windows.Forms.ToolStripMenuItem 算法ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 执行ToolStripMenuItem;
 	}
 }

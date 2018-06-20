@@ -54,7 +54,7 @@ namespace smart_logistics_app.data
 		public Veh Clone()
 		{
 			Veh one = new Veh();
-			one.name = name;
+			one.name = name.Clone().ToString();
 			one.distance = distance;
 			one.speed = speed;
 			one.cost = cost;

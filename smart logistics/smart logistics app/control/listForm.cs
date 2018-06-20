@@ -72,6 +72,7 @@ namespace smart_logistics_app.control
 		{
 			dataView.Top = menuStrip1.Bottom;
 			dataView.Height = this.Height - menuStrip1.Height-status_Strip.Height-20;
+			dataView.Width = this.Width;
 		}
 		private void listForm_Resize(object sender, EventArgs e)
 		{
@@ -81,6 +82,7 @@ namespace smart_logistics_app.control
 
 		private void addItems(fileReader m_file)
 		{
+			status_progress.Value = 0;
 			List<Item> items = m_file.GetItems();
 			m_file.close();
 			int old_num = m_items.Count;
@@ -98,7 +100,7 @@ namespace smart_logistics_app.control
 				Item c = m_items[i];
 				this.BeginInvoke(addRowF, c,++num);
 			}
-			logOperation("加载完毕");
+			logOperation("加载完毕,共有"+m_items.Count+"个订单");
 			this.Refresh();
 		}
 		private void addRow(Item c,int num)
@@ -215,7 +217,7 @@ namespace smart_logistics_app.control
 
 		private void 分析地址ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			addrAnalyser analyser = new addrAnalyser(this);
+			addrAnalyser analyser = new addrAnalyser(m_items);
 			analyser.Show();
 		}
 
@@ -356,6 +358,18 @@ namespace smart_logistics_app.control
 		private void enableOperation(bool flag)
 		{
 			menuStrip1.Enabled = flag;
+		}
+
+		private void 装载箱设置ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			boxForm m_box = new boxForm();
+			m_box.Show();
+		}
+
+		private void 执行ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			algoForm m_algo = new algoForm(m_items);
+			m_algo.Show();
 		}
 	}
 }

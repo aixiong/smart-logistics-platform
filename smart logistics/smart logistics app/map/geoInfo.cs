@@ -48,16 +48,16 @@ namespace smart_logistics_app.map
 	{
 		public static point getPointByName(string name)
 		{
-			name = extractAddress(name);
 			point p = new point();
 			p.lat = 0;
 			p.lon = 0;
-			modifiedPoint mp = new modifiedPoint();
-			mp.str = name;
-			Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
 			try
 			{
-				t.Wait(400);
+				name = extractAddress(name);
+				modifiedPoint mp = new modifiedPoint();
+				mp.str = name;
+				Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
+				t.Wait(200);
 				if (t.IsCompleted)
 				{
 					p.lat = mp.lat;

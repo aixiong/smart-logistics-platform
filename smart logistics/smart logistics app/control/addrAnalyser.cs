@@ -11,41 +11,71 @@ using smart_logistics_app.map;
 using smart_logistics_app.data;
 using GMap.NET;
 using GMap.NET.WindowsForms;
+using System.Threading;
 
 namespace smart_logistics_app.control
 {
 	public partial class addrAnalyser : Form
 	{
 		mapControl m_map;
-		listForm m_form;
 		List<address> m_addresses;
 		addrTool m_addr;
 		bool changed;
+		private int unknownCnt;
+		List<bool> changedList;
 
 		private delegate void logD(string message);
 		logD logF;
-		public addrAnalyser(listForm form)
+	
+		public addrAnalyser(List<Item> items,bool visible=true)
 		{
-			InitializeComponent();
-			CheckForIllegalCrossThreadCalls = false;
-			m_form = form;
-			logF = new logD(logMessage);
-			init();
+			Visible = visible;
+			m_addr = new addrTool("D:\\logistics data\\address-backup.sqlite");
+			m_addresses = new List<address>();
+
+			envTool m_envTool = new envTool("D:\\logistics data\\address-backup.sqlite");
+			address source = new address();
+			source.name = m_envTool.getAddress();
+			m_addresses.Add(source);
+
+			foreach (var c in items)
+			{
+				m_addresses.Add(c.Destaddr);
+			}
+
+			if (visible)
+			{
+				InitializeComponent();
+				CheckForIllegalCrossThreadCalls = false;
+				logF = new logD(logMessage);
+				init();
+				resize();
+			}
+			else
+			{
+				loadSqlite(m_addresses);
+				unknownCnt = getUnknown(m_addresses);
+			}
 		}
+
+		public int getUnknwon()
+		{
+			return unknownCnt;
+		}
+
 
 		private void init()
 		{
 			m_map = new mapControl(this);
-			m_addr = new addrTool("D:\\logistics data\\address-backup.sqlite");
 			addMap();
-			m_addresses = m_form.GetAddresses();
 			status_progress.Minimum = 0;
 			status_progress.Maximum = m_addresses.Count;
-			loadSqlite();
-			int cnt = getUnknown();
+			loadSqlite(m_addresses);
+			int cnt = getUnknown(m_addresses);
 			show();
 			logMessage("数据库加载完毕,剩余" + cnt + "个地址未知");
 			changed = false;
+			changedList = new List<bool>(new bool[m_addresses.Count]);
 		}
 
 		private void enableOperation(bool flag)
@@ -55,30 +85,30 @@ namespace smart_logistics_app.control
 		private void loadData()
 		{
 			enableOperation(false);
-			loadAmap();
-			int cnt = getUnknown();
+			loadAmap(m_addresses);
+			int cnt = getUnknown(m_addresses);
 			this.BeginInvoke(logF,"定位完毕,剩余" + cnt + "个地址未知");
 			reShow();
 			enableOperation(true);
 		}
 
-		private int getUnknown()
+		private int getUnknown(List<address> addresses)
 		{
 			int cnt = 0;
-			foreach (var c in m_addresses)
+			foreach (var c in addresses)
 			{
 				if (c.pos.Lat == 0 && c.pos.Lng == 0) ++cnt;
 			}
 			return cnt;
 		}
-		private void loadSqlite()
+		private void loadSqlite(List<address> addresses)
 		{
 			logMessage("正在加载地址数据库");
 			int num = 0;
-			foreach (var c in m_addresses)
+			foreach (var c in addresses)
 			{
 				c.pos = m_addr.anchorTarget(c.name);
-				status_progress.Value = ++num;
+				if(Visible)status_progress.Value = ++num;
 			}
 			logMessage("地址数据库加载完毕");
 		}
@@ -88,25 +118,39 @@ namespace smart_logistics_app.control
 			PointLatLng p = m_addr.anchorTarget(name);
 			return p;
 		}
-		private void loadAmap()
+		private void loadAmap(List<address> addresses)
 		{
-			this.BeginInvoke(logF,"正在利用高德地图定位");
-			int num = 0;
-			foreach (var c in m_addresses)
+			try
 			{
-				if (c.pos.Lat == 0 && c.pos.Lng == 0)
+				this.BeginInvoke(logF, "正在利用高德地图定位");
+				int num = 0;
+				foreach (var c in addresses)
 				{
-					point one = geoInfo.getPointByName(c.name);
-					if (one.lat >= 39 && one.lat <= 42 && one.lon >= 115 && one.lon <= 118)
+					if (c.pos.Lat == 0 && c.pos.Lng == 0)
 					{
-						c.pos.Lat = one.lat;
-						c.pos.Lng = one.lon;
-						changed = true;
+						Thread.Sleep(100);
+						point one = geoInfo.getPointByName(c.name);
+						if (one.lat >= 39 && one.lat <= 42 && one.lon >= 115 && one.lon <= 118)
+						{
+							c.pos.Lat = one.lat;
+							c.pos.Lng = one.lon;
+							changed = true;
+							changedList[num] = true;
+						}
 					}
+					status_progress.Value = ++num;
 				}
-				status_progress.Value = ++num;
+				this.BeginInvoke(logF, "高德地图定位完毕");
 			}
-			this.BeginInvoke(logF,"高德地图定位完毕");
+			catch(Exception e)
+			{
+				logF("高德地图定位失败");
+				showError(e.Message);
+			}
+			finally
+			{
+				GC.Collect();
+			}
 		}
 
 		void show()
@@ -150,6 +194,7 @@ namespace smart_logistics_app.control
 
 		public void updateAddress(PointLatLng p)
 		{
+			if (!addSelected()) return;
 			int index = dataView.CurrentRow.Index;
 			if (index >= 1 && index < dataView.Rows.Count)
 			{
@@ -158,6 +203,7 @@ namespace smart_logistics_app.control
 				dataView.Rows[index].Cells[2].Value = p.Lat;
 				dataView.Rows[index].Cells[3].Value = p.Lng;
 				changed = true;
+				changedList[num] = true;
 			}
 		}
 
@@ -199,6 +245,7 @@ namespace smart_logistics_app.control
 
 		private void logMessage(string message)
 		{
+			if(Visible)
 			status_strip.Text = message;
 		}
 
@@ -217,9 +264,14 @@ namespace smart_logistics_app.control
 				int num = 0;
 				foreach (var c in m_addresses)
 				{
-					m_addr.replaceAddress(c);
+					if(changedList[num])
+					{
+						m_addr.replaceAddress(c);
+						changedList[num] = false;
+					}
 					status_progress.Value = ++num;
 				}
+				changed = false;
 			}
 			this.Invoke(logF,"地址保存完毕");
 			enableOperation(true);
@@ -292,6 +344,11 @@ namespace smart_logistics_app.control
 		private void 始终隐藏ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			m_map.setMarkTooltipMode(MarkerTooltipMode.Never);
+		}
+
+		private void showError(string message)
+		{
+			MessageBox.Show(message, "地址分析", MessageBoxButtons.OK);
 		}
 	}
 }
