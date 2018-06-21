@@ -18,12 +18,12 @@ namespace smart_logistics_app
 		[STAThread]
 		static void Main()
 		{
-			//Application.EnableVisualStyles();
-			//Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run(new listForm());
-			txtTool one = new txtTool(@"D:\logistics data\in.txt");
-			one.write("This is input data for logistics algorithm.");
-			one.close();
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new listForm());
+			//txtTool one = new txtTool(@"D:\logistics data\in.txt");
+			//one.write("This is input data for logistics algorithm.");
+			//one.close();
 		}
 	}
 }

@@ -57,7 +57,7 @@ namespace smart_logistics_app.map
 				modifiedPoint mp = new modifiedPoint();
 				mp.str = name;
 				Task t = Task.Factory.StartNew(delegate { Amap.getPointByName(ref mp); });
-				t.Wait(200);
+				t.Wait(400);
 				if (t.IsCompleted)
 				{
 					p.lat = mp.lat;
@@ -107,7 +107,7 @@ namespace smart_logistics_app.map
 			string str = "北京市";
 			foreach (var c in name)
 			{
-				if (c != ' ' && c != '(' && c != ')' && c != ',' && c != '#')
+				if (c != ' ' && c != '(' && c != ')' && c != ',' && c != '#' && c!='（' && c!='）')
 				{
 					str += c;
 				}

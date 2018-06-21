@@ -124,11 +124,11 @@ namespace smart_logistics_app.control
 			{
 				this.BeginInvoke(logF, "正在利用高德地图定位");
 				int num = 0;
+				Thread.Sleep(100);
 				foreach (var c in addresses)
 				{
 					if (c.pos.Lat == 0 && c.pos.Lng == 0)
 					{
-						Thread.Sleep(100);
 						point one = geoInfo.getPointByName(c.name);
 						if (one.lat >= 39 && one.lat <= 42 && one.lon >= 115 && one.lon <= 118)
 						{

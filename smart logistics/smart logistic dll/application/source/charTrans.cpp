@@ -3,7 +3,7 @@
 
 std::vector<char> charTrans::unicodeToUtf8(const wchar_t * uniStr)
 {
-	int len = WideCharToMultiByte(CP_UTF8, 0, uniStr, -1, NULL, 0, NULL, NULL);
+	unsigned len = WideCharToMultiByte(CP_UTF8, 0, uniStr, -1, NULL, 0, NULL, NULL);
 	std::vector<char> utf8Str(len + 1, 0);
 	WideCharToMultiByte(CP_UTF8, 0, uniStr, -1, &utf8Str[0], len, NULL, NULL);
 	return utf8Str;
@@ -11,7 +11,7 @@ std::vector<char> charTrans::unicodeToUtf8(const wchar_t * uniStr)
 
 std::wstring  charTrans::utf8ToUnicode(const std::vector<char>& utf8Str)
 {
-	int len = MultiByteToWideChar(CP_UTF8, NULL, &utf8Str[0], utf8Str.size(), NULL, 0);
+	unsigned len = MultiByteToWideChar(CP_UTF8, NULL, &utf8Str[0], utf8Str.size(), NULL, 0);
 	std::wstring uniStr(len + 1, 0);
 	::MultiByteToWideChar(CP_UTF8, NULL, &utf8Str[0], utf8Str.size(), &uniStr[0], len);
 	return uniStr;
@@ -32,7 +32,7 @@ std::wstring charTrans::stringToWstring(const std::string& str)
 {
 	unsigned len = str.size() * 2;// 预留字节数
 	setlocale(LC_CTYPE, "");     //必须调用此函数
-	wchar_t *p = new wchar_t[len];// 申请一段内存存放转换后的字符串
+	wchar_t *p=new wchar_t[len];// 申请一段内存存放转换后的字符串
 	mbstowcs(p, str.c_str(), len);// 转换
 	std::wstring wStr(p);
 	delete[] p;// 释放申请的内存

@@ -13,7 +13,7 @@ void __getPointByName(modifiedPoint& p)
 		p.lat = obj.latitude;
 		p.lon = obj.longitude;
 	}
-	catch (...)
+	catch (std::exception&)
 	{
 		p.lat = 0;
 		p.lon = 0;

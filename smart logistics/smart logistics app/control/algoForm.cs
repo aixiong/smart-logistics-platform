@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using smart_logistics_app.data;
+using smart_logistics_app.algo;
 
 namespace smart_logistics_app.control
 {
@@ -199,7 +200,9 @@ namespace smart_logistics_app.control
 
 		private void run_button_Click(object sender, EventArgs e)
 		{
-
+			InputTool m_input = new InputTool("D:\\logistics data\\in.txt");
+			info one = new info();
+			
 		}
 
 
@@ -223,29 +226,35 @@ namespace smart_logistics_app.control
 
 		private void addr_refresh_Click(object sender, EventArgs e)
 		{
+			enableMenu(false);
 			logAddr("正在扫描地址...");
 			loadAddr();
 			logAddr("地址扫描完毕", flaga);
 			showAddr();
 			enableOperation();
+			enableMenu(true);
 		}
 
 		private void veh_refresh_Click(object sender, EventArgs e)
 		{
+			enableMenu(false);
 			logVeh("正在扫描车辆...");
 			loadVeh();
 			logVeh("车辆扫描完毕", flagv);
 			showVeh();
 			enableOperation();
+			enableMenu(true);
 		}
 
 		private void box_refresh_Click(object sender, EventArgs e)
 		{
+			enableMenu(false);
 			logBox("正在扫描装载箱...");
 			reloadBox();
 			logBox("装载箱扫描完毕", flagb);
 			reshowBox();
 			enableOperation();
+			enableMenu(true);
 		}
 
 		private void loadOthers()
@@ -283,6 +292,11 @@ namespace smart_logistics_app.control
 		private void enableOperation()
 		{
 			run_button.Enabled = flagg && flaga && flagv && flagb;
+		}
+
+		private void enableMenu(bool flag)
+		{
+			menuStrip1.Enabled = flag;
 		}
 		private void setSign(int index,int type)
 		{

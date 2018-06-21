@@ -15,24 +15,31 @@ geoImpl::geoImpl()
 
 point geoImpl::getAddressByName(const std::wstring& name)
 {
-	std::wstring message = addressToPoint;
-	std::wstring::size_type pos = message.find(L"北京交通大学");
-	std::wstring::size_type len = sizeof(L"北京交通大学") / sizeof(wchar_t);
-	message.replace(pos, len, name);
-	std::wstring str = sendAndRecv(message);
-	//提取所需的地理信息，经纬度
-	if (str.empty())return point{};
-	std::wstring::size_type pos1 = str.find(L"location")+11;
-	std::wstring::size_type pos2 = str.find(L",", pos1);
-	std::wstring::size_type pos3 = str.find(L"\"",pos2);
-	std::wstring lon = str.substr(pos1, pos2 - pos1);
-	std::string lon1 = charTrans::wStringToString(lon);
-	point p;
-	p.longitude = atof(lon1.data());
-	std::wstring lat = str.substr(pos2 + 1, pos3 - pos2 - 1);
-	std::string lat1 = charTrans::wStringToString(lat);
-	p.latitude = atof(lat1.data());
-	return p;
+	try
+	{
+		std::wstring message = addressToPoint;
+		std::wstring::size_type pos = message.find(L"北京交通大学");
+		std::wstring::size_type len = sizeof(L"北京交通大学") / sizeof(wchar_t);
+		message.replace(pos, len, name);
+		std::wstring str = sendAndRecv(message);
+		//提取所需的地理信息，经纬度
+		if (str.empty())return point{};
+		std::wstring::size_type pos1 = str.find(L"location") + 11;
+		std::wstring::size_type pos2 = str.find(L",", pos1);
+		std::wstring::size_type pos3 = str.find(L"\"", pos2);
+		std::wstring lon = str.substr(pos1, pos2 - pos1);
+		std::string lon1 = charTrans::wStringToString(lon);
+		point p;
+		p.longitude = atof(lon1.data());
+		std::wstring lat = str.substr(pos2 + 1, pos3 - pos2 - 1);
+		std::string lat1 = charTrans::wStringToString(lat);
+		p.latitude = atof(lat1.data());
+		return p;
+	}
+	catch (std::exception&)
+	{
+		return point(0, 0);
+	}
 }
 
 route geoImpl::getRoute(const point & from, const point & to)

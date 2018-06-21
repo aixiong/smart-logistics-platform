@@ -121,6 +121,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="algo\InputTool.cs" />
     <Compile Include="algo\txtTool.cs" />
     <Compile Include="control\addrAnalyser.cs">
       <SubType>Form</SubType>

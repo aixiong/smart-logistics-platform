@@ -36,7 +36,7 @@ unsigned comImpl::sendString(const std::vector<char> & str)
 std::vector<char> comImpl::recvString()
 {
 	char tmp[1024] = { 0 };
-	unsigned cnt =recv(m_sock, tmp, 1023, 0);
+	unsigned cnt = recv(m_sock, tmp, 1023, 0);
 	if (cnt == 0)
 	{
 		connectServer();
@@ -44,7 +44,7 @@ std::vector<char> comImpl::recvString()
 	}
 	std::vector<char> res;
 	while (cnt > 0)
-	{ 
+	{
 		res.reserve(res.size() + cnt);
 		res.insert(res.end(), tmp, tmp + cnt);
 		tmp[cnt] = 0;

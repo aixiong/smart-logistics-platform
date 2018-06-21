@@ -97,6 +97,7 @@
 			this.dataView1.Location = new System.Drawing.Point(-2, 54);
 			this.dataView1.MultiSelect = false;
 			this.dataView1.Name = "dataView1";
+			this.dataView1.ReadOnly = true;
 			this.dataView1.RowTemplate.Height = 27;
 			this.dataView1.Size = new System.Drawing.Size(930, 77);
 			this.dataView1.TabIndex = 2;
@@ -162,6 +163,7 @@
             this.Column3});
 			this.dataView2.Location = new System.Drawing.Point(0, 50);
 			this.dataView2.Name = "dataView2";
+			this.dataView2.ReadOnly = true;
 			this.dataView2.RowTemplate.Height = 27;
 			this.dataView2.Size = new System.Drawing.Size(931, 81);
 			this.dataView2.TabIndex = 4;
@@ -237,6 +239,7 @@
             this.column6});
 			this.dataView3.Location = new System.Drawing.Point(0, 50);
 			this.dataView3.Name = "dataView3";
+			this.dataView3.ReadOnly = true;
 			this.dataView3.RowTemplate.Height = 27;
 			this.dataView3.Size = new System.Drawing.Size(931, 65);
 			this.dataView3.TabIndex = 5;
@@ -245,17 +248,20 @@
 			// 
 			this.Column4.HeaderText = "金杯车数量";
 			this.Column4.Name = "Column4";
+			this.Column4.ReadOnly = true;
 			this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
 			// Column5
 			// 
 			this.Column5.HeaderText = "新能源车数量";
 			this.Column5.Name = "Column5";
+			this.Column5.ReadOnly = true;
 			// 
 			// column6
 			// 
 			this.column6.HeaderText = "合计";
 			this.column6.Name = "column6";
+			this.column6.ReadOnly = true;
 			// 
 			// veh_button
 			// 
@@ -310,6 +316,7 @@
             this.Column7});
 			this.dataView4.Location = new System.Drawing.Point(-1, 50);
 			this.dataView4.Name = "dataView4";
+			this.dataView4.ReadOnly = true;
 			this.dataView4.RowTemplate.Height = 27;
 			this.dataView4.Size = new System.Drawing.Size(931, 68);
 			this.dataView4.TabIndex = 6;
