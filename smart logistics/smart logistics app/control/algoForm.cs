@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using smart_logistics_app.data;
 using smart_logistics_app.algo;
+using GMap.NET;
 
 namespace smart_logistics_app.control
 {
@@ -185,6 +186,7 @@ namespace smart_logistics_app.control
 				newBoxes.Add(b.Key,b.Value);
 				if (vol == 0) flagb = false;
 			}
+			m_box.close();
 			boxes = newBoxes;
 		}
 
@@ -197,14 +199,6 @@ namespace smart_logistics_app.control
 				dataView4.Rows[0].Cells[i + 1].Value = vol;
 			}
 		}
-
-		private void run_button_Click(object sender, EventArgs e)
-		{
-			InputTool m_input = new InputTool("D:\\logistics data\\in.txt");
-			info one = new info();
-			
-		}
-
 
 		private void addr_button_Click(object sender, EventArgs e)
 		{
@@ -301,6 +295,56 @@ namespace smart_logistics_app.control
 		private void setSign(int index,int type)
 		{
 
+		}
+
+		private void run_button_Click(object sender, EventArgs e)
+		{
+			
+
+		}
+
+		private info getInfo()
+		{
+			info one = new info();
+			one.n = m_items.Count;
+	
+			vehTool m_veh = new vehTool("D:\\logistics data\\address-backup.sqlite");
+			List<Veh> vehs = m_veh.GetVehs();
+			m_veh.close();
+			one.nj = vehs[0].number;
+			one.nx = vehs[1].number;
+
+			one.Lj = vehs[0].distance;
+			one.Lx = vehs[1].distance;
+
+			one.Vj = vehs[0].capacity;
+			one.Vx = vehs[1].capacity;
+
+			one.Cj = vehs[0].cost;
+			one.Cx = vehs[1].cost;
+
+			envTool m_env = new envTool("D:\\logistics data\\address-backup.sqlite");
+			one.Pt=m_env.getLoadTime();
+			one.At = m_env.getWorkTime();
+			m_env.close();
+
+			addrAnalyser m_addr = new addrAnalyser(m_items, false);
+			List<PointLatLng> points = m_addr.getTargets();
+
+			List<good> targets = new List<good>();
+
+			good center = new good();
+			center.pos = points[0];
+			targets.Add(center);
+
+			for(int i=0;i<one.n;++i)
+			{
+				good g = new good();
+				g.pos = points[i + 1];
+
+			}
+			
+			return one;
 		}
 	}
 }

@@ -36,6 +36,7 @@ namespace smart_logistics_app.control
 			envTool m_envTool = new envTool("D:\\logistics data\\address-backup.sqlite");
 			address source = new address();
 			source.name = m_envTool.getAddress();
+			m_envTool.close();
 			m_addresses.Add(source);
 
 			foreach (var c in items)
@@ -56,6 +57,16 @@ namespace smart_logistics_app.control
 				loadSqlite(m_addresses);
 				unknownCnt = getUnknown(m_addresses);
 			}
+		}
+
+		public List<PointLatLng> getTargets()
+		{
+			List<PointLatLng> targets = new List<PointLatLng>();
+			foreach(var c in m_addresses)
+			{
+				targets.Add(c.pos);
+			}
+			return targets;
 		}
 
 		public int getUnknwon()
@@ -196,7 +207,7 @@ namespace smart_logistics_app.control
 		{
 			if (!addSelected()) return;
 			int index = dataView.CurrentRow.Index;
-			if (index >= 1 && index < dataView.Rows.Count)
+			if (index >= 0 && index < dataView.Rows.Count)
 			{
 				int num = Convert.ToInt32(dataView.Rows[index].Cells[0].Value);
 				m_addresses[num].pos = p;
@@ -329,6 +340,7 @@ namespace smart_logistics_app.control
 			{
 				saveToSqlite();
 			}
+			m_addr.close();
 		}
 
 		private void 掠过时显示ToolStripMenuItem_Click(object sender, EventArgs e)

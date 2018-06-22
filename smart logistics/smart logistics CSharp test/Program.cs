@@ -12,9 +12,17 @@ namespace smart_logistics_CSharp_test
 	{
 		static void Main(string[] args)
 		{
-
-			sqlTool one = new sqlTool("D:\\address.sqlite");
-			one.insertAddress();
+			int num = 0;
+			while(true)
+			{
+				string str = Console.ReadLine();
+				if (str == "0") break;
+				point one = geoInfo.getPointByName(str);
+				Console.WriteLine(one.lat.ToString() + " " + one.lon.ToString() + "\n");
+				if (one.lat == 0) ++num;
+			}
+			Console.WriteLine(num);
+			Console.ReadKey();
 			Console.ReadKey();
 		}
 	}

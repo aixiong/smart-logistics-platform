@@ -92,6 +92,7 @@ namespace smart_logistics_app.control
 					saveToSqlite();
 				}
 			}
+			m_box.close();
 		}
 
 		private string oldRecord;

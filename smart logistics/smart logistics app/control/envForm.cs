@@ -119,6 +119,7 @@ namespace smart_logistics_app.control
 			{
 				saveToSqlite();
 			}
+			m_env.close();
 		}
 
 		private  bool updateData(int index,string str)

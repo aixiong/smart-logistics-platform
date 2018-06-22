@@ -22,27 +22,34 @@ namespace smart_logistics_app.algo
 		}
 	}
 
+	class good
+	{
+		public PointLatLng pos;
+		public double vol;
+		public string to_string()
+		{
+			return pos.Lat.ToString() + " " + pos.Lng.ToString() + " " + vol.ToString();
+		}
+	}
 	class info
 	{
-		public int n, m, k;
-		public List<PointLatLng> targets;
+		public int n, nj, nx;
 		public double Lj, Lx;//endurance distance of Jinbei and Xinnengyuan
 		public double Vj, Vx;//volume of Jinbei and Xinnengyuan
 		public double Cj, Cx;//cost of one kilometer for Jinbei and Xinnengyuan
 		public double Pt, At;//unloading time per target and longest work time per day
-
+		public List<good> targets;
 		public string to_string()
 		{
-			string str = n.ToString() + " " + m.ToString() + " " + k.ToString() + "\r\n";
-			foreach(var t in targets)
-			{
-				str += t.ToString();
-				str += "\r\n";
-			}
+			string str = n.ToString() + " " + nj.ToString() + " " + nx.ToString() + "\r\n";
 			str += Lj.ToString() + " " + Lx.ToString() + "\r\n";
 			str += Vj.ToString() + " " + Vx.ToString() + "\r\n";
 			str += Cj.ToString() + " " + Cx.ToString() + "\r\n";
 			str += Pt.ToString() + " " + At.ToString() + "\r\n";
+			foreach (var t in targets)
+			{
+				str += t.to_string() + "\r\n";
+			}
 			return str;
 		}
 	}

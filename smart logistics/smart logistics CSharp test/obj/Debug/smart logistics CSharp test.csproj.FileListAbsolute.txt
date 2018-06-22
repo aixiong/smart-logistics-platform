@@ -14,3 +14,5 @@ D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logis
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\EntityFramework.SqlServer.xml
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\System.Data.SQLite.xml
 D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\bin\Debug\System.Data.SQLite.dll.config
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\obj\Debug\smart logistics CSharp test.csproj.CoreCompileInputs.cache
+D:\smart logistics platform\smart-logistics-platform\smart logistics\smart logistics CSharp test\obj\Debug\smart logistics CSharp test.csproj.CopyComplete

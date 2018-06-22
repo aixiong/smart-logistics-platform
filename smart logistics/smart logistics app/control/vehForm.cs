@@ -145,6 +145,7 @@ namespace smart_logistics_app.control
 					saveToSqlite();
 				}
 			}
+			m_veh.close();
 		}
 	}
 }

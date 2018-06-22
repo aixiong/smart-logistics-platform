@@ -33,5 +33,10 @@ namespace smart_logistics_app.data
 				return false;
 			}
 		}
+
+		public void close()
+		{
+			m_con.Close();
+		}
 	}
 }
